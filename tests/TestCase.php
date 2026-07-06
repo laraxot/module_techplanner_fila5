@@ -13,15 +13,4 @@ use Modules\Xot\Tests\CreatesApplication;
 abstract class TestCase extends BaseTestCase
 {
     use CreatesApplication;
-
-    /**
-     * Setup the test environment.
-     */
-    protected function setUp(): void
-    {
-        parent::setUp();
-
-        // Load TechPlanner module specific configurations
-        $this->loadLaravelMigrations();
-    }
 }
