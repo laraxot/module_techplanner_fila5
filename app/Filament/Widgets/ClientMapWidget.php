@@ -7,7 +7,7 @@ namespace Modules\TechPlanner\Filament\Widgets;
 use Filament\Schemas\Components\Component;
 use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Builder;
-use Modules\TechPlanner\Filament\Resources\ClientResource;
+use Modules\TechPlanner\Models\Client;
 use Modules\Xot\Filament\Widgets\XotBaseWidget;
 
 class ClientMapWidget extends XotBaseWidget
@@ -26,6 +26,8 @@ class ClientMapWidget extends XotBaseWidget
 
     /**
      * Ottiene i dati dei clienti per la mappa.
+     *
+     * @return array<string, mixed>
      */
     protected function getData(): array
     {
@@ -42,9 +44,12 @@ class ClientMapWidget extends XotBaseWidget
     /**
      * Ottiene la query per i clienti.
      */
+    /**
+     * @return Builder<\Modules\TechPlanner\Models\Client>
+     */
     protected function getClientsQuery(): Builder
     {
-        return ClientResource::getEloquentQuery();
+        return Client::query();
     }
 
     public function render(): View

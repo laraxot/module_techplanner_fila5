@@ -65,7 +65,7 @@ use Illuminate\Support\Carbon;
  * @method static Builder<static>|MedicalDirector selectRaw(string $expression)
  * @method static Builder<static>|MedicalDirector distinct()
  * @method static mixed pluck($column, $key = null)
- * @method static array toArray()
+ * @method static array<string, mixed> toArray()
  *
  * @property-read Profile|null $deleter
  *

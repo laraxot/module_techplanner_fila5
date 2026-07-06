@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use Modules\TechPlanner\Models\Client;
 use Modules\TechPlanner\Models\Device;
 
+/** @extends Factory<Device> */
 class DeviceFactory extends Factory
 {
     protected $model = Device::class;

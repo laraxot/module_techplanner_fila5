@@ -10,6 +10,7 @@ use Modules\TechPlanner\Models\Client;
 /**
  * Class ClientFactory.
  */
+/** @extends Factory<Client> */
 class ClientFactory extends Factory
 {
     protected $model = Client::class;

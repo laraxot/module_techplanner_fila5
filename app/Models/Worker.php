@@ -185,6 +185,8 @@ class Worker extends BaseModel implements WorkerContract
 
     /**
      * Get devices associated with this worker.
+     *
+     * @return HasMany<Device, $this>
      */
     public function devices(): HasMany
     {

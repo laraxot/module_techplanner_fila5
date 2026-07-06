@@ -59,6 +59,7 @@ use Modules\TechPlanner\Database\Factories\LocationFactoryFactory;
  */
 class Location extends Model
 {
+    /** @use HasFactory<LocationFactoryFactory> */
     use HasFactory;
 
     /**

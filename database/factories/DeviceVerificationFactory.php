@@ -10,6 +10,7 @@ use Modules\TechPlanner\Models\DeviceVerification;
 /**
  * Class DeviceVerificationFactory.
  */
+/** @extends Factory<DeviceVerification> */
 class DeviceVerificationFactory extends Factory
 {
     protected $model = DeviceVerification::class;

@@ -148,7 +148,7 @@ use function Safe\preg_replace;
  * @method static Builder<static>|Client orWhereNull($columns, $boolean = 'and')
  * @method static Builder<static>|Client where($column, $operator = null, $value = null, $boolean = 'and')
  * @method static Collection<int, static> get($columns = ['*'])
- * @method static int update(array $values)
+ * @method static int update(array<string, mixed> $values)
  * @method static void chunk(int $count, callable $callback)
  *
  * @mixin \Eloquent
@@ -218,6 +218,8 @@ class Client extends BaseModel
 
     /**
      * Get the devices for the client.
+     *
+     * @return HasMany<Device, $this>
      */
     public function devices(): HasMany
     {
@@ -226,6 +228,8 @@ class Client extends BaseModel
 
     /**
      * Get the appointments for the client.
+     *
+     * @return HasMany<Appointment, $this>
      */
     public function appointments(): HasMany
     {
@@ -234,6 +238,8 @@ class Client extends BaseModel
 
     /**
      * Get the legal offices for the client.
+     *
+     * @return HasMany<LegalOffice, $this>
      */
     public function legalOffices(): HasMany
     {
@@ -242,6 +248,8 @@ class Client extends BaseModel
 
     /**
      * Get the legal representatives for the client.
+     *
+     * @return HasMany<LegalRepresentative, $this>
      */
     public function legalRepresentatives(): HasMany
     {
@@ -250,12 +258,17 @@ class Client extends BaseModel
 
     /**
      * Get the medical directors for the client.
+     *
+     * @return HasMany<MedicalDirector, $this>
      */
     public function medicalDirectors(): HasMany
     {
         return $this->hasMany(MedicalDirector::class);
     }
 
+    /**
+     * @return HasMany<PhoneCall, $this>
+     */
     public function phoneCalls(): HasMany
     {
         return $this->hasMany(PhoneCall::class);

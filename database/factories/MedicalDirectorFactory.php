@@ -10,6 +10,7 @@ use Modules\TechPlanner\Models\MedicalDirector;
 /**
  * Class MedicalDirectorFactory.
  */
+/** @extends Factory<MedicalDirector> */
 class MedicalDirectorFactory extends Factory
 {
     protected $model = MedicalDirector::class;

@@ -10,6 +10,7 @@ use Modules\TechPlanner\Models\LegalOffice;
 /**
  * Class LegalOfficeFactory.
  */
+/** @extends Factory<LegalOffice> */
 class LegalOfficeFactory extends Factory
 {
     protected $model = LegalOffice::class;

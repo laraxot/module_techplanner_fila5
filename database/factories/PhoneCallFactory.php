@@ -7,6 +7,7 @@ namespace Modules\TechPlanner\Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Modules\TechPlanner\Models\PhoneCall;
 
+/** @extends Factory<PhoneCall> */
 class PhoneCallFactory extends Factory
 {
     protected $model = PhoneCall::class;

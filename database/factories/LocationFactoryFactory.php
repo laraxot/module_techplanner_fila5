@@ -7,6 +7,7 @@ namespace Modules\TechPlanner\Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Modules\TechPlanner\Models\Location;
 
+/** @extends Factory<Location> */
 class LocationFactoryFactory extends Factory
 {
     /**

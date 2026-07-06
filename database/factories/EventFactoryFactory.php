@@ -7,6 +7,7 @@ namespace Modules\TechPlanner\Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Modules\TechPlanner\Models\Event;
 
+/** @extends Factory<Event> */
 class EventFactoryFactory extends Factory
 {
     /**

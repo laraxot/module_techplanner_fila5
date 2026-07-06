@@ -19,6 +19,7 @@ use Modules\TechPlanner\Database\Factories\ParticipantFactoryFactory;
  */
 class Participant extends Model
 {
+    /** @use HasFactory<ParticipantFactoryFactory> */
     use HasFactory;
 
     /**
