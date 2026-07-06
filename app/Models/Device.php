@@ -118,6 +118,8 @@ class Device extends BaseModel
 
     /**
      * Get the client that owns the device.
+     *
+     * @return BelongsTo<Client, $this>
      */
     public function client(): BelongsTo
     {
@@ -126,6 +128,8 @@ class Device extends BaseModel
 
     /**
      * Get all verifications for this device.
+     *
+     * @return HasMany<DeviceVerification, $this>
      */
     public function verifications(): HasMany
     {

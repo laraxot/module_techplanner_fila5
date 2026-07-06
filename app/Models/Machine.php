@@ -78,7 +78,9 @@ use Illuminate\Support\Carbon;
 class Machine extends Device
 {
     /**
-     * Relazione con l'appuntamento.
+     * Relazione con l appuntamento.
+     *
+     * @return BelongsTo<Appointment, $this>
      */
     public function appointment(): BelongsTo
     {

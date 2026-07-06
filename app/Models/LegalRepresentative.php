@@ -59,6 +59,8 @@ class LegalRepresentative extends BaseModel
 
     /**
      * Get the client that owns the legal representative.
+     *
+     * @return BelongsTo<Client, $this>
      */
     public function client(): BelongsTo
     {

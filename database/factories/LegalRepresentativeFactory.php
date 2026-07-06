@@ -10,6 +10,7 @@ use Modules\TechPlanner\Models\LegalRepresentative;
 /**
  * Class LegalRepresentativeFactory.
  */
+/** @extends Factory<LegalRepresentative> */
 class LegalRepresentativeFactory extends Factory
 {
     protected $model = LegalRepresentative::class;

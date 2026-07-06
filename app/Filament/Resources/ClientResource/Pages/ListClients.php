@@ -40,6 +40,7 @@ class ListClients extends XotBaseListRecords
 
     public ?int $selectedClientId = null;
 
+    /** @var Builder<Client>|null */
     protected ?Builder $tableQuery = null;
 
     /**
@@ -293,6 +294,9 @@ class ListClients extends XotBaseListRecords
         $this->applySort('distance');
     }
 
+    /**
+     * @return Builder<Client>
+     */
     protected function getTableQuery(): Builder
     {
         $query = parent::getTableQuery();
@@ -302,7 +306,7 @@ class ListClients extends XotBaseListRecords
 
         // Ensure we return a Builder, not a Relation
         if ($query instanceof Relation) {
-            /** @var Builder */
+            /** @var Builder<Client> */
             $query = $query->getQuery();
         }
 
@@ -311,7 +315,7 @@ class ListClients extends XotBaseListRecords
             throw new Exception('Query is not a Builder instance');
         }
 
-        /** @var Builder $query */
+        /** @var Builder<Client> $query */
         $latitude = Session::get('user_latitude');
         $longitude = Session::get('user_longitude');
 

@@ -47,6 +47,7 @@ use Modules\TechPlanner\Database\Factories\EventFactoryFactory;
  */
 class Event extends Model
 {
+    /** @use HasFactory<EventFactoryFactory> */
     use HasFactory;
 
     /**

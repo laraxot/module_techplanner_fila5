@@ -52,6 +52,8 @@ class Appointment extends Model
 
     /**
      * Relazione con il cliente.
+     *
+     * @return BelongsTo<Client, $this>
      */
     public function client(): BelongsTo
     {
@@ -60,6 +62,8 @@ class Appointment extends Model
 
     /**
      * Relazione con le macchine controllate.
+     *
+     * @return HasMany<Machine, $this>
      */
     public function machines(): HasMany
     {
