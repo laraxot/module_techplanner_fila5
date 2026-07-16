@@ -4,17 +4,17 @@ declare(strict_types=1);
 
 namespace Modules\TechPlanner\Filament\Resources;
 
-use Filament\Forms;
-use Filament\Forms\Components\DateTimePicker;
-use Filament\Forms\Components\Textarea;
 use Illuminate\Database\Eloquent\Model;
+use Modules\TechPlanner\Filament\Resources\AppointmentResource\Pages\CreateAppointment;
+use Modules\TechPlanner\Filament\Resources\AppointmentResource\Pages\EditAppointment;
+use Modules\TechPlanner\Filament\Resources\AppointmentResource\Pages\ListAppointments;
+use Modules\TechPlanner\Filament\Resources\AppointmentResource\Pages\ViewAppointment;
+use Modules\TechPlanner\Filament\Resources\AppointmentResource\Schemas\AppointmentForm;
+use Modules\TechPlanner\Filament\Resources\AppointmentResource\Schemas\AppointmentInfolist;
 use Modules\TechPlanner\Models\Appointment;
 use Modules\Xot\Filament\Resources\XotBaseResource;
 use Override;
 
-/**
- * ---
- */
 class AppointmentResource extends XotBaseResource
 {
     protected static ?string $model = Appointment::class;
@@ -22,28 +22,23 @@ class AppointmentResource extends XotBaseResource
     #[Override]
     public static function getFormSchema(): array
     {
+        return AppointmentForm::getFormSchema();
+    }
+
+    #[Override]
+    public static function getInfolistSchema(): array
+    {
+        return AppointmentInfolist::getInfolistSchema();
+    }
+
+    #[Override]
+    public static function getPages(): array
+    {
         return [
-            /*
-             * 'client_id' => Forms\Components\Select::make('client_id')
-             * ->relationship('client', 'name')
-             * ->required(),
-             */
-            'date' => DateTimePicker::make('date')->required(),
-            /*
-             * 'time' => Forms\Components\TimePicker::make('time')
-             * ->required(),
-             */
-            /*
-             * 'status' => Forms\Components\Select::make('status')
-             * ->options([
-             * 'scheduled' => 'Scheduled',
-             * 'confirmed' => 'Confirmed',
-             * 'completed' => 'Completed',
-             * 'cancelled' => 'Cancelled',
-             * ])
-             * ->required(),
-             */
-            'notes' => Textarea::make('notes')->maxLength(65535)->columnSpanFull(),
+            'index' => ListAppointments::route('/'),
+            'create' => CreateAppointment::route('/create'),
+            'view' => ViewAppointment::route('/{record}'),
+            'edit' => EditAppointment::route('/{record}/edit'),
         ];
     }
 

@@ -10,20 +10,23 @@ use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Forms\Components\TextInput;
-use Filament\Resources\RelationManagers\RelationManager;
-use Filament\Schemas\Schema;
+use Filament\Schemas\Components\Component;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
 
-class DeviceVerificationsRelationManager extends RelationManager
+class DeviceVerificationsRelationManager extends XotBaseRelationManager
 {
     protected static string $relationship = 'verifications';
 
-    public function schema(Schema $schema): Schema
+    /**
+     * @return array<int|string, Component>
+     */
+    public function getFormSchema(): array
     {
-        return $schema->components([
+        return [
             TextInput::make('title')->required()->maxLength(255),
-        ]);
+        ];
     }
 
     public function table(Table $table): Table

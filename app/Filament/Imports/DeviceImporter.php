@@ -5,11 +5,11 @@ declare(strict_types=1);
 namespace Modules\TechPlanner\Filament\Imports;
 
 use Filament\Actions\Imports\ImportColumn;
-use Filament\Actions\Imports\Importer;
 use Filament\Actions\Imports\Models\Import;
 use Modules\TechPlanner\Models\Device;
+use Modules\Xot\Filament\Actions\Imports\XotBaseImporter;
 
-class DeviceImporter extends Importer
+class DeviceImporter extends XotBaseImporter
 {
     protected static ?string $model = Device::class;
 

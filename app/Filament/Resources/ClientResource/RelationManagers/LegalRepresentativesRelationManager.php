@@ -12,15 +12,15 @@ use Filament\Actions\EditAction;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
-use Filament\Resources\RelationManagers\RelationManager;
-use Filament\Schemas\Schema;
+use Filament\Schemas\Components\Component;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\TernaryFilter;
 use Filament\Tables\Table;
 use Modules\TechPlanner\Filament\Resources\LegalRepresentativeResource;
+use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
 
-class LegalRepresentativesRelationManager extends RelationManager
+class LegalRepresentativesRelationManager extends XotBaseRelationManager
 {
     protected static string $relationship = 'legalRepresentatives';
 
@@ -28,9 +28,12 @@ class LegalRepresentativesRelationManager extends RelationManager
 
     protected static string $resource = LegalRepresentativeResource::class;
 
-    public function schema(Schema $schema): Schema
+    /**
+     * @return array<int|string, Component>
+     */
+    public function getFormSchema(): array
     {
-        return $schema->components([
+        return [
             TextInput::make('first_name')->required()->maxLength(100),
             TextInput::make('last_name')->required()->maxLength(100),
             TextInput::make('fiscal_code')->maxLength(16),
@@ -39,7 +42,7 @@ class LegalRepresentativesRelationManager extends RelationManager
             TextInput::make('email')->email()->maxLength(255),
             Toggle::make('is_inactive')->default(false),
             Textarea::make('notes')->maxLength(65535),
-        ]);
+        ];
     }
 
     public function table(Table $table): Table

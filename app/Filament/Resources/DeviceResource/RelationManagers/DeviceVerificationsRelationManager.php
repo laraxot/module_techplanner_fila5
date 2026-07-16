@@ -12,20 +12,23 @@ use Filament\Actions\EditAction;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
-use Filament\Resources\RelationManagers\RelationManager;
-use Filament\Schemas\Schema;
+use Filament\Schemas\Components\Component;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
 
-class DeviceVerificationsRelationManager extends RelationManager
+class DeviceVerificationsRelationManager extends XotBaseRelationManager
 {
     protected static string $relationship = 'deviceVerifications';
 
     protected static ?string $recordTitleAttribute = 'verification_date';
 
-    public function schema(Schema $schema): Schema
+    /**
+     * @return array<int|string, Component>
+     */
+    public function getFormSchema(): array
     {
-        return $schema->components([
+        return [
             DatePicker::make('verification_date')->required(),
             DatePicker::make('next_verification_date')->required(),
             TextInput::make('verification_type')->maxLength(100),
@@ -33,7 +36,7 @@ class DeviceVerificationsRelationManager extends RelationManager
             TextInput::make('verifier_name')->maxLength(100),
             TextInput::make('verifier_company')->maxLength(100),
             Textarea::make('notes')->maxLength(65535),
-        ]);
+        ];
     }
 
     public function table(Table $table): Table
