@@ -21,7 +21,7 @@ class CoordinatesWidget extends XotBaseWidget
     public float $longitude = 0;
 
     /**
-     * @return array<string, Component>
+     * @return array<int, Component>
      */
     public function getFormSchema(): array
     {
