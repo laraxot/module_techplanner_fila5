@@ -6,6 +6,9 @@ namespace Modules\TechPlanner\Tests\Unit\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Modules\TechPlanner\Models\BaseModel;
+use Modules\TechPlanner\Tests\TestCase;
+
+uses(TestCase::class);
 
 function createTechPlannerTestBaseModel(): BaseModel
 {

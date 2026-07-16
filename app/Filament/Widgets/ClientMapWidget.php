@@ -17,7 +17,7 @@ class ClientMapWidget extends XotBaseWidget
     protected int|string|array $columnSpan = 'full';
 
     /**
-     * @return array<string, Component>
+     * @return array<int, Component>
      */
     public function getFormSchema(): array
     {
@@ -45,7 +45,7 @@ class ClientMapWidget extends XotBaseWidget
      * Ottiene la query per i clienti.
      */
     /**
-     * @return Builder<\Modules\TechPlanner\Models\Client>
+     * @return Builder<Client>
      */
     protected function getClientsQuery(): Builder
     {

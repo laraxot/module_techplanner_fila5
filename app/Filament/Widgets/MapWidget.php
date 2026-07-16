@@ -15,7 +15,7 @@ class MapWidget extends XotBaseWidget
     protected int|string|array $columnSpan = 'full';
 
     /**
-     * @return array<string, Component>
+     * @return array<int, Component>
      */
     public function getFormSchema(): array
     {
