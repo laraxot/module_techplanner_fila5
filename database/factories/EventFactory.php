@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use Modules\TechPlanner\Models\Event;
 
 /** @extends Factory<Event> */
-class EventFactoryFactory extends Factory
+class EventFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.

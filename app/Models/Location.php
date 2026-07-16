@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
-use Modules\TechPlanner\Database\Factories\LocationFactoryFactory;
+use Modules\TechPlanner\Database\Factories\LocationFactory;
 
 /**
  * @property int $id
@@ -31,7 +31,7 @@ use Modules\TechPlanner\Database\Factories\LocationFactoryFactory;
  * @property string|null $deleted_at
  * @property string|null $deleted_by
  *
- * @method static LocationFactoryFactory factory($count = null, $state = [])
+ * @method static LocationFactory factory($count = null, $state = [])
  * @method static Builder<static>|Location newModelQuery()
  * @method static Builder<static>|Location newQuery()
  * @method static Builder<static>|Location query()
@@ -59,7 +59,7 @@ use Modules\TechPlanner\Database\Factories\LocationFactoryFactory;
  */
 class Location extends Model
 {
-    /** @use HasFactory<LocationFactoryFactory> */
+    /** @use HasFactory<LocationFactory> */
     use HasFactory;
 
     /**
@@ -73,8 +73,8 @@ class Location extends Model
         'country',
     ];
 
-    protected static function newFactory(): LocationFactoryFactory
+    protected static function newFactory(): LocationFactory
     {
-        return LocationFactoryFactory::new();
+        return LocationFactory::new();
     }
 }

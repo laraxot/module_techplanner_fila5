@@ -7,10 +7,10 @@ namespace Modules\TechPlanner\Models;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Modules\TechPlanner\Database\Factories\ParticipantFactoryFactory;
+use Modules\TechPlanner\Database\Factories\ParticipantFactory;
 
 /**
- * @method static ParticipantFactoryFactory factory($count = null, $state = [])
+ * @method static ParticipantFactory factory($count = null, $state = [])
  * @method static Builder<static>|Participant newModelQuery()
  * @method static Builder<static>|Participant newQuery()
  * @method static Builder<static>|Participant query()
@@ -19,7 +19,7 @@ use Modules\TechPlanner\Database\Factories\ParticipantFactoryFactory;
  */
 class Participant extends Model
 {
-    /** @use HasFactory<ParticipantFactoryFactory> */
+    /** @use HasFactory<ParticipantFactory> */
     use HasFactory;
 
     /**
@@ -31,8 +31,8 @@ class Participant extends Model
         'phone',
     ];
 
-    protected static function newFactory(): ParticipantFactoryFactory
+    protected static function newFactory(): ParticipantFactory
     {
-        return ParticipantFactoryFactory::new();
+        return ParticipantFactory::new();
     }
 }

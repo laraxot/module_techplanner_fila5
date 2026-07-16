@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
-use Modules\TechPlanner\Database\Factories\EventFactoryFactory;
+use Modules\TechPlanner\Database\Factories\EventFactory;
 
 /**
  * @property int $id
@@ -25,7 +25,7 @@ use Modules\TechPlanner\Database\Factories\EventFactoryFactory;
  * @property string|null $deleted_at
  * @property string|null $deleted_by
  *
- * @method static EventFactoryFactory factory($count = null, $state = [])
+ * @method static EventFactory factory($count = null, $state = [])
  * @method static Builder<static>|Event newModelQuery()
  * @method static Builder<static>|Event newQuery()
  * @method static Builder<static>|Event query()
@@ -47,7 +47,7 @@ use Modules\TechPlanner\Database\Factories\EventFactoryFactory;
  */
 class Event extends Model
 {
-    /** @use HasFactory<EventFactoryFactory> */
+    /** @use HasFactory<EventFactory> */
     use HasFactory;
 
     /**
@@ -73,8 +73,8 @@ class Event extends Model
         ]);
     }
 
-    protected static function newFactory(): EventFactoryFactory
+    protected static function newFactory(): EventFactory
     {
-        return EventFactoryFactory::new();
+        return EventFactory::new();
     }
 }
