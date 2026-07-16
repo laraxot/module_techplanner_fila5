@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use Modules\TechPlanner\Models\Location;
 
 /** @extends Factory<Location> */
-class LocationFactoryFactory extends Factory
+class LocationFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
