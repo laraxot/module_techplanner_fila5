@@ -111,7 +111,6 @@ Thumbs.db
 # DOCUMENTATION CACHE
 # ==============================================
 docs/phpstan/
-docs/cache/
 
 # ==============================================
 # OLD DIRECTORIES (LEGACY CLEANUP)
@@ -149,3 +148,22 @@ planning_test.sql
 *.fila2
 laravel
 public_html
+tests/AuditCoverage
+
+# AI/TOOL SCAFFOLD — must never exist in module tree (see docs/wiki/rules/module-theme-root-cleanup.md)
+_docs/
+scripts/
+bashscripts/
+docs/archive/
+docs/archived/
+docs/legacy/
+docs/workbench/
+.circleci/
+.claude-audit/
+tests/.claude-audit/
+_bmad-output/
+test-results/
+.devcontainer/
+.kilocode/
+.kiro/
+.ralph/
