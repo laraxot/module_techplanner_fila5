@@ -9,7 +9,6 @@ use Filament\Actions\Action;
 use Filament\Actions\ActionGroup;
 use Filament\Actions\ImportAction;
 use Filament\Notifications\Notification;
-use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Filters\TernaryFilter;
 use Illuminate\Database\Eloquent\Builder;
@@ -21,11 +20,10 @@ use Illuminate\Support\Facades\Session;
 use Livewire\Attributes\On;
 use Modules\Geo\Actions\UpdateCoordinatesFromAddressAction;
 use Modules\Geo\Filament\Actions\UpdateCoordinatesBulkAction;
-use Modules\Geo\Filament\Tables\Columns\AddressColumn; // NEW IMPORT
 use Modules\Notify\Filament\Actions\SendRecordsNotificationBulkAction;
-use Modules\Notify\Filament\Tables\Columns\ContactColumn;
 use Modules\TechPlanner\Filament\Imports\ClientImporter;
 use Modules\TechPlanner\Filament\Resources\ClientResource;
+use Modules\TechPlanner\Filament\Resources\ClientResource\Tables\ClientsTable;
 use Modules\TechPlanner\Models\Client;
 use Modules\Xot\Actions\Cast\SafeStringCastAction;
 use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
@@ -68,42 +66,7 @@ class ListClients extends XotBaseListRecords
             }
         }
 
-        $columns = [
-            'distance' => TextColumn::make('distance')->formatStateUsing(function (string|int|float|null $state): string {
-                $distance = is_numeric($state) ? (float) $state : 0.0;
-
-                return number_format($distance, 2).' km';
-            }),
-            // ...parent::getListTableColumns(),
-
-            'longitude' => TextColumn::make('longitude')->sortable()->toggleable(isToggledHiddenByDefault: true),
-            'latitude' => TextColumn::make('latitude')->sortable()->toggleable(isToggledHiddenByDefault: true),
-            'business_closed' => TextColumn::make('business_closed')->toggleable(isToggledHiddenByDefault: true),
-            'activity' => TextColumn::make('activity')
-                ->searchable()
-                ->sortable()
-                ->wrap(),
-            'company_name' => TextColumn::make('company_name')
-                ->searchable()
-                ->sortable()
-                // ->formatStateUsing(fn($record) => dddx($record))
-                ->wrap(),
-            'fiscal_code' => TextColumn::make('fiscal_code')->toggleable(isToggledHiddenByDefault: true),
-            'full_address' => TextColumn::make('full_address')
-                ->searchable(['city', 'company_office', 'postal_code', 'province', 'country', 'address'])
-                ->sortable()
-                ->wrap(),
-            'city' => TextColumn::make('city')->toggleable(isToggledHiddenByDefault: true),
-            'province' => TextColumn::make('province')->toggleable(isToggledHiddenByDefault: true),
-            'country' => TextColumn::make('country')->toggleable(isToggledHiddenByDefault: true),
-            'updated_at' => TextColumn::make('updated_at')->toggleable(isToggledHiddenByDefault: true)->sortable(),
-            'created_at' => TextColumn::make('created_at')->toggleable(isToggledHiddenByDefault: true)->sortable(),
-
-            'address' => AddressColumn::make('full_address'),
-            'contacts' => ContactColumn::make('contacts'),
-        ];
-
-        return $columns;
+        return (new ClientsTable())->getTableColumns();
     }
 
     public function getTableFilters(): array
@@ -178,10 +141,10 @@ class ListClients extends XotBaseListRecords
                         continue;
                     }
 
-                    ++$totalProcessed;
+                    $totalProcessed++;
 
                     if ($action->execute($client)) {
-                        ++$totalSuccess;
+                        $totalSuccess++;
 
                         continue;
                     }

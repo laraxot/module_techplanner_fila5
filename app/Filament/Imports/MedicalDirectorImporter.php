@@ -5,11 +5,11 @@ declare(strict_types=1);
 namespace Modules\TechPlanner\Filament\Imports;
 
 use Filament\Actions\Imports\ImportColumn;
-use Filament\Actions\Imports\Importer;
 use Filament\Actions\Imports\Models\Import;
 use Modules\TechPlanner\Models\MedicalDirector;
+use Modules\Xot\Filament\Actions\Imports\XotBaseImporter;
 
-class MedicalDirectorImporter extends Importer
+class MedicalDirectorImporter extends XotBaseImporter
 {
     protected static ?string $model = MedicalDirector::class;
 

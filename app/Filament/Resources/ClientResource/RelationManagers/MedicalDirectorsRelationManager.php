@@ -12,14 +12,14 @@ use Filament\Actions\EditAction;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
-use Filament\Resources\RelationManagers\RelationManager;
-use Filament\Schemas\Schema;
+use Filament\Schemas\Components\Component;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Modules\TechPlanner\Filament\Resources\MedicalDirectorResource;
+use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
 
-class MedicalDirectorsRelationManager extends RelationManager
+class MedicalDirectorsRelationManager extends XotBaseRelationManager
 {
     protected static string $relationship = 'medicalDirectors';
 
@@ -27,9 +27,12 @@ class MedicalDirectorsRelationManager extends RelationManager
 
     protected static string $resource = MedicalDirectorResource::class;
 
-    public function schema(Schema $schema): Schema
+    /**
+     * @return array<int|string, Component>
+     */
+    public function getFormSchema(): array
     {
-        return $schema->components([
+        return [
             TextInput::make('name')->required()->maxLength(255),
             TextInput::make('fiscal_code')->required()->maxLength(255),
             TextInput::make('phone')
@@ -43,7 +46,7 @@ class MedicalDirectorsRelationManager extends RelationManager
             DatePicker::make('appointment_date')->required(),
             DatePicker::make('expiry_date')->required(),
             Toggle::make('is_active')->required(),
-        ]);
+        ];
     }
 
     public function table(Table $table): Table

@@ -22,3 +22,8 @@ related:
 | [techplanner-business-domain.md](./techplanner-business-domain.md) | Dominio business (SSoT perché) |
 | [ai-harness-techplanner-discipline.md](./ai-harness-techplanner-discipline.md) | Harness agenti modulo |
 | [second-brain-local-discipline.md](./second-brain-local-discipline.md) | Stub → canon Xot |
+
+
+## Resource schema contract
+
+Ogni Resource concreta espone tre classi speculari nel proprio namespace: `Schemas/<Name>Form`, `Schemas/<Name>Infolist` e `Tables/<PluralName>Table`. Queste classi estendono rispettivamente `XotBaseResourceForm`, `XotBaseResourceInfolist` e `XotBaseResourceTable`; i componenti Filament sono usati nella composizione, mai come superclassi. `MailTemplateResource` mantiene così il filtro TechPlanner ma possiede il contratto UI localmente, senza dipendere dal resolver namespace di Notify.
