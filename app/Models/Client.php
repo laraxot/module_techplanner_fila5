@@ -156,14 +156,10 @@ use function Safe\preg_replace;
 class Client extends BaseModel
 {
     use GeographicalScopes;
-<<<<<<< HEAD
 
     /** @use HasAddress<Client> */
     use HasAddress;
 
-=======
-    use HasAddress;
->>>>>>> laraxot/dev
     use HasDynamicFillable;
 
     /**
