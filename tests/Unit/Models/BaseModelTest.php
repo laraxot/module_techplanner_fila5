@@ -19,23 +19,23 @@ function createTechPlannerTestBaseModel(): BaseModel
 }
 
 test('base model extends eloquent model', function () {
-    expect(createTechPlannerTestBaseModel())->toBeInstanceOf(Model::class);
+    $this->assertInstanceOf(Model::class, createTechPlannerTestBaseModel());
 });
 
 test('base model has correct table name', function () {
-    expect(createTechPlannerTestBaseModel()->getTable())->toBe('test_techplanner_table');
+    $this->assertSame('test_techplanner_table', createTechPlannerTestBaseModel()->getTable());
 });
 
 test('base model can be instantiated', function () {
-    expect(createTechPlannerTestBaseModel())->toBeInstanceOf(BaseModel::class);
+    $this->assertInstanceOf(BaseModel::class, createTechPlannerTestBaseModel());
 });
 
 test('base model has proper inheritance chain', function () {
     $baseModel = createTechPlannerTestBaseModel();
-    expect($baseModel)->toBeInstanceOf(BaseModel::class);
-    expect($baseModel)->toBeInstanceOf(Model::class);
+    $this->assertInstanceOf(BaseModel::class, $baseModel);
+    $this->assertInstanceOf(Model::class, $baseModel);
 });
 
 test('base model has timestamps enabled', function () {
-    expect(createTechPlannerTestBaseModel()->usesTimestamps())->toBeTrue();
+    $this->assertTrue(createTechPlannerTestBaseModel()->usesTimestamps());
 });
