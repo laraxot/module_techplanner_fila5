@@ -156,7 +156,10 @@ use function Safe\preg_replace;
 class Client extends BaseModel
 {
     use GeographicalScopes;
+
+    /** @use HasAddress<Client> */
     use HasAddress;
+
     use HasDynamicFillable;
 
     /**
