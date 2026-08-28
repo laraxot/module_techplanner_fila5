@@ -12,8 +12,16 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Carbon;
 
 /**
+ * @property-read Client|null $client
+ * @property-read Collection<int, Machine> $machines
+ * @property-read int|null $machines_count
+ *
+ * @method static Builder<static>|Appointment newModelQuery()
+ * @method static Builder<static>|Appointment newQuery()
+ * @method static Builder<static>|Appointment query()
+ *
  * @property int $id
- * @property int $client_id
+ * @property int|null $client_id
  * @property string $date
  * @property string|null $notes
  * @property Carbon|null $created_at
@@ -22,13 +30,7 @@ use Illuminate\Support\Carbon;
  * @property string|null $created_by
  * @property string|null $deleted_at
  * @property string|null $deleted_by
- * @property-read Client $client
- * @property-read Collection<int, Machine> $machines
- * @property-read int|null $machines_count
  *
- * @method static Builder<static>|Appointment newModelQuery()
- * @method static Builder<static>|Appointment newQuery()
- * @method static Builder<static>|Appointment query()
  * @method static Builder<static>|Appointment whereClientId($value)
  * @method static Builder<static>|Appointment whereCreatedAt($value)
  * @method static Builder<static>|Appointment whereCreatedBy($value)

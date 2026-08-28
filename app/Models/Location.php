@@ -11,6 +11,11 @@ use Illuminate\Support\Carbon;
 use Modules\TechPlanner\Database\Factories\LocationFactory;
 
 /**
+ * @method static \Modules\TechPlanner\Database\Factories\LocationFactory factory($count = null, $state = [])
+ * @method static Builder<static>|Location newModelQuery()
+ * @method static Builder<static>|Location newQuery()
+ * @method static Builder<static>|Location query()
+ *
  * @property int $id
  * @property string|null $model_type
  * @property string|null $model_id
@@ -31,10 +36,6 @@ use Modules\TechPlanner\Database\Factories\LocationFactory;
  * @property string|null $deleted_at
  * @property string|null $deleted_by
  *
- * @method static LocationFactory factory($count = null, $state = [])
- * @method static Builder<static>|Location newModelQuery()
- * @method static Builder<static>|Location newQuery()
- * @method static Builder<static>|Location query()
  * @method static Builder<static>|Location whereCity($value)
  * @method static Builder<static>|Location whereCreatedAt($value)
  * @method static Builder<static>|Location whereCreatedBy($value)

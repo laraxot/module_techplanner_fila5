@@ -67,7 +67,7 @@ enum CompanyItemEnum: string implements HasColor, HasIcon, HasLabel
      */
     public static function getSearchable(): array
     {
-        return array_map(fn ($item) => $item->value, self::cases());
+        return array_map(fn (self $item) => $item->value, self::cases());
     }
 
     /**
@@ -181,7 +181,7 @@ enum CompanyItemEnum: string implements HasColor, HasIcon, HasLabel
      */
     public static function getColumnNames(): array
     {
-        return array_map(fn ($item) => $item->value, self::cases());
+        return array_map(fn (self $item) => $item->value, self::cases());
     }
 
     /**

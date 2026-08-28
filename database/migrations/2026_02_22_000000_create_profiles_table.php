@@ -82,7 +82,7 @@ class CreateProfilesTable extends XotBaseMigration
         $existingData = $conn->table($tableName)->get(['id', 'uuid'])->map(function (stdClass $row): array {
             return [
                 'old_id' => $row->id,
-                'uuid' => isset($row->uuid) ? (string) $row->uuid : (string) Str::uuid(),
+                'uuid' => isset($row->uuid) && is_string($row->uuid) ? $row->uuid : (string) Str::uuid(),
             ];
         })->all();
 
