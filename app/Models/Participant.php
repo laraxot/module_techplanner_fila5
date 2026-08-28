@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Model;
 use Modules\TechPlanner\Database\Factories\ParticipantFactory;
 
 /**
- * @method static ParticipantFactory factory($count = null, $state = [])
+ * @method static \Modules\TechPlanner\Database\Factories\ParticipantFactory factory($count = null, $state = [])
  * @method static Builder<static>|Participant newModelQuery()
  * @method static Builder<static>|Participant newQuery()
  * @method static Builder<static>|Participant query()

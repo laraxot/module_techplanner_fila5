@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\TechPlanner\Models;
 
-use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Carbon;
 use Modules\Geo\Enums\AddressItemEnum;
 use Modules\Geo\Models\Address;
 use Modules\Geo\Models\Traits\GeographicalScopes;
@@ -22,134 +22,106 @@ use function Safe\preg_replace;
 /**
  * Class Client.
  *
- * @property int $id
- * @property string $name
- * @property string|null $vat_number
- * @property string|null $client_office
- * @property string|null $fiscal_code
- * @property string|null $address
- * @property string|null $city
- * @property string|null $postal_code
- * @property string|null $province
- * @property string|null $country
- * @property string|null $phone
- * @property string|null $email
- * @property bool $business_closed
- * @property string|null $company_name
- * @property string|null $competent_health_unit
- * @property string|null $tax_code
- * @property string|null $fax
- * @property string|null $mobile
- * @property string|null $pec
- * @property string|null $whatsapp
- * @property float|null $latitude
- * @property float|null $longitude
- * @property int|null $assigned_worker_id
- * @property string|null $notes
- * @property string|null $administrative_reference
- * @property string|null $route
- * @property string|null $street_number
- * @property string|null $locality
- * @property string|null $sublocality
- * @property string|null $sublocality_level_1
- * @property string|null $sublocality_level_2
- * @property Carbon|null $created_at
- * @property Carbon|null $updated_at
- * @property-read string $full_address
- * @property-read string $contacts_html
+ * @property-read Address|null $address
+ * @property-read Collection<int, Address> $addresses
+ * @property-read int|null $addresses_count
  * @property-read Collection<int, Appointment> $appointments
  * @property-read int|null $appointments_count
+ * @property-read Profile|null $creator
  * @property-read Collection<int, Device> $devices
  * @property-read int|null $devices_count
+ * @property-read string $contacts_html
+ * @property-read string $full_address
+ * @property-read string|null $full_addresses
  * @property-read Collection<int, LegalOffice> $legalOffices
  * @property-read int|null $legal_offices_count
  * @property-read Collection<int, LegalRepresentative> $legalRepresentatives
  * @property-read int|null $legal_representatives_count
- * @property-read Profile|null $creator
- * @property-read Profile|null $updater
- *
- * @method static Builder<static>|Client newModelQuery()
- * @method static Builder<static>|Client newQuery()
- * @method static Builder<static>|Client query()
- * @method static Builder<static>|Client whereAddress(string $value)
- * @method static Builder<static>|Client whereAdministrativeReference(string $value)
- * @method static Builder<static>|Client whereAssignedWorkerId(int $value)
- * @method static Builder<static>|Client whereBusinessClosed(bool $value)
- * @method static Builder<static>|Client whereCity(string $value)
- * @method static Builder<static>|Client whereCompanyName(string $value)
- * @method static Builder<static>|Client whereCompetentHealthUnit(string $value)
- * @method static Builder<static>|Client whereCountry(string $value)
- * @method static Builder<static>|Client whereCreatedAt(Carbon $value)
- * @method static Builder<static>|Client whereEmail(string $value)
- * @method static Builder<static>|Client whereFax(string $value)
- * @method static Builder<static>|Client whereFiscalCode(string $value)
- * @method static Builder<static>|Client whereId(int $value)
- * @method static Builder<static>|Client whereLatitude(float $value)
- * @method static Builder<static>|Client whereLocality(string $value)
- * @method static Builder<static>|Client whereLongitude(float $value)
- * @method static Builder<static>|Client whereMobile(string $value)
- * @method static Builder<static>|Client whereName(string $value)
- * @method static Builder<static>|Client whereNotes(string $value)
- * @method static Builder<static>|Client wherePec(string $value)
- * @method static Builder<static>|Client wherePhone(string $value)
- * @method static Builder<static>|Client wherePostalCode(string $value)
- * @method static Builder<static>|Client whereProvince(string $value)
- * @method static Builder<static>|Client whereRoute(string $value)
- * @method static Builder<static>|Client whereStreetNumber(string $value)
- * @method static Builder<static>|Client whereSublocality(string $value)
- * @method static Builder<static>|Client whereSublocalityLevel1(string $value)
- * @method static Builder<static>|Client whereSublocalityLevel2(string $value)
- * @method static Builder<static>|Client whereTaxCode(string $value)
- * @method static Builder<static>|Client whereUpdatedAt(Carbon $value)
- * @method static Builder<static>|Client whereUpdatedBy(string $value)
- * @method static Builder<static>|Client whereVatNumber(string $value)
- * @method static Builder<static>|Client whereWhatsapp(string $value)
- * @method static Builder<static>|Client withDistance(float $latitude, float $longitude, float $radiusKm = 10)
- *
- * @property string|null $company_office
- * @property string|null $activity
- * @property string|null $updated_by
- * @property string|null $created_by
- * @property string|null $deleted_at
- * @property string|null $deleted_by
- * @property string|null $administrative_area_level_1
- * @property string|null $administrative_area_level_2
- * @property string|null $administrative_area_level_3
- * @property string|null $formatted_address Full formatted address
- * @property string|null $place_id Geocoding provider Place ID
- * @property string|null $region DEPRECATED: Use administrative_area_level_1 instead - legacy compatibility
- * @property-read Collection<int, Address> $addresses
- * @property-read int|null $addresses_count
- * @property-read Profile|null $deleter
- * @property-read string|null $full_addresses
  * @property-read Collection<int, MedicalDirector> $medicalDirectors
  * @property-read int|null $medical_directors_count
  * @property-read Collection<int, PhoneCall> $phoneCalls
  * @property-read int|null $phone_calls_count
+ * @property-read Profile|null $updater
  *
  * @method static Builder<static>|Client inCity(string $city)
  * @method static Builder<static>|Client inPostalCode(string $postalCode)
  * @method static Builder<static>|Client inProvince(string $province)
  * @method static Builder<static>|Client inRegion(string $region)
+ * @method static Builder<static>|Client newModelQuery()
+ * @method static Builder<static>|Client newQuery()
  * @method static Builder<static>|Client orderByDistance(float $latitude, float $longitude)
+ * @method static Builder<static>|Client query()
+ * @method static Builder<static>|Client withDistance(float $latitude, float $longitude)
+ *
+ * @property int $id
+ * @property string|null $vat_number
+ * @property string|null $fiscal_code
+ * @property string|null $name Location name
+ * @property string|null $route Street name (Via/Piazza)
+ * @property string|null $street_number Street number
+ * @property string|null $locality City/Municipality
+ * @property string|null $administrative_area_level_3 Comune
+ * @property string|null $administrative_area_level_2 Provincia
+ * @property string|null $administrative_area_level_1 Regione
+ * @property string|null $country Country/Stato
+ * @property string|null $postal_code CAP/Postal Code
+ * @property float|null $latitude Latitude coordinate
+ * @property float|null $longitude Longitude coordinate
+ * @property string|null $notes General notes
+ * @property string|null $phone
+ * @property string|null $mobile
+ * @property string|null $email
+ * @property string|null $pec
+ * @property string|null $whatsapp
+ * @property string|null $city Legacy city field
+ * @property string|null $province Legacy province field
+ * @property string|null $region Legacy region field
+ * @property string|null $cap Legacy CAP field
+ * @property bool $business_closed
+ * @property string|null $competent_health_unit Az ULSS competente
+ * @property string|null $tax_code Codice fiscale
+ * @property string|null $company_name Ragione sociale
+ * @property string|null $company_office Sede ditta
+ * @property string|null $activity Attività
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ * @property string|null $updated_by
+ * @property string|null $created_by
+ * @property string|null $deleted_at
+ * @property string|null $deleted_by
+ *
  * @method static Builder<static>|Client whereActivity($value)
+ * @method static Builder<static>|Client whereAddress($value)
  * @method static Builder<static>|Client whereAdministrativeAreaLevel1($value)
  * @method static Builder<static>|Client whereAdministrativeAreaLevel2($value)
  * @method static Builder<static>|Client whereAdministrativeAreaLevel3($value)
+ * @method static Builder<static>|Client whereBusinessClosed($value)
+ * @method static Builder<static>|Client whereCap($value)
+ * @method static Builder<static>|Client whereCity($value)
+ * @method static Builder<static>|Client whereCompanyName($value)
  * @method static Builder<static>|Client whereCompanyOffice($value)
+ * @method static Builder<static>|Client whereCompetentHealthUnit($value)
+ * @method static Builder<static>|Client whereCountry($value)
+ * @method static Builder<static>|Client whereCreatedAt($value)
  * @method static Builder<static>|Client whereCreatedBy($value)
  * @method static Builder<static>|Client whereDeletedAt($value)
  * @method static Builder<static>|Client whereDeletedBy($value)
- * @method static Builder<static>|Client whereFormattedAddress($value)
- * @method static Builder<static>|Client wherePlaceId($value)
+ * @method static Builder<static>|Client whereFiscalCode($value)
+ * @method static Builder<static>|Client whereId($value)
+ * @method static Builder<static>|Client whereLatitude($value)
+ * @method static Builder<static>|Client whereLocality($value)
+ * @method static Builder<static>|Client whereLongitude($value)
+ * @method static Builder<static>|Client whereName($value)
+ * @method static Builder<static>|Client whereNotes($value)
+ * @method static Builder<static>|Client wherePostalCode($value)
+ * @method static Builder<static>|Client whereProvince($value)
  * @method static Builder<static>|Client whereRegion($value)
- * @method static Builder<static>|Client whereNull($columns, $boolean = 'and', $not = false)
- * @method static Builder<static>|Client whereNotNull($columns, $boolean = 'and')
- * @method static Builder<static>|Client orWhereNull($columns, $boolean = 'and')
- * @method static Builder<static>|Client where($column, $operator = null, $value = null, $boolean = 'and')
- * @method static Collection<int, static> get($columns = ['*'])
- * @method static int update(array<string, mixed> $values)
- * @method static void chunk(int $count, callable $callback)
+ * @method static Builder<static>|Client whereRoute($value)
+ * @method static Builder<static>|Client whereStreetNumber($value)
+ * @method static Builder<static>|Client whereTaxCode($value)
+ * @method static Builder<static>|Client whereUpdatedAt($value)
+ * @method static Builder<static>|Client whereUpdatedBy($value)
+ * @method static Builder<static>|Client whereVatNumber($value)
  *
  * @mixin \Eloquent
  */
@@ -297,53 +269,53 @@ class Client extends BaseModel
     {
         $contacts = [];
 
-        if ($this->phone) {
+        if (is_string($this->phone) && $this->phone !== '') {
             $contacts[] = $this->formatContactLink(
                 'phone',
-                (string) ($this->phone ?? ''),
+                $this->phone,
                 'heroicon-o-phone',
                 'text-blue-600 hover:text-blue-800',
-                'Chiama: '.(string) ($this->phone ?? ''),
+                'Chiama: '.$this->phone,
             );
         }
 
-        if ($this->mobile) {
+        if (is_string($this->mobile) && $this->mobile !== '') {
             $contacts[] = $this->formatContactLink(
                 'mobile',
-                (string) ($this->mobile ?? ''),
+                $this->mobile,
                 'heroicon-o-device-phone-mobile',
                 'text-blue-500 hover:text-blue-700',
-                'Chiama cellulare: '.(string) ($this->mobile ?? ''),
+                'Chiama cellulare: '.$this->mobile,
             );
         }
 
-        if ($this->email) {
+        if (is_string($this->email) && $this->email !== '') {
             $contacts[] = $this->formatContactLink(
                 'email',
-                (string) ($this->email ?? ''),
+                $this->email,
                 'heroicon-o-envelope',
                 'text-green-600 hover:text-green-800',
-                'Email: '.(string) ($this->email ?? ''),
+                'Email: '.$this->email,
             );
         }
 
-        if ($this->pec) {
+        if (is_string($this->pec) && $this->pec !== '') {
             $contacts[] = $this->formatContactLink(
                 'pec',
-                (string) ($this->pec ?? ''),
+                $this->pec,
                 'heroicon-o-shield-check',
                 'text-purple-600 hover:text-purple-800',
-                'PEC: '.(string) ($this->pec ?? ''),
+                'PEC: '.$this->pec,
             );
         }
 
-        if ($this->whatsapp) {
+        if (is_string($this->whatsapp) && $this->whatsapp !== '') {
             $contacts[] = $this->formatContactLink(
                 'whatsapp',
-                (string) ($this->whatsapp ?? ''),
+                $this->whatsapp,
                 'heroicon-o-chat-bubble-left-right',
                 'text-green-500 hover:text-green-700',
-                'WhatsApp: '.(string) ($this->whatsapp ?? ''),
+                'WhatsApp: '.$this->whatsapp,
             );
         }
 

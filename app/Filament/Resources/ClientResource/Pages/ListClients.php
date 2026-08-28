@@ -132,7 +132,7 @@ class ListClients extends XotBaseListRecords
 
         Client::whereNull('latitude')
             ->orWhereNull('longitude')
-            ->chunk($batchSize, function ($clients) use (&$totalProcessed, &$totalSuccess, &$errors): void {
+            ->chunk($batchSize, function (Collection $clients) use (&$totalProcessed, &$totalSuccess, &$errors): void {
                 /** @var Collection<int, Client> $clients */
                 $action = app(UpdateCoordinatesFromAddressAction::class);
 
@@ -150,7 +150,11 @@ class ListClients extends XotBaseListRecords
                     }
 
                     foreach ($action->getErrors() as $error) {
-                        $errors[] = 'Error updating client #'.(string) $client->getKey().': '.(string) $error;
+                        if (! is_string($error)) {
+                            continue;
+                        }
+
+                        $errors[] = 'Error updating client #'.$client->id.': '.$error;
                     }
                 }
             });

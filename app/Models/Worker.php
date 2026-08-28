@@ -18,17 +18,32 @@ use Override;
 /**
  * Modules\TechPlanner\Models\Worker.
  *
- * @property mixed $address
- * @property string $full_address
- * @property float|null $latitude
- * @property float|null $longitude
+ * @property-read Profile|null $creator
+ * @property-read Collection<int, Device> $devices
+ * @property-read int|null $devices_count
+ * @property-read string|null $cod_fisc
+ * @property-read string|null $full_address
+ * @property-read string $full_name
+ * @property-read float|null $latitude
+ * @property-read string|null $address
+ * @property-write mixed $address
+ * @property-write mixed $birth_day
+ * @property-read Profile|null $updater
+ *
+ * @method static Builder<static>|Worker newModelQuery()
+ * @method static Builder<static>|Worker newQuery()
+ * @method static Builder<static>|Worker ofInPolygon(string $polygon_field, float $lat, float $lng)
+ * @method static Builder<static>|Worker ofJobRoleId(int $id)
+ * @method static Builder<static>|Worker query()
+ * @method static Builder<static>|Worker withDistance(float $lat, float $lng)
+ * @method static Builder<static>|Worker withDistanceCustomField(string $lat_field, string $lng_field, float $lat, float $lng)
+ *
  * @property int $id
  * @property string|null $type
  * @property int|null $client_id
  * @property string|null $last_name
  * @property string|null $first_name
  * @property string|null $birth_place
- * @property string|null $birth_day
  * @property string|null $date_start
  * @property string|null $date_end
  * @property string|null $note
@@ -60,25 +75,15 @@ use Override;
  * @property string|null $website
  * @property string|null $email
  * @property string|null $formatted_address
+ * @property numeric|null $longitude
+ * @property string|null $p_iva
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property string|null $updated_by
  * @property string|null $created_by
- * @property string $full_name
- * @property string|null $p_iva
- * @property string|null $cod_fisc
  * @property string|null $deleted_at
  * @property string|null $deleted_by
- * @property-read Profile|null $creator
- * @property-read Collection<int, Device> $devices
- * @property-read int|null $devices_count
- * @property-read Profile|null $updater
  *
- * @method static Builder<static>|Worker newModelQuery()
- * @method static Builder<static>|Worker newQuery()
- * @method static Builder<static>|Worker ofInPolygon(string $polygon_field, float $lat, float $lng)
- * @method static Builder<static>|Worker ofJobRoleId(int $id)
- * @method static Builder<static>|Worker query()
  * @method static Builder<static>|Worker whereAddress($value)
  * @method static Builder<static>|Worker whereAdministrativeAreaLevel1($value)
  * @method static Builder<static>|Worker whereAdministrativeAreaLevel1Short($value)
@@ -130,19 +135,6 @@ use Override;
  * @method static Builder<static>|Worker whereUpdatedAt($value)
  * @method static Builder<static>|Worker whereUpdatedBy($value)
  * @method static Builder<static>|Worker whereWebsite($value)
- * @method static Builder<static>|Worker withDistance(float $lat, float $lng)
- * @method static Builder<static>|Worker withDistanceCustomField(string $lat_field, string $lng_field, float $lat, float $lng)
- *
- * @property string|null $googleplace_url
- * @property string|null $googleplace_url_short
- * @property string|null $campground
- * @property string|null $campground_short
- * @property-read Profile|null $deleter
- *
- * @method static Builder<static>|Worker whereCampground($value)
- * @method static Builder<static>|Worker whereCampgroundShort($value)
- * @method static Builder<static>|Worker whereGoogleplaceUrl($value)
- * @method static Builder<static>|Worker whereGoogleplaceUrlShort($value)
  *
  * @mixin \Eloquent
  */

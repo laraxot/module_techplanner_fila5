@@ -59,11 +59,11 @@ final class MailTemplateForm extends XotBaseResourceForm
                 ->required()
                 ->columnSpanFull(),
             'params_display' => View::make('notify::filament.components.params-badges')
-                ->viewData(fn ($record): array => [
+                ->viewData(fn (mixed $record): array => [
                     'params' => is_object($record) && isset($record->params) ? $record->params : [],
                 ])
                 ->columnSpanFull()
-                ->visible(fn ($record): bool => is_object($record) && isset($record->params) && ! empty($record->params)),
+                ->visible(fn (mixed $record): bool => is_object($record) && isset($record->params) && ! empty($record->params)),
             'text_template' => Textarea::make('text_template')
                 ->maxLength(65535)
                 ->columnSpanFull(),
