@@ -13,7 +13,7 @@ class LegalRepresentativeInfolist extends XotBaseResourceInfolist
     /**
      * @return array<string, Component>
      */
-    public static function getInfolistSchema(): array
+    public function getInfolistSchema(): array
     {
         return [
             'name' => TextEntry::make('name'),

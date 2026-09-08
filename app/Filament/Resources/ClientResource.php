@@ -17,15 +17,5 @@ class ClientResource extends XotBaseResource
 {
     protected static ?string $model = Client::class;
 
-    #[Override]
-    public static function getFormSchema(): array
-    {
-        return ClientForm::getFormSchema();
-    }
 
-    #[Override]
-    public static function getInfolistSchema(): array
-    {
-        return ClientInfolist::getInfolistSchema();
-    }
 }

@@ -18,32 +18,5 @@ class MedicalDirectorResource extends XotBaseResource
 {
     protected static ?string $model = MedicalDirector::class;
 
-    #[Override]
-    public static function getFormSchema(): array
-    {
-        return MedicalDirectorForm::getFormSchema();
-    }
-
-    #[Override]
-    public static function getInfolistSchema(): array
-    {
-        return MedicalDirectorInfolist::getInfolistSchema();
-    }
-
-    #[Override]
-    public static function getRelations(): array
-    {
-        return [];
-    }
-
-    #[Override]
-    public static function getPages(): array
-    {
-        return [
-            'index' => ListMedicalDirectors::route('/'),
-            'create' => CreateMedicalDirector::route('/create'),
-            'view' => ViewMedicalDirector::route('/{record}'),
-            'edit' => EditMedicalDirector::route('/{record}/edit'),
-        ];
-    }
+   
 }

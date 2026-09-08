@@ -18,32 +18,5 @@ class LegalOfficeResource extends XotBaseResource
 {
     protected static ?string $model = LegalOffice::class;
 
-    #[Override]
-    public static function getFormSchema(): array
-    {
-        return LegalOfficeForm::getFormSchema();
-    }
-
-    #[Override]
-    public static function getInfolistSchema(): array
-    {
-        return LegalOfficeInfolist::getInfolistSchema();
-    }
-
-    #[Override]
-    public static function getRelations(): array
-    {
-        return [];
-    }
-
-    #[Override]
-    public static function getPages(): array
-    {
-        return [
-            'index' => ListLegalOffices::route('/'),
-            'create' => CreateLegalOffice::route('/create'),
-            'view' => ViewLegalOffice::route('/{record}'),
-            'edit' => EditLegalOffice::route('/{record}/edit'),
-        ];
-    }
+   
 }

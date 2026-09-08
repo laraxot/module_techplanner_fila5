@@ -18,48 +18,5 @@ class ViewDevice extends XotBaseViewRecord
 {
     protected static string $resource = DeviceResource::class;
 
-    /**
-     * {@inheritDoc}
-     *
-     * @return array<string, Action>
-     */
-    protected function getHeaderActions(): array
-    {
-        return [
-            'edit' => EditAction::make(),
-        ];
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * @return array<string, Component>
-     */
-    #[Override]
-    protected function getInfolistSchema(): array
-    {
-        return [
-            'base_info' => Section::make(trans('tech_planner::device.sections.base_info.label'))
-                ->schema([
-                    Grid::make(2)->schema([
-                        TextEntry::make('name'),
-                        TextEntry::make('serial_number'),
-                        TextEntry::make('model'),
-                        TextEntry::make('manufacturer'),
-                        TextEntry::make('type'),
-                        TextEntry::make('status'),
-                    ]),
-                ])
-                ->collapsible(),
-            'additional_details' => Section::make(trans('tech_planner::device.sections.additional_details.label'))
-                ->schema([
-                    TextEntry::make('description')->columnSpan(2),
-                    TextEntry::make('purchase_date')->date(),
-                    TextEntry::make('warranty_expiry')->date(),
-                    TextEntry::make('created_at')->dateTime(),
-                    TextEntry::make('updated_at')->dateTime(),
-                ])
-                ->collapsible(),
-        ];
-    }
+   
 }

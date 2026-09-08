@@ -19,34 +19,5 @@ class DeviceResource extends XotBaseResource
 {
     protected static ?string $model = Device::class;
 
-    #[Override]
-    public static function getFormSchema(): array
-    {
-        return DeviceForm::getFormSchema();
-    }
-
-    #[Override]
-    public static function getInfolistSchema(): array
-    {
-        return DeviceInfolist::getInfolistSchema();
-    }
-
-    #[Override]
-    public static function getPages(): array
-    {
-        return [
-            'index' => ListDevices::route('/'),
-            'create' => CreateDevice::route('/create'),
-            'view' => ViewDevice::route('/{record}'),
-            'edit' => EditDevice::route('/{record}/edit'),
-        ];
-    }
-
-    #[Override]
-    public static function getRelations(): array
-    {
-        return [
-            DeviceVerificationsRelationManager::class,
-        ];
-    }
+   
 }

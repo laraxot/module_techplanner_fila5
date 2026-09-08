@@ -16,7 +16,7 @@ class DeviceForm extends XotBaseResourceForm
     /**
      * @return array<string, Component>
      */
-    public static function getFormSchema(): array
+    public function getFormSchema(): array
     {
         return [
             'client_id' => Select::make('client_id')

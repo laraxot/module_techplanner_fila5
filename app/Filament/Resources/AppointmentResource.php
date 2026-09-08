@@ -19,41 +19,5 @@ class AppointmentResource extends XotBaseResource
 {
     protected static ?string $model = Appointment::class;
 
-    #[Override]
-    public static function getFormSchema(): array
-    {
-        return AppointmentForm::getFormSchema();
-    }
-
-    #[Override]
-    public static function getInfolistSchema(): array
-    {
-        return AppointmentInfolist::getInfolistSchema();
-    }
-
-    #[Override]
-    public static function getPages(): array
-    {
-        return [
-            'index' => ListAppointments::route('/'),
-            'create' => CreateAppointment::route('/create'),
-            'view' => ViewAppointment::route('/{record}'),
-            'edit' => EditAppointment::route('/{record}/edit'),
-        ];
-    }
-
-    public static function canEdit(Model $record): bool
-    {
-        return true;
-    }
-
-    public static function canDetach(): bool
-    {
-        return false;
-    }
-
-    public static function canDelete(Model $record): bool
-    {
-        return true;
-    }
+   
 }

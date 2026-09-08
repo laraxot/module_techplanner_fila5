@@ -14,7 +14,7 @@ class ClientInfolist extends XotBaseResourceInfolist
     /**
      * @return array<string, Component>
      */
-    public static function getInfolistSchema(): array
+    public function getInfolistSchema(): array
     {
         return [
             'company' => Section::make(trans('tech_planner::client.sections.company.label'))->schema([

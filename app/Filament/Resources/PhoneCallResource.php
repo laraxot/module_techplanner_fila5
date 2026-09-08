@@ -18,26 +18,5 @@ class PhoneCallResource extends XotBaseResource
 {
     protected static ?string $model = PhoneCall::class;
 
-    #[Override]
-    public static function getFormSchema(): array
-    {
-        return PhoneCallForm::getFormSchema();
-    }
-
-    #[Override]
-    public static function getInfolistSchema(): array
-    {
-        return PhoneCallInfolist::getInfolistSchema();
-    }
-
-    #[Override]
-    public static function getPages(): array
-    {
-        return [
-            'index' => ListPhoneCalls::route('/'),
-            'create' => CreatePhoneCall::route('/create'),
-            'view' => ViewPhoneCall::route('/{record}'),
-            'edit' => EditPhoneCall::route('/{record}/edit'),
-        ];
-    }
+   
 }

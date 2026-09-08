@@ -18,32 +18,5 @@ class LegalRepresentativeResource extends XotBaseResource
 {
     protected static ?string $model = LegalRepresentative::class;
 
-    #[Override]
-    public static function getFormSchema(): array
-    {
-        return LegalRepresentativeForm::getFormSchema();
-    }
-
-    #[Override]
-    public static function getInfolistSchema(): array
-    {
-        return LegalRepresentativeInfolist::getInfolistSchema();
-    }
-
-    #[Override]
-    public static function getRelations(): array
-    {
-        return [];
-    }
-
-    #[Override]
-    public static function getPages(): array
-    {
-        return [
-            'index' => ListLegalRepresentatives::route('/'),
-            'create' => CreateLegalRepresentative::route('/create'),
-            'view' => ViewLegalRepresentative::route('/{record}'),
-            'edit' => EditLegalRepresentative::route('/{record}/edit'),
-        ];
-    }
+ 
 }
