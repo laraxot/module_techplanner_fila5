@@ -23,7 +23,6 @@ use Modules\Geo\Filament\Actions\UpdateCoordinatesBulkAction;
 use Modules\Notify\Filament\Actions\SendRecordsNotificationBulkAction;
 use Modules\TechPlanner\Filament\Imports\ClientImporter;
 use Modules\TechPlanner\Filament\Resources\ClientResource;
-use Modules\TechPlanner\Filament\Resources\ClientResource\Tables\ClientsTable;
 use Modules\TechPlanner\Models\Client;
 use Modules\Xot\Actions\Cast\SafeStringCastAction;
 use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
@@ -49,24 +48,6 @@ class ListClients extends XotBaseListRecords
         return [
             // \Modules\TechPlanner\Filament\Widgets\ClientMapWidget::class, //WIP
         ];
-    }
-
-    /**
-     * Summary of getListTableColumns.
-     */
-    public function getTableColumns(): array
-    {
-        /** @var Collection<int, Client> $rows */
-        $rows = Client::whereNull('route')->whereNotNull('address')->get();
-        foreach ($rows as $row) {
-            if ($row instanceof Client) {
-                $row->update([
-                    'route' => $row->address,
-                ]);
-            }
-        }
-
-        return (new ClientsTable())->getTableColumns();
     }
 
     public function getTableFilters(): array

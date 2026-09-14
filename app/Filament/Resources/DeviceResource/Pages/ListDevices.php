@@ -8,7 +8,6 @@ use Filament\Actions\Action;
 use Filament\Actions\ImportAction;
 use Modules\TechPlanner\Filament\Imports\DeviceImporter;
 use Modules\TechPlanner\Filament\Resources\DeviceResource;
-use Modules\TechPlanner\Filament\Resources\DeviceResource\Tables\DevicesTable;
 use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
 use Override;
 
@@ -26,10 +25,5 @@ class ListDevices extends XotBaseListRecords
         ];
 
         return $actions;
-    }
-
-    public function getTableColumns(): array
-    {
-        return (new DevicesTable())->getTableColumns();
     }
 }

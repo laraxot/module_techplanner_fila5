@@ -9,7 +9,6 @@ use Filament\Actions\ImportAction;
 use Filament\Tables\Filters\SelectFilter;
 use Modules\TechPlanner\Filament\Imports\MedicalDirectorImporter;
 use Modules\TechPlanner\Filament\Resources\MedicalDirectorResource;
-use Modules\TechPlanner\Filament\Resources\MedicalDirectorResource\Tables\MedicalDirectorsTable;
 use Modules\TechPlanner\Models\MedicalDirector;
 use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
 use Override;
@@ -17,11 +16,6 @@ use Override;
 class ListMedicalDirectors extends XotBaseListRecords
 {
     protected static string $resource = MedicalDirectorResource::class;
-
-    public function getTableColumns(): array
-    {
-        return (new MedicalDirectorsTable())->getTableColumns();
-    }
 
     public function getTableFilters(): array
     {

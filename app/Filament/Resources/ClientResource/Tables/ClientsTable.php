@@ -13,7 +13,7 @@ use Modules\Xot\Filament\Resources\Tables\XotBaseResourceTable;
 class ClientsTable extends XotBaseResourceTable
 {
     /**
-     * @return array<int|string, Column>
+     * @return array<string, Column>
      */
     public function getTableColumns(): array
     {
