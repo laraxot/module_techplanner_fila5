@@ -41,15 +41,18 @@ class ClientMapWidget extends XotBaseWidget
         ];
     }
 
-/**
-      * Ottiene la query per i clienti.
-      *
-      * @return Builder<Client>
-      */
-     protected function getClientsQuery(): Builder
-     {
-         return Client::query();
-     }
+    /**
+     * Ottiene la query per i clienti.
+     *
+     * @return Builder<Client>
+     */
+    protected function getClientsQuery(): Builder
+    {
+        /** @var Builder<Client> $query */
+        $query = Client::query();
+
+        return $query;
+    }
 
     public function render(): View
     {
