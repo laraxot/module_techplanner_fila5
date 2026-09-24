@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" 
+     fill="none" 
+     viewBox="0 0 24 24" 
+     stroke="currentColor"
+     stroke-width="1.5"
+     aria-hidden="true" 
+     role="img"
+     aria-label="TechPlanner Icon">
+    <style>
+        .tech-calendar { 
+            animation: pulse 3s ease-in-out infinite;
+            transform-origin: 12px 12px;
+        }
+        .tech-gear { 
+            animation: rotate 8s linear infinite;
+            transform-origin: 19px 5px;
+        }
+        .tech-pulse { 
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+        }
+        
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        @keyframes glow {
+            0% { opacity: 0.6; }
+            100% { opacity: 1; }
+        }
+        
+        svg:hover .tech-calendar { 
+            animation-duration: 1s; 
+        }
+        svg:hover .tech-gear { 
+            animation-duration: 2s; 
+        }
+        svg:hover .tech-pulse { 
+            animation-duration: 0.5s; 
+        }
+        
+        @media (prefers-color-scheme: dark) {
+            .tech-pulse { opacity: 0.8; }
+        }
+        
+        @media (prefers-reduced-motion: reduce) {
+            .tech-calendar, .tech-gear, .tech-pulse { animation: none; }
+        }
+    </style>
+    
+    <!-- Calendar base -->
+    <rect class="tech-calendar" x="3" y="4" width="18" height="18" rx="2" ry="2" />
+    <path class="tech-calendar" stroke-linecap="round" stroke-linejoin="round" d="M16 2v4M8 2v4M3 10h18" />
+    
+    <!-- Calendar grid -->
+    <path class="tech-pulse" stroke-linecap="round" stroke-linejoin="round" d="M7 14h.01M11 14h.01M15 14h.01M7 18h.01M11 18h.01M15 18h.01" opacity="0.7" />
+    
+    <!-- Tech gear overlay -->
+    <g class="tech-gear">
+        <circle cx="19" cy="5" r="2" stroke-width="1" opacity="0.8" />
+        <path stroke-linecap="round" stroke-linejoin="round" d="M19 3v1m0 2v1m-2-2h1m2 0h1" stroke-width="1" opacity="0.6" />
+    </g>
+    
+    <!-- Planning indicators -->
+    <circle class="tech-pulse" cx="9" cy="16" r="1" fill="currentColor" opacity="0.8" />
+    <circle class="tech-pulse" cx="13" cy="12" r="0.5" fill="currentColor" opacity="0.6" />
+</svg>
