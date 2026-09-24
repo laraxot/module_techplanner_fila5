@@ -19,4 +19,13 @@ class ViewDevice extends XotBaseViewRecord
     protected static string $resource = DeviceResource::class;
 
    
+
+    /**
+     * @return array<string, \Filament\Schemas\Components\Component>
+     */
+    #[\Override]
+    protected function getInfolistSchema(): array
+    {
+        return [];
+    }
 }
