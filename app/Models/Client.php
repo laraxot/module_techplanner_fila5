@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Carbon;
 use Modules\Geo\Enums\AddressItemEnum;
 use Modules\Geo\Models\Address;
-use Modules\Geo\Models\Traits\GeographicalScopes;
+use Modules\Geo\Models\Traits\GeoTrait;
 use Modules\Geo\Models\Traits\HasAddress;
 use Modules\Xot\Models\Traits\HasDynamicFillable;
 use Override;
@@ -49,7 +49,6 @@ use function Safe\preg_replace;
  * @method static Builder<static>|Client inRegion(string $region)
  * @method static Builder<static>|Client newModelQuery()
  * @method static Builder<static>|Client newQuery()
- * @method static Builder<static>|Client orderByDistance(float $latitude, float $longitude)
  * @method static Builder<static>|Client query()
  * @method static Builder<static>|Client withDistance(float $latitude, float $longitude)
  *
@@ -127,7 +126,8 @@ use function Safe\preg_replace;
  */
 class Client extends BaseModel
 {
-    use GeographicalScopes;
+    /** @use GeoTrait<Client> */
+    use GeoTrait;
 
     /** @use HasAddress<Client> */
     use HasAddress;
