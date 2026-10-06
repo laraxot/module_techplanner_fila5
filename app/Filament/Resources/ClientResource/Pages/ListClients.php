@@ -267,13 +267,13 @@ class ListClients extends XotBaseListRecords
         $latitude = Session::get('user_latitude');
         $longitude = Session::get('user_longitude');
 
-        /** @var Builder<Client> $query */
-        return $query->when($latitude && $longitude, function (Builder $q) use ($latitude, $longitude): Builder {
-            $lat = is_numeric($latitude) ? (float) $latitude : 0.0;
-            $lng = is_numeric($longitude) ? (float) $longitude : 0.0;
+        if (! $latitude || ! $longitude) {
+            return $query;
+        }
 
-            /** @var Builder<Client> $q */
-            return $q->withDistance($lat, $lng)->orderByDistance($lat, $lng);
-        });
+        $lat = is_numeric($latitude) ? (float) $latitude : 0.0;
+        $lng = is_numeric($longitude) ? (float) $longitude : 0.0;
+
+        return $query->withDistance($lat, $lng);
     }
 }

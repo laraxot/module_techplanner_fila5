@@ -140,6 +140,7 @@ use Override;
  */
 class Worker extends BaseModel implements WorkerContract
 {
+    /** @use GeoTrait<Worker> */
     use GeoTrait;
 
     // protected $connection = 'customer'; // this will use the specified database conneciton
