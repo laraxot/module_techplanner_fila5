@@ -267,12 +267,12 @@ class ListClients extends XotBaseListRecords
         $latitude = Session::get('user_latitude');
         $longitude = Session::get('user_longitude');
 
-        if (! $latitude || ! $longitude) {
+        if (! is_numeric($latitude) || ! is_numeric($longitude)) {
             return $query;
         }
 
-        $lat = is_numeric($latitude) ? (float) $latitude : 0.0;
-        $lng = is_numeric($longitude) ? (float) $longitude : 0.0;
+        $lat = (float) $latitude;
+        $lng = (float) $longitude;
 
         return $query->withDistance($lat, $lng);
     }

@@ -208,7 +208,7 @@ Modules/TechPlanner/
 - [Homepage Fix Implementation](../../../../docs/homepage-fix-implementation.md)
 
 ### Module Documentation
-- [Contacts Column Implementation](./contacts-column-implementation-complete.md)
+- [Contacts Column Implementation](./filament/contacts-column-implementation-complete.md)
 
 ### Base Documentation
 - [Xot Module Structure](../../Xot/docs/structure.md)

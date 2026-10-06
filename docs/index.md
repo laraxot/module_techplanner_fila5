@@ -27,42 +27,42 @@ Per la conoscenza "second brain" orientata AI (frontmatter, tag, qmd) vedi [wiki
 
 ## Modelli e dati
 
-- [model-fillable-enum-pattern.md](model-fillable-enum-pattern.md) - pattern fillable con enum
-- [addressitemenum-migration-pattern.md](addressitemenum-migration-pattern.md) - pattern di migrazione per AddressItemEnum
-- [address-item-enum-integration.md](address-item-enum-integration.md) - integrazione AddressItemEnum nel modulo
-- [company-enum-integration.md](company-enum-integration.md) - guida integrazione CompanyEnum
-- [nestedset-migration-best-practices.md](nestedset-migration-best-practices.md) - best practice migrazioni NestedSet
+- [models/model-fillable-enum-pattern.md](models/model-fillable-enum-pattern.md) - pattern fillable con enum
+- [models/addressitemenum-migration-pattern.md](models/addressitemenum-migration-pattern.md) - pattern di migrazione per AddressItemEnum
+- [models/address-item-enum-integration.md](models/address-item-enum-integration.md) - integrazione AddressItemEnum nel modulo
+- [models/company-enum-integration.md](models/company-enum-integration.md) - guida integrazione CompanyEnum
+- [models/nestedset-migration-best-practices.md](models/nestedset-migration-best-practices.md) - best practice migrazioni NestedSet
 - [models/enums-in-fillable-best-practices.md](models/enums-in-fillable-best-practices.md) - approccio professionale enum in fillable
-- vedi "Storico / da consolidare" per `models/dynamic-fillable-enums.md` e `models/dynamic_fillable_enums.md`
+- vedi "Storico / da consolidare" per `models/dynamic-fillable-enums.md` e `models/dynamic-fillable-enums.md`
 
 ## Filament: resources e componenti UI
 
 - [filament-resources.md](filament-resources.md) - overview risorse Filament del modulo
 - [filament-resources/appointment-resource.md](filament-resources/appointment-resource.md) - dettaglio AppointmentResource
-- [relation-managers-setup.md](relation-managers-setup.md) - setup relation manager
+- [filament/relation-managers-setup.md](filament/relation-managers-setup.md) - setup relation manager
 - [filament/components/xotbasesection-errors.md](filament/components/xotbasesection-errors.md) - errori comuni XotBaseSection e soluzioni
-- [config-icon-key-analysis.md](config-icon-key-analysis.md) - analisi chiave `icon` mancante in config.php
-- [content-blocks.md](content-blocks.md) - gestione content block (Filament Builder)
+- [filament/config-icon-key-analysis.md](filament/config-icon-key-analysis.md) - analisi chiave `icon` mancante in config.php
+- [filament/content-blocks.md](filament/content-blocks.md) - gestione content block (Filament Builder)
 
 ### Compatibilità Filament (versioni)
 
 - [filament-5x-compatibility.md](filament-5x-compatibility.md)
-- [filament_4x_compatibility.md](filament_4x_compatibility.md)
+- [filament-4x-compatibility.md](filament-4x-compatibility.md)
 - [filament_v4_upgrade_notes.md](filament_v4_upgrade_notes.md)
 
 ### AddressSection / ContactColumn
 
-- [addresssection-implementation.md](addresssection-implementation.md)
+- [filament/addresssection-implementation.md](filament/addresssection-implementation.md)
 - [address-contact-columns-plan.md](address-contact-columns-plan.md) - piano
 - [address-contact-columns-implementation-complete.md](address-contact-columns-implementation-complete.md) - implementazione completata
-- [contacts-column-implementation.md](contacts-column-implementation.md) - implementazione colonna contatti
-- [contacts-column-implementation-complete.md](contacts-column-implementation-complete.md) - implementazione completata
-- [contacts-column-error-fix.md](contacts-column-error-fix.md) - fix errore colonna contatti
+- [filament/contacts-column-implementation.md](filament/contacts-column-implementation.md) - implementazione colonna contatti
+- [filament/contacts-column-implementation-complete.md](filament/contacts-column-implementation-complete.md) - implementazione completata
+- [filament/contacts-column-error-fix.md](filament/contacts-column-error-fix.md) - fix errore colonna contatti
 
 ### CompanySection
 
-- [company-section.md](company-section.md) - pattern campi aziendali riusabili
-- [companysection-implementation-complete.md](companysection-implementation-complete.md) - implementazione completata
+- [filament/company-section.md](filament/company-section.md) - pattern campi aziendali riusabili
+- [filament/companysection-implementation-complete.md](filament/companysection-implementation-complete.md) - implementazione completata
 
 ## Mappe e componenti Geo
 
@@ -70,7 +70,7 @@ Per la conoscenza "second brain" orientata AI (frontmatter, tag, qmd) vedi [wiki
 - [genera-mappa-manuale.md](genera-mappa-manuale.md) - generazione manuale mappa statica
 - [mappa-statica-contatti.md](mappa-statica-contatti.md) - mappa statica pagina contatti
 - [refactoring/client-coordinate-actions.md](refactoring/client-coordinate-actions.md) - refactor bulk action coordinate client
-- vedi "Storico / da consolidare" per `refactoring-update-coordinates.md`
+- vedi "Storico / da consolidare" per `refactoring/refactoring-update-coordinates.md`
 
 ## Refactoring
 
@@ -92,8 +92,8 @@ Per la conoscenza "second brain" orientata AI (frontmatter, tag, qmd) vedi [wiki
 
 ## Testing
 
-- [testing-guide.md](testing-guide.md) - guida ai test del modulo
-- [testing-rules.md](testing-rules.md) - riepilogo regole di test
+- [testing/testing-guide.md](testing/testing-guide.md) - guida ai test del modulo
+- [testing/testing-rules.md](testing/testing-rules.md) - riepilogo regole di test
 - [testing/pest-testing-guide.md](testing/pest-testing-guide.md) - guida Pest specifica
 
 ## Troubleshooting e fix puntuali
@@ -107,12 +107,12 @@ Per la conoscenza "second brain" orientata AI (frontmatter, tag, qmd) vedi [wiki
 
 - [gdpr-compliance-analysis.md](gdpr-compliance-analysis.md) - analisi e raccomandazioni GDPR
 - [client-notifications.md](client-notifications.md) - aggiornamenti gestione client/notifiche
-- [mail_template_translations.md](mail_template_translations.md) - traduzioni template email
+- [mail-template-translations.md](mail-template-translations.md) - traduzioni template email
 - [api-reference.md](api-reference.md) - riferimento API del modulo
 
 ## Roadmap collegate
 
-- [blog_replication.md](blog_replication.md) - roadmap replica pagina blog
+- [blog-replication.md](blog-replication.md) - roadmap replica pagina blog
 
 ## Second brain / wiki AI
 
@@ -134,14 +134,14 @@ Per la conoscenza "second brain" orientata AI (frontmatter, tag, qmd) vedi [wiki
 File non cancellati/rinominati (per policy) ma sovrapposti o superati da altri documenti in questa lista. Da rivedere in un task dedicato di consolidamento, non in questo audit.
 
 - [00-index.md](00-index.md) - vecchio indice del modulo, sostituito da questo `index.md`; mantenuto per storico
-- [FILOSOFIA_MODULO_TECHPLANNER.md](FILOSOFIA_MODULO_TECHPLANNER.md) vs [filosofia_modulo_techplanner.md](filosofia_modulo_techplanner.md) - stesso contenuto, la versione minuscola è più recente (include la sezione "profile e main_module"); la maiuscola andrebbe ritirata in un task di pulizia dedicato
-- [models/dynamic-fillable-enums.md](models/dynamic-fillable-enums.md) vs [models/dynamic_fillable_enums.md](models/dynamic_fillable_enums.md) - stesso argomento (fillable dinamico da enum), tagli diversi; da unificare
+- [filosofia_modulo_techplanner.md](filosofia_modulo_techplanner.md) - mantenuto; `FILOSOFIA_MODULO_TECHPLANNER.md` (duplicato) rimosso
+- [models/dynamic-fillable-enums.md](models/dynamic-fillable-enums.md) - mantenuto; `models/dynamic_fillable_enums.md` (versione obsoleta) rimosso
 - [code-quality-improvement-report.md](code-quality-improvement-report.md), [code-quality-report.md](code-quality-report.md), [quality-analysis-report.md](quality-analysis-report.md) - tre report di qualità del codice sovrapposti, snapshot in date diverse
 - [phpstan-compliance.md](phpstan-compliance.md), [phpstan-compliance-status.md](phpstan-compliance-status.md), [phpstan-level-10-compliance.md](phpstan-level-10-compliance.md), [phpstan-complete-fixes.md](phpstan-complete-fixes.md), [phpstan-fixes-implemented.md](phpstan-fixes-implemented.md), [phpstan-errors-analysis.md](phpstan-errors-analysis.md) - sei documenti PHPStan sovrapposti nel tempo; `phpstan-compliance-status.md` risulta l'aggiornamento più recente
-- [contacts-column-implementation.md](contacts-column-implementation.md), [contacts-column-implementation-complete.md](contacts-column-implementation-complete.md), [contacts-column-error-fix.md](contacts-column-error-fix.md) - sequenza piano/completamento/fix sulla stessa feature, sovrapposti
-- [refactoring-update-coordinates.md](refactoring-update-coordinates.md) vs [refactoring/client-coordinate-actions.md](refactoring/client-coordinate-actions.md) - stesso refactor (bulk update coordinate), documentato due volte
+- [filament/contacts-column-implementation.md](filament/contacts-column-implementation.md), [filament/contacts-column-implementation-complete.md](filament/contacts-column-implementation-complete.md), [filament/contacts-column-error-fix.md](filament/contacts-column-error-fix.md) - sequenza piano/completamento/fix sulla stessa feature, sovrapposti
+- [refactoring/refactoring-update-coordinates.md](refactoring/refactoring-update-coordinates.md) vs [refactoring/client-coordinate-actions.md](refactoring/client-coordinate-actions.md) - stesso refactor (bulk update coordinate), documentato due volte
 
 ## Note
 
-- Standard filename: minuscolo, trattini, niente date nel nome. `README.md` e `CHANGELOG.md` restano maiuscoli. `FILOSOFIA_MODULO_TECHPLANNER.md`, `00-index.md` e i file con `_` sono eccezioni storiche pre-esistenti, non toccate da questo audit.
+- Standard filename: minuscolo, trattini, niente date nel nome. `README.md` e `CHANGELOG.md` restano maiuscoli. `00-index.md` rimane come eccezione storica. I file con `_` sono stati normalizzati.
 - Non creare nuovi moduli/temi per la sola documentazione: le story BMAD di questo modulo vivono in `Modules/TechPlanner/docs/stories/`.

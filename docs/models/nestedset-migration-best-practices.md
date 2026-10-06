@@ -467,4 +467,4 @@ return new class extends XotBaseMigration
 
 - [Documentazione principale](/docs/migration/nestedset-best-practices.md)
 - [TechPlanner Module Architecture](/docs/architecture/techplanner-module.md)
-- [AddressItemEnum Integration](/docs/address-item-enum-integration.md)
+- [AddressItemEnum Integration](/docs/models/address-item-enum-integration.md)

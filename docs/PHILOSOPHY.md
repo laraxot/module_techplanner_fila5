@@ -8,7 +8,7 @@
 
 ## Preface: What This Document Is
 
-This document supersedes and synthesizes the prior `FILOSOFIA_MODULO_TECHPLANNER.md` and `philosophy-complete.md`. It preserves what worked, deepens what was shallow, and adds missing sections. This is a visionary, honest take on what TechPlanner is, why it matters, and how it should evolve.
+This document supersedes and synthesizes the prior `filosofia_modulo_techplanner.md` and `philosophy-complete.md`. It preserves what worked, deepens what was shallow, and adds missing sections. This is a visionary, honest take on what TechPlanner is, why it matters, and how it should evolve.
 
 ---
 
@@ -1257,7 +1257,7 @@ Simple. Transparent. Trustworthy. Compliance-first.
 - [models-and-relationships.md](./models-and-relationships.md) - Technical model reference
 - [filament-resources.md](./filament-resources.md) - UI component patterns
 - [README.md](./README.md) - Quick start and overview
-- [FILOSOFIA_MODULO_TECHPLANNER.md](./FILOSOFIA_MODULO_TECHPLANNER.md) - Original Italian philosophy doc
+- [filosofia_modulo_techplanner.md](./filosofia_modulo_techplanner.md) - Original Italian philosophy doc
 - [philosophy-complete.md](./philosophy-complete.md) - Prior complete philosophy version
 
 ---

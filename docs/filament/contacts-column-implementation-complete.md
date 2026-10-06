@@ -190,7 +190,7 @@ return empty($contacts)
 ## 🔗 Collegamenti Documentazione
 
 ### Documentazione Creata
-- ✅ [Implementazione Colonna Contatti - TechPlanner](./contacts-column-implementation.md)
+- ✅ [Implementazione Colonna Contatti - TechPlanner](./filament/contacts-column-implementation.md)
 - ✅ [Regola: Colonne Contatti in Filament](../../../.cursor/rules/filament-contacts-column-rules.md)
 - ✅ [Memoria: Analisi Colonna Contatti](../../../.cursor/memories/contacts-column-analysis.md)
 
