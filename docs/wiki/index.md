@@ -52,7 +52,7 @@ bashscripts/docs/llm-wiki-qmd.sh search "TechPlanner client" -c tp-mod-techplann
 
 ## Source layer (evidence)
 
-- [philosophy.md](../philosophy.md)
+- [philosophy.md](../concepts/philosophy.md)
 - [models-and-relationships.md](../models-and-relationships.md)
 - [filament-resources.md](../filament-resources.md)
 - [using-geo-components.md](../using-geo-components.md)

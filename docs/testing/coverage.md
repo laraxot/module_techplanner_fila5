@@ -37,7 +37,7 @@ Generated: 2026-09-06
 
 | Issue Type | Count | Files | Severity |
 |---|---|---|---|
-| UnusedLocalVariable | 2 | ImportAccessDataCommand.php | Low |
+| UnusedLocalVariable | 2 (risolti 2026-10-06) | ImportAccessDataCommand.php | Low |
 | IfStatementAssignment | 3 | ClientImporter, DeviceImporter, MedicalDirectorImporter | Medium |
 | CyclomaticComplexity | 1 | Client.php (getContactsHtmlAttribute) | Medium |
 | NPathComplexity | 1 | Client.php (getContactsHtmlAttribute) | Medium |
@@ -61,10 +61,9 @@ Generated: 2026-09-06
 
 #### Low Priority (Low Severity)
 
-3. **UnusedLocalVariable** (2 instances)
-   - `$clientiRows` in ImportAccessDataCommand.php:43
-   - `$apparecchiRows` in ImportAccessDataCommand.php:67
-   - Action: Remove if truly unused or use variable
+3. **UnusedLocalVariable** (2 instances) — risolto 2026-10-06
+   - `$clientiRows` e `$apparecchiRows` in ImportAccessDataCommand.php: non erano codice morto ma il risultato dell'export `mdb-export` il cui import (mappatura Access -> `Client`/`Device`) non e' mai stato scritto. Ora le righe sono usate (conteggio per tabella) e il comando avvisa che nessun record viene scritto.
+   - Decisione aperta: completare l'import o ritirare il comando (vedi `stories/2026-10-06-phpstan-cleanup-techplanner.story.md`).
 
 4. **UnusedFormalParameter** (2+ instances)
    - `$id` in Worker.php:243
