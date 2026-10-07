@@ -16,7 +16,7 @@ related:
   - ../entities/client.md
   - ../entities/device.md
   - ../entities/appointment.md
-  - ../../philosophy.md
+  - ../../concepts/philosophy.md
   - ../../models-and-relationships.md
   - ../../../../../../docs/wiki/rules/wiki-markdown-frontmatter-mandatory.md
   - ../../../../../../docs/wiki/memories/frontmatter-github-links-mandatory-standing.md
@@ -74,7 +74,7 @@ Tutto ruota attorno all'anagrafica cliente: coordinate Geo, PEC, assegnazione wo
 - **Religione**: pianificazione e tracciabilità come prerequisito operativo
 - **Zen**: progresso trasparente in Filament, dipendenze esplicite tra entità
 
-Fonte estesa: [philosophy.md](../../philosophy.md)
+Fonte estesa: [philosophy.md](../../concepts/philosophy.md)
 
 ## Anti-pattern
 

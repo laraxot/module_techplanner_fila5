@@ -13,8 +13,8 @@ Per la conoscenza "second brain" orientata AI (frontmatter, tag, qmd) vedi [wiki
 
 ## Filosofia e principi
 
-- [philosophy.md](philosophy.md) - purpose e design principles del modulo
-- [philosophy-complete.md](philosophy-complete.md) - filosofia estesa (logica, religione, politica, zen)
+- [philosophy.md](concepts/philosophy.md) - purpose e design principles del modulo
+- [philosophy-complete.md](concepts/philosophy-complete.md) - filosofia estesa (logica, religione, politica, zen)
 - [companysection-philosophy.md](companysection-philosophy.md) - filosofia del componente CompanySection
 - vedi anche "Storico / da consolidare" per le due varianti di `filosofia_modulo_techplanner`
 

@@ -62,8 +62,8 @@
 
 ### 🧠 Philosophy & Patterns
 - [filosofia_modulo_techplanner.md](./filosofia_modulo_techplanner.md) - **Filosofia completa: Logica, Religione, Politica, Zen**
-- [philosophy-complete.md](./philosophy-complete.md) - Filosofia alternativa (Logica, Religione, Politica, Zen)
-- [philosophy.md](./philosophy.md) - Philosophy con focus MCP integration
+- [philosophy-complete.md](./concepts/philosophy-complete.md) - Filosofia alternativa (Logica, Religione, Politica, Zen)
+- [philosophy.md](./concepts/philosophy.md) - Philosophy con focus MCP integration
 - [companysection-philosophy.md](./companysection-philosophy.md) - Filosofia CompanySection
 - [address-contact-columns-plan.md](./address-contact-columns-plan.md) - Piano colonne address/contact
 - [filament/company-section.md](./filament/company-section.md) - Company section pattern
@@ -95,3 +95,7 @@
 ---
 
 *Documentazione conforme agli standard Laraxot - DRY + KISS + SOLID*
+
+## Stories PHPStan
+
+- [2026-10-06 PHPStan cleanup — TechPlanner](./stories/2026-10-06-phpstan-cleanup-techplanner.story.md) · [dev](./stories/2026-10-06-phpstan-cleanup-techplanner.dev.md)

@@ -33,7 +33,7 @@ class ImportAccessDataCommand extends Command
             // Import Clienti
             $this->info('Importing Clienti...');
             try {
-                $clientiOutput = shell_exec("mdb-export '{$mdbPath}' Clienti");
+                $clientiOutput = shell_exec('mdb-export '.escapeshellarg($mdbPath).' Clienti');
             } catch (Exception $e) {
                 $this->error('Failed to export Clienti table');
 
@@ -41,6 +41,7 @@ class ImportAccessDataCommand extends Command
             }
 
             $clientiRows = array_filter(explode("\n", $clientiOutput ?? ''));
+            $this->info(count($clientiRows).' Clienti rows read (header included)');
 
             // foreach ($clientiRows as $row) {
             //     $data = str_getcsv($row);
@@ -57,7 +58,7 @@ class ImportAccessDataCommand extends Command
             // Import Apparecchi
             $this->info('Importing Apparecchi...');
             try {
-                $apparecchiOutput = shell_exec("mdb-export '{$mdbPath}' Apparecchi");
+                $apparecchiOutput = shell_exec('mdb-export '.escapeshellarg($mdbPath).' Apparecchi');
             } catch (Exception $e) {
                 $this->error('Failed to export Apparecchi table');
 
@@ -65,6 +66,7 @@ class ImportAccessDataCommand extends Command
             }
 
             $apparecchiRows = array_filter(explode("\n", $apparecchiOutput ?? ''));
+            $this->info(count($apparecchiRows).' Apparecchi rows read (header included)');
 
             // foreach ($apparecchiRows as $row) {
             //     $data = str_getcsv($row);
@@ -80,7 +82,9 @@ class ImportAccessDataCommand extends Command
 
             // Continue with other tables...
 
-            $this->info('Import completed successfully!');
+            // La mappatura Access -> Client/Device non e' ancora implementata (le righe sopra sono solo lette):
+            // non dichiariamo un import riuscito se nessun record e' stato scritto.
+            $this->warn('Export completed, but the Access -> Client/Device mapping is not implemented yet: no record was written.');
 
             return 0;
         } catch (Exception $e) {
