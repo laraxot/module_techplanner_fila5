@@ -40,7 +40,11 @@ bashscripts/docs/llm-wiki-qmd.sh search "TechPlanner <topic>" -c tp-mod-techplan
 |------|-------|
 | Dominio | [techplanner-business-domain.md](./techplanner-business-domain.md) |
 | Modelli | [entities/](../entities/INDEX.md) |
+<<<<<<< HEAD
 | Enum fillable | `docs/models/model-fillable-enum-pattern.md` |
+=======
+| Enum fillable | `docs/model-fillable-enum-pattern.md` |
+>>>>>>> b7e5f18 (.)
 | Geo / mappa | `docs/using-geo-components.md` |
 | Filament | `docs/filament-resources.md` |
 | PHP post-edit | PHPStan L10 su `laravel/Modules/TechPlanner/` |

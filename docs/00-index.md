@@ -12,19 +12,30 @@
 3. [models-and-relationships.md](./models-and-relationships.md) - Struttura dati
 
 ### 🏗️ Architecture & Patterns
+<<<<<<< HEAD
 - [models/model-fillable-enum-pattern.md](./models/model-fillable-enum-pattern.md) - Pattern fillable con enum
 - [models/addressitemenum-migration-pattern.md](./models/addressitemenum-migration-pattern.md) - Pattern migrazioni
 - [models/nestedset-migration-best-practices.md](./models/nestedset-migration-best-practices.md) - Best practices NestedSet
+=======
+- [model-fillable-enum-pattern.md](./model-fillable-enum-pattern.md) - Pattern fillable con enum
+- [addressitemenum-migration-pattern.md](./addressitemenum-migration-pattern.md) - Pattern migrazioni
+- [nestedset-migration-best-practices.md](./nestedset-migration-best-practices.md) - Best practices NestedSet
+>>>>>>> b7e5f18 (.)
 
 ### 🎨 Filament Resources
 - [filament-resources.md](./filament-resources.md) - Risorse Filament overview
 - [filament_v4_upgrade_notes.md](./filament_v4_upgrade_notes.md) - Note upgrade v4
+<<<<<<< HEAD
 - [filament-4x-compatibility.md](./filament-4x-compatibility.md) - Compatibilità v4
+=======
+- [filament_4x_compatibility.md](./filament_4x_compatibility.md) - Compatibilità v4
+>>>>>>> b7e5f18 (.)
 - [filament/](./filament/) - Directory risorse Filament
 - [filament-resources/](./filament-resources/) - Directory resources dettagliate
 
 ### 🔧 Implementation Guides
 - [address-contact-columns-implementation-complete.md](./address-contact-columns-implementation-complete.md)
+<<<<<<< HEAD
 - [filament/addresssection-implementation.md](./filament/addresssection-implementation.md)
 - [filament/companysection-implementation-complete.md](./filament/companysection-implementation-complete.md)
 - [filament/contacts-column-implementation-complete.md](./filament/contacts-column-implementation-complete.md)
@@ -32,12 +43,25 @@
 ### 🧩 Component Integration
 - [models/address-item-enum-integration.md](./models/address-item-enum-integration.md)
 - [models/company-enum-integration.md](./models/company-enum-integration.md)
+=======
+- [addresssection-implementation.md](./addresssection-implementation.md)
+- [companysection-implementation-complete.md](./companysection-implementation-complete.md)
+- [contacts-column-implementation-complete.md](./contacts-column-implementation-complete.md)
+
+### 🧩 Component Integration
+- [address-item-enum-integration.md](./address-item-enum-integration.md)
+- [company-enum-integration.md](./company-enum-integration.md)
+>>>>>>> b7e5f18 (.)
 - [using-geo-components.md](./using-geo-components.md)
 
 ### 🐛 Troubleshooting & Fixes
 - [troubleshooting.md](./troubleshooting.md)
 - [homepage-issues-analysis.md](./homepage-issues-analysis.md)
+<<<<<<< HEAD
 - [filament/contacts-column-error-fix.md](./filament/contacts-column-error-fix.md)
+=======
+- [contacts-column-error-fix.md](./contacts-column-error-fix.md)
+>>>>>>> b7e5f18 (.)
 
 ### 📊 Code Quality
 - [phpstan-complete-fixes-2025.md](./phpstan-complete-fixes-2025.md)
@@ -47,7 +71,11 @@
 - [dry-kiss-improvements.md](./dry-kiss-improvements.md)
 
 ### 🔬 Testing
+<<<<<<< HEAD
 - [testing/testing-guide.md](./testing/testing-guide.md)
+=======
+- [testing-guide.md](./testing-guide.md)
+>>>>>>> b7e5f18 (.)
 - [testing/](./testing/) - Directory test documentation
 
 ### ♻️ Refactoring
@@ -61,12 +89,21 @@
 - [api-reference.md](./api-reference.md) - API reference
 
 ### 🧠 Philosophy & Patterns
+<<<<<<< HEAD
 - [filosofia_modulo_techplanner.md](./filosofia_modulo_techplanner.md) - **Filosofia completa: Logica, Religione, Politica, Zen**
 - [philosophy-complete.md](./concepts/philosophy-complete.md) - Filosofia alternativa (Logica, Religione, Politica, Zen)
 - [philosophy.md](./concepts/philosophy.md) - Philosophy con focus MCP integration
 - [companysection-philosophy.md](./companysection-philosophy.md) - Filosofia CompanySection
 - [address-contact-columns-plan.md](./address-contact-columns-plan.md) - Piano colonne address/contact
 - [filament/company-section.md](./filament/company-section.md) - Company section pattern
+=======
+- [FILOSOFIA_MODULO_TECHPLANNER.md](./FILOSOFIA_MODULO_TECHPLANNER.md) - **Filosofia completa: Logica, Religione, Politica, Zen**
+- [philosophy-complete.md](./philosophy-complete.md) - Filosofia alternativa (Logica, Religione, Politica, Zen)
+- [philosophy.md](./philosophy.md) - Philosophy con focus MCP integration
+- [companysection-philosophy.md](./companysection-philosophy.md) - Filosofia CompanySection
+- [address-contact-columns-plan.md](./address-contact-columns-plan.md) - Piano colonne address/contact
+- [company-section.md](./company-section.md) - Company section pattern
+>>>>>>> b7e5f18 (.)
 
 ### 🎖️ Optimization
 - [memory-optimization-summary.md](./memory-optimization-summary.md)
@@ -94,8 +131,12 @@
 
 ---
 
+<<<<<<< HEAD
 *Documentazione conforme agli standard Laraxot - DRY + KISS + SOLID*
 
 ## Stories PHPStan
 
 - [2026-10-06 PHPStan cleanup — TechPlanner](./stories/2026-10-06-phpstan-cleanup-techplanner.story.md) · [dev](./stories/2026-10-06-phpstan-cleanup-techplanner.dev.md)
+=======
+*Documentazione conforme agli standard Laraxot - DRY + KISS + SOLID*
+>>>>>>> b7e5f18 (.)

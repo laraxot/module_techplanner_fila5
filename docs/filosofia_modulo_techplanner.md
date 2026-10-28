@@ -520,9 +520,15 @@ Il modulo TechPlanner rappresenta un **dominio business complesso** gestito con 
 
 ### Pattern e Best Practices
 - [using-geo-components.md](./using-geo-components.md) - Integrazione Geo module
+<<<<<<< HEAD
 - [models/company-enum-integration.md](./models/company-enum-integration.md) - Pattern Enum-driven
 - [models/address-item-enum-integration.md](./models/address-item-enum-integration.md) - AddressItemEnum pattern
 - [models/model-fillable-enum-pattern.md](./models/model-fillable-enum-pattern.md) - Fillable con enum
+=======
+- [company-enum-integration.md](./company-enum-integration.md) - Pattern Enum-driven
+- [address-item-enum-integration.md](./address-item-enum-integration.md) - AddressItemEnum pattern
+- [model-fillable-enum-pattern.md](./model-fillable-enum-pattern.md) - Fillable con enum
+>>>>>>> b7e5f18 (.)
 - [dry-kiss-improvements.md](./dry-kiss-improvements.md) - Miglioramenti DRY + KISS
 
 ### Troubleshooting

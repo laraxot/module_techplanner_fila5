@@ -16,7 +16,11 @@ related:
   - ../entities/client.md
   - ../entities/device.md
   - ../entities/appointment.md
+<<<<<<< HEAD
   - ../../concepts/philosophy.md
+=======
+  - ../../philosophy.md
+>>>>>>> b7e5f18 (.)
   - ../../models-and-relationships.md
   - ../../../../../../docs/wiki/rules/wiki-markdown-frontmatter-mandatory.md
   - ../../../../../../docs/wiki/memories/frontmatter-github-links-mandatory-standing.md
@@ -63,7 +67,11 @@ Tutto ruota attorno all'anagrafica cliente: coordinate Geo, PEC, assegnazione wo
 ## Regole architetturali (modulo)
 
 - **XotBase** su Resource, RelationManager, Widget — mai Filament diretto
+<<<<<<< HEAD
 - **Enum in fillable** — pattern documentato in `docs/models/model-fillable-enum-pattern.md`
+=======
+- **Enum in fillable** — pattern documentato in `docs/model-fillable-enum-pattern.md`
+>>>>>>> b7e5f18 (.)
 - **Geo** — coordinate e mappe via modulo Geo, non duplicare logica mappa
 - **Profile** — se dipende da `main_module`, migration in TechPlanner non in User
 - **Actions** — logica coordinate/refactor in Actions, non Services
@@ -74,7 +82,11 @@ Tutto ruota attorno all'anagrafica cliente: coordinate Geo, PEC, assegnazione wo
 - **Religione**: pianificazione e tracciabilità come prerequisito operativo
 - **Zen**: progresso trasparente in Filament, dipendenze esplicite tra entità
 
+<<<<<<< HEAD
 Fonte estesa: [philosophy.md](../../concepts/philosophy.md)
+=======
+Fonte estesa: [philosophy.md](../../philosophy.md)
+>>>>>>> b7e5f18 (.)
 
 ## Anti-pattern
 
