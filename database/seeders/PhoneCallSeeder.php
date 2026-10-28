@@ -14,6 +14,6 @@ class PhoneCallSeeder extends Seeder
         // PhoneCall::factory(50)->create();
 
         // Placeholder per il seeder
-        $this->command->info('PhoneCall seeder completed (factory disabled)');
+        $this->command?->info('PhoneCall seeder completed (factory disabled)');
     }
 }

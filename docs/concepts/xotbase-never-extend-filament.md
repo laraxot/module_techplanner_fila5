@@ -1,5 +1,5 @@
 ---
-title: "TechPlanner — mai Filament\*, sempre XotBase*"
+title: "TechPlanner — mai Filament*, sempre XotBase*"
 type: concept
 module: TechPlanner
 tags: [techplanner, filament, xotbase, architecture]

@@ -98,8 +98,4 @@
 
 ## Stories PHPStan
 
-<<<<<<< .merge_file_6IpEIN
-- [2026-10-06 PHPStan cleanup — TechPlanner](./stories/2026-10-06-phpstan-cleanup-techplanner.story.md) · [dev](./stories/2026-10-06-phpstan-cleanup-techplanner.dev.md)
-=======
 - [2026-10-06 PHPStan cleanup — TechPlanner](./stories/phpstan-cleanup-techplanner.story.md) · [dev](./stories/phpstan-cleanup-techplanner.dev.md)
->>>>>>> .merge_file_Q9kjp1
