@@ -2,7 +2,7 @@
 title: "[DEV] PHPStan cleanup — TechPlanner"
 type: dev
 module: TechPlanner
-story: "./2026-10-06-phpstan-cleanup-techplanner.story.md"
+story: "./phpstan-cleanup-techplanner.story.md"
 status: done
 created: 2026-10-06
 updated: 2026-10-06

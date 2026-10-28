@@ -45,4 +45,4 @@ Esistono gia' `app/Filament/Imports/ClientImporter.php` e `DeviceImporter.php` (
 - Issue: TODO (gh non installato su questa macchina)
 - Discussion: TODO
 
-Dev story: [2026-10-06-phpstan-cleanup-techplanner.dev.md](./2026-10-06-phpstan-cleanup-techplanner.dev.md)
+Dev story: [phpstan-cleanup-techplanner.dev.md](./phpstan-cleanup-techplanner.dev.md)
