@@ -144,4 +144,8 @@ File non cancellati/rinominati (per policy) ma sovrapposti o superati da altri d
 ## Note
 
 - Standard filename: minuscolo, trattini, niente date nel nome. `README.md` e `CHANGELOG.md` restano maiuscoli. `00-index.md` rimane come eccezione storica. I file con `_` sono stati normalizzati.
+<<<<<<< .merge_file_naTTzP
 - Non creare nuovi moduli/temi per la sola documentazione: le story BMAD di questo modulo vivono in `Modules/TechPlanner/docs/stories/`.
+=======
+- Non creare nuovi moduli/temi per la sola documentazione: le story BMAD di questo modulo vivono in `Modules/TechPlanner/docs/stories/`.
+>>>>>>> .merge_file_Yz7gYU
