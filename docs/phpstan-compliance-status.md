@@ -58,4 +58,4 @@ La causa radice descritta sopra (`TestCase` che estende direttamente `Illuminate
 4. **`tests/TestCase.php`**: chiamava `$this->loadLaravelMigrations()`, metodo del trait `RefreshDatabase` mai incluso nella classe — rimosso (il bootstrap condiviso via `Modules\Xot\Tests\CreatesApplication` gestisce già le migrazioni).
 5. **`tests/Unit/Models/BaseModelTest.php`**: usava `$this->baseModel` (proprietà dinamica non tipizzabile) — riscritto con una funzione helper locale.
 
-Ri-verificato con `phpstan analyse Modules/TechPlanner --memory-limit=-1`: **0 errori**, confermato con cache pulita. Test: 5/5 passano (`php artisan test Modules/TechPlanner`). Dettagli completi: `docs/chat/phpstan-modules-progress-2026-07-06-pm.md` (root del repo).
+Ri-verificato con `phpstan analyse Modules/TechPlanner --memory-limit=-1`: **0 errori**, confermato con cache pulita. Test: 5/5 passano (`php artisan test Modules/TechPlanner`). Dettagli completi: `docs/chat/phpstan-modules-progress-pm.md` (root del repo).
