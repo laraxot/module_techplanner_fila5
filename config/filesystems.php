@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'default' => env('FILESYSTEM_DRIVER', 'local'),
+    'default' => Illuminate\Support\Env::get('FILESYSTEM_DRIVER', 'local'),
 
     /*
     |--------------------------------------------------------------------------
@@ -27,7 +27,7 @@ return [
     |
     */
 
-    'cloud' => env('FILESYSTEM_CLOUD', 's3'),
+    'cloud' => Illuminate\Support\Env::get('FILESYSTEM_CLOUD', 's3'),
 
     /*
     |--------------------------------------------------------------------------
@@ -51,7 +51,7 @@ return [
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),
-            'url' => env('APP_URL').'/storage',
+            'url' => url('/storage'),
             'visibility' => 'public',
         ],
         'public_html' => [
@@ -94,23 +94,16 @@ return [
             'driver' => 'local',
             // 'root' => storage_path('app/public'),
             'root' => base_path('../cache'),
-            // 'url' => env('APP_URL').'/storage',
-            //'root' => storage_path('app/public'),
-            'root' => base_path('../cache'),
-            //'url' => env('APP_URL').'/storage',
-            // 'root' => storage_path('app/public'),
-            'root' => base_path('../cache'),
-            // 'url' => env('APP_URL').'/storage',
             'visibility' => 'public',
         ],
 
         's3' => [
             'driver' => 's3',
-            'key' => env('AWS_ACCESS_KEY_ID'),
-            'secret' => env('AWS_SECRET_ACCESS_KEY'),
-            'region' => env('AWS_DEFAULT_REGION'),
-            'bucket' => env('AWS_BUCKET'),
-            'url' => env('AWS_URL'),
+            'key' => Illuminate\Support\Env::get('AWS_ACCESS_KEY_ID'),
+            'secret' => Illuminate\Support\Env::get('AWS_SECRET_ACCESS_KEY'),
+            'region' => Illuminate\Support\Env::get('AWS_DEFAULT_REGION'),
+            'bucket' => Illuminate\Support\Env::get('AWS_BUCKET'),
+            'url' => Illuminate\Support\Env::get('AWS_URL'),
         ],
 
         'dropbox' => [

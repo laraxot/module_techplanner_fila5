@@ -5,9 +5,9 @@ declare(strict_types=1);
 return [
     'limesurvey' => [
         'api' => [
-            'url' => env('LIMESURVEY_URL', ''),
-            'username' => env('LIMESURVEY_USERNAME', ''),
-            'password' => env('LIMESURVEY_PASSWORD', ''),
+            'url' => Illuminate\Support\Env::get('LIMESURVEY_URL', ''),
+            'username' => Illuminate\Support\Env::get('LIMESURVEY_USERNAME', ''),
+            'password' => Illuminate\Support\Env::get('LIMESURVEY_PASSWORD', ''),
         ],
     ],
 ];

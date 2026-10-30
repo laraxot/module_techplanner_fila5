@@ -5,7 +5,7 @@ return [
     /*
      * If set to false, no activities will be saved to the database.
      */
-    'enabled' => env('ACTIVITY_LOGGER_ENABLED', true),
+    'enabled' => Illuminate\Support\Env::get('ACTIVITY_LOGGER_ENABLED', true),
 
     /*
      * When the clean-command is executed, all recording activities older than
@@ -48,5 +48,5 @@ return [
      * the Activity model shipped with this package. In case it's not set
      * Laravel's database.default will be used instead.
      */
-    'database_connection' => env('ACTIVITY_LOGGER_DB_CONNECTION'),
+    'database_connection' => Illuminate\Support\Env::get('ACTIVITY_LOGGER_DB_CONNECTION'),
 ];

@@ -8,8 +8,6 @@ return [
     'main_module' => 'TechPlanner',
     'primary_lang' => 'it',
     'pub_theme' => 'Two',
-    'pub_theme' => 'Sixteen',
-    'pub_theme' => 'Two',
     'search_action' => 'it/videos',
     'show_trans_key' => false,
     'disable_admin_dynamic_route' => true,
