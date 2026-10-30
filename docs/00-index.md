@@ -96,6 +96,10 @@
 
 *Documentazione conforme agli standard Laraxot - DRY + KISS + SOLID*
 
+## Stories UX
+
+- [UX mobile](./stories/mobile-ux-pass.story.md) - tabelle a card corte, durata chiamata numerica, cliente per nome nei dispositivi
+
 ## Stories PHPStan
 
 - [2026-10-06 PHPStan cleanup — TechPlanner](./stories/phpstan-cleanup-techplanner.story.md) · [dev](./stories/phpstan-cleanup-techplanner.dev.md)

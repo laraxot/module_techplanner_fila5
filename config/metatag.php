@@ -1,0 +1,36 @@
+<?php
+
+declare(strict_types=1);
+
+return [
+    'author' => '',
+    'charset' => 'UTF-8',
+    'color_banner' => '#000',
+    'color_hamburger' => '#000',
+    'color_megamenu' => '#d60021',
+    'color_primary' => '#0071b0',
+    'color_title' => 'white',
+    'description' => '',
+    'facebook_href' => 'aa',
+    'fastlink' => false,
+    'favicon' => 'xot::img/favicon.ico',
+    'generator' => '',
+    'hero_type' => 'with_megamenu_bottom',
+    'hide_megamenu' => false,
+    'keywords' => '',
+    'logo_alt' => 'Sottana Service',
+    'logo_footer_img' => '/img/sottana.com/logo.svg',
+    'logo_header' => '/img/sottana.com/logo.svg',
+    'logo_header_dark' => '/img/sottana.com/logo-dark.svg',
+    'logo_img' => '/img/sottana.com/logo.svg',
+    'logo_square' => '/img/sottana.com/logo.svg',
+    'nome_comune' => '',
+    'nome_regione' => '',
+    'site_title' => '',
+    'sitename' => 'Sottana',
+    'sottotitolo_comune' => '',
+    'subtitle' => 'Find Solutions',
+    'title' => 'Sottana',
+    'twitter_href' => '',
+    'youtube_href' => '',
+];

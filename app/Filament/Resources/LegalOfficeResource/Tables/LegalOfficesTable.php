@@ -6,6 +6,7 @@ namespace Modules\TechPlanner\Filament\Resources\LegalOfficeResource\Tables;
 
 use Filament\Tables\Columns\Column;
 use Filament\Tables\Columns\TextColumn;
+use Modules\UI\Filament\Tables\Columns\IDColumn;
 use Modules\Xot\Filament\Resources\Tables\XotBaseResourceTable;
 
 class LegalOfficesTable extends XotBaseResourceTable
@@ -16,15 +17,16 @@ class LegalOfficesTable extends XotBaseResourceTable
     public function getTableColumns(): array
     {
         return [
-            'id' => TextColumn::make('id')->searchable()->sortable(),
+            // Telefono: card con una riga per colonna; id e date di sistema nascosti di default, provincia/paese da `md`.
+            'id' => IDColumn::make('id')->toggleable(isToggledHiddenByDefault: true),
             'name' => TextColumn::make('name')->searchable()->sortable(),
             'city' => TextColumn::make('city')->searchable()->sortable(),
-            'province' => TextColumn::make('province')->searchable(),
-            'country' => TextColumn::make('country')->searchable(),
+            'province' => TextColumn::make('province')->searchable()->visibleFrom('md'),
+            'country' => TextColumn::make('country')->searchable()->visibleFrom('md'),
             'phone' => TextColumn::make('phone')->searchable(),
             'email' => TextColumn::make('email')->searchable(),
-            'created_at' => TextColumn::make('created_at')->dateTime()->sortable(),
-            'updated_at' => TextColumn::make('updated_at')->dateTime()->sortable(),
+            'created_at' => TextColumn::make('created_at')->dateTime()->sortable()->toggleable(isToggledHiddenByDefault: true),
+            'updated_at' => TextColumn::make('updated_at')->dateTime()->sortable()->toggleable(isToggledHiddenByDefault: true),
         ];
     }
 }

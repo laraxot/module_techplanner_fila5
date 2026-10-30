@@ -39,6 +39,9 @@ return [
                 'label' => 'Client Name',
             ],
         ],
+        'client_id' => [
+            'label' => 'Client',
+        ],
         'toggleColumns' => [
             'label' => 'toggleColumns',
         ],

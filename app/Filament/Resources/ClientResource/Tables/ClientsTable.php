@@ -26,10 +26,13 @@ class ClientsTable extends XotBaseResourceTable
             'longitude' => TextColumn::make('longitude')->sortable()->toggleable(isToggledHiddenByDefault: true),
             'latitude' => TextColumn::make('latitude')->sortable()->toggleable(isToggledHiddenByDefault: true),
             'business_closed' => TextColumn::make('business_closed')->toggleable(isToggledHiddenByDefault: true),
+            // Telefono: la card ha una riga per colonna. Di un cliente servono nome, distanza, indirizzo e contatti
+            // (chiamare/navigare); l'attivita' merceologica compare da `md`.
             'activity' => TextColumn::make('activity')
                 ->searchable()
                 ->sortable()
-                ->wrap(),
+                ->wrap()
+                ->visibleFrom('md'),
             'company_name' => TextColumn::make('company_name')
                 ->searchable()
                 ->sortable()

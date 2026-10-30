@@ -21,7 +21,8 @@ class PhoneCallForm extends XotBaseResourceForm
     {
         return [
             'date' => DateTimePicker::make('date'),
-            'duration' => TextInput::make('duration'),
+            // Secondi (colonna integer): tastierino numerico su telefono e niente "3 min" che romperebbe il salvataggio.
+            'duration' => TextInput::make('duration')->integer()->minValue(0),
             'notes' => Textarea::make('notes'),
             'call_type' => Select::make('call_type')->options(PhoneCallEnum::class),
         ];

@@ -128,6 +128,8 @@ Per la conoscenza "second brain" orientata AI (frontmatter, tag, qmd) vedi [wiki
 ## BMAD
 
 - [stories/docs-index-audit.story.md](stories/docs-index-audit.story.md) - story dell'audit che ha prodotto questo indice
+- [stories/mobile-ux-pass.story.md](stories/mobile-ux-pass.story.md) - UX da telefono: tabelle a card corte, durata chiamata numerica, cliente per nome nei dispositivi
+- [stories/blade-i18n-no-hardcoded-text.story.md](stories/blade-i18n-no-hardcoded-text.story.md) - niente testi fissi nelle Blade: chiavi `techplanner::` in it, en, de, es, numeri e residui
 
 ## Storico / da consolidare
 

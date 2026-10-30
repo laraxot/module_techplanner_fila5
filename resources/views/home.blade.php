@@ -9,50 +9,49 @@ declare(strict_types=1);
 <div class="container mx-auto px-4 py-8">
     <header class="text-center mb-12">
         <h1 class="text-4xl font-bold text-gray-800 mb-4">{{ $title ?? 'TechPlanner' }}</h1>
-        <p class="text-xl text-gray-600 max-w-2xl mx-auto">{{ $description ?? 'Sistema completo per la gestione di progetti tecnologici' }}</p>
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto">{{ $description ?? __('techplanner::home.sections.subtitle.description') }}</p>
     </header>
 
     <div class="grid md:grid-cols-3 gap-8 mb-12">
         <div class="bg-white rounded-lg shadow-md p-6 text-center">
             <div class="text-3xl mb-4">🚀</div>
-            <h3 class="text-xl font-semibold mb-2">Progetti</h3>
-            <p class="text-gray-600 mb-4">Gestisci i tuoi progetti tecnologici in modo efficiente</p>
+            <h3 class="text-xl font-semibold mb-2">{{ __('techplanner::home.cards.projects.title') }}</h3>
+            <p class="text-gray-600 mb-4">{{ __('techplanner::home.cards.projects.description') }}</p>
             <a href="{{ route('techplanner.projects') }}" class="inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition">
-                Visualizza Progetti
+                {{ __('techplanner::home.cards.projects.cta') }}
             </a>
         </div>
 
         <div class="bg-white rounded-lg shadow-md p-6 text-center">
             <div class="text-3xl mb-4">👥</div>
-            <h3 class="text-xl font-semibold mb-2">Contatti</h3>
-            <p class="text-gray-600 mb-4">Organizza e gestisci i tuoi contatti business</p>
+            <h3 class="text-xl font-semibold mb-2">{{ __('techplanner::home.cards.contacts.title') }}</h3>
+            <p class="text-gray-600 mb-4">{{ __('techplanner::home.cards.contacts.description') }}</p>
             <a href="{{ route('techplanner.contacts') }}" class="inline-block bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition">
-                Gestisci Contatti
+                {{ __('techplanner::home.cards.contacts.cta') }}
             </a>
         </div>
 
         <div class="bg-white rounded-lg shadow-md p-6 text-center">
             <div class="text-3xl mb-4">📊</div>
-            <h3 class="text-xl font-semibold mb-2">Dashboard</h3>
-            <p class="text-gray-600 mb-4">Monitora le performance dei tuoi progetti</p>
+            <h3 class="text-xl font-semibold mb-2">{{ __('techplanner::home.cards.dashboard.title') }}</h3>
+            <p class="text-gray-600 mb-4">{{ __('techplanner::home.cards.dashboard.description') }}</p>
             <a href="{{ route('techplanner.dashboard') }}" class="inline-block bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-600 transition">
-                Vai alla Dashboard
+                {{ __('techplanner::home.cards.dashboard.cta') }}
             </a>
         </div>
     </div>
 
     <div class="bg-gray-50 rounded-lg p-8 text-center">
-        <h2 class="text-2xl font-bold text-gray-800 mb-4">Benvenuto in TechPlanner</h2>
+        <h2 class="text-2xl font-bold text-gray-800 mb-4">{{ __('techplanner::home.sections.welcome.title') }}</h2>
         <p class="text-gray-600 mb-6">
-            La piattaforma completa per gestire progetti tecnologici, contatti business e monitorare le performance.
-            Inizia subito ad organizzare il tuo lavoro in modo più efficiente.
+            {{ __('techplanner::home.sections.welcome.description') }}
         </p>
         <div class="space-x-4">
             <a href="{{ route('techplanner.projects') }}" class="inline-block bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600 transition">
-                Crea Nuovo Progetto
+                {{ __('techplanner::home.welcome.create_project.label') }}
             </a>
             <a href="{{ route('techplanner.dashboard') }}" class="inline-block bg-gray-500 text-white px-6 py-3 rounded-lg hover:bg-gray-600 transition">
-                Esplora Dashboard
+                {{ __('techplanner::home.welcome.explore_dashboard.label') }}
             </a>
         </div>
     </div>
