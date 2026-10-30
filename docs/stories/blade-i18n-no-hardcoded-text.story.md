@@ -51,3 +51,11 @@ Metodo e regola completa: [story del tema Two](../../../../Themes/Two/docs/stori
 ## Seguito: forma delle chiavi
 
 Le chiavi a 2-3 segmenti create da questa campagna sono state in parte portate a `ns::file.collezione.chiave.tipo`: **7 chiavi spostate** in questo proprietario (stesso testo, tutte le lingue, usi riscritti, nessun uso della vecchia chiave rimasto). La frase sui «tre o quattro elementi» qui sopra descrive lo stato precedente: le chiavi rimaste a 3-4 elementi non sono state verificate una per una; la misura assoluta, lo strumento e i residui sono in [la story di Lang](../../../Lang/docs/stories/translation-key-shape-rekey.story.md).
+
+### Passata 2026-10-30 (sessione 97f16a39, i18n-small-modules: TechPlanner)
+
+Scanner `Modules/TechPlanner`: prima 11 occorrenze in 5 file (6 text, 5 route-unknown), dopo 11 in 5 file (invariato). Le 5 `route-unknown` (`route('techplanner.projects')`, `.contacts`, `.dashboard` in `home.blade.php`) sono residui con decisione dell'utente e non sono state toccate.
+
+- Nessuna modifica. `check-blade-keys` su `Modules/TechPlanner`: 22 usi, 0 mancanti in `it`, `en`, `de`, `es`; compilazione 7 file OK.
+- Residui (6): stub `index` e `layouts/master` in due alberi (`resources/views` e `resources/Resources/views`), non instradati (`routes/web.php` senza rotte: le pagine sono Folio). Nessuna classe richiama `techplanner::home` o `techplanner::index`.
+- Non verificato: nessuna pagina guardata.
