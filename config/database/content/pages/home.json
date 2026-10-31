@@ -106,7 +106,7 @@
                                 "Ortopantomografia (OPT) - Controllo qualità e sicurezza per panoramiche dentali",
                                 "CBCT (Cone Beam) - Protocolli avanzati per tomografia computerizzata a fascio conico"
                             ],
-                            "image": "/images/medical-equipment.jpg"
+                            "image": "/themes/Two/images/medical-equipment.jpg"
                         },
                         {
                             "title": "Medicina Veterinaria",
@@ -115,7 +115,7 @@
                             "use_cases": [
                                 "Radiologia Digitale e Analogica - Controlli su sistemi RX fissi e portatili per animali"
                             ],
-                            "image": "/images/veterinary-radiology.jpg"
+                            "image": "/themes/Two/images/veterinary-radiology.jpg"
                         }
                     ]
                 }
