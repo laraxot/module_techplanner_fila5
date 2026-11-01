@@ -15,12 +15,12 @@
                 "data": {
                     "view": "pub_theme::components.blocks.hero.simple",
                     "title": "Consulenza Sicurezza e Conformità per Studi Professionali",
-                    "subtitle": "Specialisti in radioprotezione, elettromedicali e sicurezza per studi dentistici e cliniche veterinarie. Conformità D.Lgs 101/2020 e massima tutela di pazienti e operatori.",
+                    "subtitle": "Specialisti in radioprotezione, elettromedicali e sicurezza per studi dentistici e cliniche veterinarie. Consulenza per la conformità al D.Lgs 101/2020 e per la tutela di pazienti e operatori.",
                     "primary_cta_label": "Richiedi Consulenza",
-                    "primary_cta_url": "/it/contatti",
+                    "primary_cta_url": "{{ route('container0.index',['container0'=>'contacts']) }}",
                     "secondary_cta_label": "Scopri i Servizi",
-                    "secondary_cta_url": "/it/services",
-                    "image": "/images/hero-bg.jpg"
+                    "secondary_cta_url": "{{ route('container0.index',['container0'=>'services']) }}",
+                    "image": "/images/hero-bg-2000.jpg"
                 }
             },
             {
@@ -36,21 +36,21 @@
                             "title": "Autorizzazioni Sanitarie",
                             "description": "Supporto completo per ottenere e mantenere le autorizzazioni sanitarie necessarie per studi dentistici e cliniche veterinarie con apparecchiature radiologiche.",
                             "icon": "heroicon-o-shield-check",
-                            "url": "/it/services",
+                            "url": "{{ route('container0.index',['container0'=>'services']) }}",
                             "cta": "Scopri di più"
                         },
                         {
                             "title": "Controllo Apparecchi RX ed Elettromedicali",
                             "description": "Verifiche periodiche di sicurezza e funzionalità su apparecchiature radiologiche (RX, OPT, CBCT) e dispositivi elettromedicali (IEC 62353).",
                             "icon": "heroicon-o-wrench-screwdriver",
-                            "url": "/it/services",
+                            "url": "{{ route('container0.index',['container0'=>'services']) }}",
                             "cta": "Scopri di più"
                         },
                         {
                             "title": "Documenti di Valutazione del Rischio",
                             "description": "Redazione e aggiornamento di tutti i documenti obbligatori: DVR, relazioni tecniche, nomine degli esperti di radioprotezione e registri di controllo.",
                             "icon": "heroicon-o-clipboard-document",
-                            "url": "/it/services",
+                            "url": "{{ route('container0.index',['container0'=>'services']) }}",
                             "cta": "Scopri di più"
                         }
                     ]
@@ -64,7 +64,7 @@
                     "title": "Perché la Radioprotezione è Critica?",
                     "subtitle": "Non è solo burocrazia: è la base per operare in sicurezza e legalità nel settore sanitario.",
                     "id": "perche-critico",
-                    "cards": [
+                    "points": [
                         {
                             "title": "Rischi e Sanzioni",
                             "description": "La mancata conformità comporta sanzioni penali e amministrative pesanti, oltre al rischio di sospensione dell'attività.",
@@ -106,7 +106,8 @@
                                 "Ortopantomografia (OPT) - Controllo qualità e sicurezza per panoramiche dentali",
                                 "CBCT (Cone Beam) - Protocolli avanzati per tomografia computerizzata a fascio conico"
                             ],
-                            "image": "/themes/Two/images/medical-equipment.jpg"
+                            "image": "/themes/Two/images/service-patient-safety.jpg",
+                            "image_alt": "Sala di uno studio odontoiatrico con poltrona del paziente, riunito e panca azzurra"
                         },
                         {
                             "title": "Medicina Veterinaria",
@@ -115,7 +116,8 @@
                             "use_cases": [
                                 "Radiologia Digitale e Analogica - Controlli su sistemi RX fissi e portatili per animali"
                             ],
-                            "image": "/themes/Two/images/veterinary-radiology.jpg"
+                            "image": "/themes/Two/images/veterinary-radiology.jpg",
+                            "image_alt": "Sala medica d'epoca con una radiografia del torace su un negatoscopio e una scrivania con un telefono"
                         }
                     ]
                 }
@@ -126,7 +128,7 @@
                 "data": {
                     "view": "pub_theme::components.blocks.what-we-do.checklist",
                     "title": "Cosa Controlliamo?",
-                    "subtitle": "Il nostro protocollo di verifica copre ogni aspetto della sicurezza radiologica. Dall'efficienza delle macchine alla protezione strutturale, nulla viene lasciato al caso per garantire la totale conformità al D.Lgs 101/2020.",
+                    "subtitle": "Le verifiche riguardano gli aspetti della sicurezza radiologica elencati di seguito, dall'efficienza delle macchine alla protezione strutturale.",
                     "intro": "Un controllo accurato previene guasti, sovraesposizioni e sanzioni, proteggendo il tuo investimento e la tua reputazione professionale.",
                     "id": "controlli",
                     "checklist": [
@@ -157,51 +159,6 @@
                         }
                     ]
                 }
-            },
-            {
-                "type": "testimonials",
-                "slug": "testimonials-section",
-                "data": {
-                    "view": "ui::empty",
-                    "view_2": "pub_theme::components.blocks.testimonials.slider",
-                    "title": "Dicono di Noi",
-                    "subtitle": "La tranquillità di chi ha scelto la sicurezza certificata",
-                    "id": "testimonials",
-                    "testimonials": [
-                        {
-                            "name": "Dr. Roberto Magni",
-                            "role": "Centro Odontoiatrico Magni",
-                            "location": "Padova, PD",
-                            "image": "/themes/Two/images/testimonial-1.jpg",
-                            "content": "La gestione della radioprotezione era un incubo burocratico. Con Marco abbiamo non solo messo tutto in regola secondo il D.Lgs 101/2020, ma dormiamo sonni tranquilli sapendo che i controlli sono precisi e puntuali.",
-                            "date": "15 gennaio 2026"
-                        },
-                        {
-                            "name": "Dr.ssa Elena Visentin",
-                            "role": "Clinica Veterinaria San Marco",
-                            "location": "Mestre, VE",
-                            "image": "/themes/Two/images/testimonial-2.jpg",
-                            "content": "Professionalità assoluta nel controllo delle nostre apparecchiature radiologiche. Le verifiche sono meticolose e le spiegazioni chiare. Un partner indispensabile per la sicurezza del nostro staff e dei pazienti animali.",
-                            "date": "20 novembre 2025"
-                        },
-                        {
-                            "name": "Dr. Paolo Verdi",
-                            "role": "Studio Odontoiatrico Verdi",
-                            "location": "Treviso, TV",
-                            "image": "/themes/Two/images/testimonial-3.jpg",
-                            "content": "Ho richiesto un audit completo sugli elettromedicali e la radioprotezione. Servizio eccellente, report dettagliati e piena disponibilità. La competenza tecnica di Marco è evidente.",
-                            "date": "5 dicembre 2025"
-                        },
-                        {
-                            "name": "Dr.ssa Giulia Bianchi",
-                            "role": "VetLife Ambulatorio",
-                            "location": "Vicenza, VI",
-                            "image": "/themes/Two/images/testimonial-4.jpg",
-                            "content": "Finalmente qualcuno che conosce le specificità della radiologia veterinaria. I consigli sulle schermature e le procedure di sicurezza hanno migliorato notevolmente il nostro flusso di lavoro.",
-                            "date": "1 febbraio 2026"
-                        }
-                    ]
-                }
             }
         ],
         "en": [
@@ -213,24 +170,10 @@
                     "title": "Radiation Protection and Safety for Dental and Veterinary Studios",
                     "subtitle": "Specialized consulting for dental and veterinary studios. Periodic checks, electromedical verifications and compliance with D.Lgs 101/2020.",
                     "primary_cta_label": "Request Consultation",
-                    "primary_cta_url": "/en/contacts",
+                    "primary_cta_url": "{{ route('container0.index',['container0'=>'contacts']) }}",
                     "secondary_cta_label": "Discover Services",
-                    "secondary_cta_url": "/en/services",
-                    "image": "https://images.unsplash.com/photo-1613186267015-46dc938f2b8f?w=1920&q=80",
-                    "stats": [
-                        {
-                            "label": "D.Lgs 101/2020 Compliance",
-                            "value": "100%"
-                        },
-                        {
-                            "label": "Radiation Protection Experts",
-                            "value": "Certified"
-                        },
-                        {
-                            "label": "Intervention in 24/48h",
-                            "value": "Fast"
-                        }
-                    ]
+                    "secondary_cta_url": "{{ route('container0.index',['container0'=>'services']) }}",
+                    "image": "/images/stock/unsplash-1613186267015-46dc938f2b8f-1920.jpg"
                 }
             },
             {
@@ -244,54 +187,41 @@
                     "services": [
                         {
                             "title": "Radiation Protection Control",
-                            "description": "Periodic and extraordinary checks for radiological equipment in dental and veterinary fields. D.Lgs 101/2020 compliance guarantee.",
+                            "description": "Periodic and extraordinary checks for radiological equipment in dental and veterinary fields, for D.Lgs 101/2020 compliance.",
                             "icon": "heroicon-o-shield-check",
-                            "url": "/en/services"
+                            "url": "{{ route('container0.index',['container0'=>'services']) }}"
                         },
                         {
                             "title": "Electromedical Checks",
                             "description": "Preventive maintenance and electrical safety checks on all medical devices (IEC 62353), ensuring functionality and safety.",
                             "icon": "heroicon-o-wrench-screwdriver",
-                            "url": "/en/services"
+                            "url": "{{ route('container0.index',['container0'=>'services']) }}"
                         },
                         {
                             "title": "Veterinary Biosafety",
                             "description": "Specific biosafety protocols for veterinary clinics, staff training and management of healthcare waste.",
                             "icon": "heroicon-o-heart",
-                            "url": "/en/services"
+                            "url": "{{ route('container0.index',['container0'=>'services']) }}"
                         },
                         {
                             "title": "Staff Training",
                             "description": "Training courses for doctors, dentists, technicians and healthcare staff on radiation protection and safety.",
                             "icon": "heroicon-o-academic-cap",
-                            "url": "/en/services"
+                            "url": "{{ route('container0.index',['container0'=>'services']) }}"
                         },
                         {
                             "title": "Document Management",
                             "description": "Support in managing mandatory documentation, registers, technical reports and communications to competent authorities.",
                             "icon": "heroicon-o-clipboard-document",
-                            "url": "/en/services"
+                            "url": "{{ route('container0.index',['container0'=>'services']) }}"
                         },
                         {
                             "title": "Technical Consulting",
                             "description": "Personalized consulting for workplace compliance, risk assessment and safety plans.",
                             "icon": "heroicon-o-user-group",
-                            "url": "/en/services"
+                            "url": "{{ route('container0.index',['container0'=>'services']) }}"
                         }
                     ]
-                }
-            },
-            {
-                "type": "newsletter",
-                "slug": "newsletter-section",
-                "data": {
-                    "view": "pub_theme::components.blocks.newsletter.simple",
-                    "title": "Stay Updated",
-                    "description": "Subscribe to our newsletter to receive regulatory updates, practical tips and exclusive offers for your studio.",
-                    "placeholder": "Your email",
-                    "button_label": "Subscribe",
-                    "privacy_text": "No spam, only quality content. You can unsubscribe anytime.",
-                    "bg_color": "brand-blue"
                 }
             }
         ]

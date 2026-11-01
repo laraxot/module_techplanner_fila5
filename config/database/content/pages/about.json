@@ -18,7 +18,7 @@
                     "subtitle": "Sottana Service. Sicurezza ed igiene per i tuoi studi professionali.",
                     "primary_cta": {
                         "label": "Contattaci",
-                        "url": "/contacts"
+                        "url": "{{ route('container0.index',['container0'=>'contacts']) }}"
                     },
                     "stats": []
                 }
@@ -174,7 +174,7 @@
                     ],
                     "cta": {
                         "label": "Parliamo del Tuo Studio",
-                        "url": "/contacts"
+                        "url": "{{ route('container0.index',['container0'=>'contacts']) }}"
                     }
                 }
             }
@@ -190,7 +190,7 @@
                     "subtitle": "Serving healthcare safety in northern Italy. Competence and passion for radiation protection.",
                     "primary_cta": {
                         "label": "Contact Us",
-                        "url": "/contacts"
+                        "url": "{{ route('container0.index',['container0'=>'contacts']) }}"
                     }
                 }
             }

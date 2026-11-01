@@ -15,37 +15,37 @@
                     "brand": "Sottana Service",
                     "brand_subtitle": null,
                     "cta_label": "Richiedi Consulenza",
-                    "cta_url": "/it/contatti",
+                    "cta_url": "{{ route('container0.index',['container0'=>'contacts']) }}",
                     "items": [
                         {
                             "label": "Home",
-                            "url": "/it",
+                            "url": "{{ route('home') }}",
                             "type": "link",
                             "active": true
                         },
                         {
                             "label": "Chi Siamo",
-                            "url": "/it/about",
+                            "url": "{{ route('container0.index',['container0'=>'about']) }}",
                             "type": "link"
                         },
                         {
                             "label": "Servizi",
-                            "url": "/it/services",
+                            "url": "{{ route('container0.index',['container0'=>'services']) }}",
                             "type": "link"
                         },
                         {
                             "label": "Blog",
-                            "url": "/it/blog",
+                            "url": "{{ route('blog') }}",
                             "type": "link"
                         },
                         {
                             "label": "FAQ",
-                            "url": "/it/faqs",
+                            "url": "{{ route('container0.index',['container0'=>'faqs']) }}",
                             "type": "link"
                         },
                         {
                             "label": "Contatti",
-                            "url": "/it/contacts",
+                            "url": "{{ route('container0.index',['container0'=>'contacts']) }}",
                             "type": "link"
                         }
                     ]
@@ -61,37 +61,37 @@
                     "brand": "Sottana Service",
                     "brand_subtitle": null,
                     "cta_label": "Request Consultation",
-                    "cta_url": "/en/contact",
+                    "cta_url": "{{ route('container0.index',['container0'=>'contacts']) }}",
                     "items": [
                         {
                             "label": "Home",
-                            "url": "/en",
+                            "url": "{{ route('home') }}",
                             "type": "link",
                             "active": true
                         },
                         {
                             "label": "About Us",
-                            "url": "/en/about",
+                            "url": "{{ route('container0.index',['container0'=>'about']) }}",
                             "type": "link"
                         },
                         {
                             "label": "Services",
-                            "url": "/en/services",
+                            "url": "{{ route('container0.index',['container0'=>'services']) }}",
                             "type": "link"
                         },
                         {
                             "label": "Blog",
-                            "url": "/en/blog",
+                            "url": "{{ route('blog') }}",
                             "type": "link"
                         },
                         {
                             "label": "FAQ",
-                            "url": "/en/faqs",
+                            "url": "{{ route('container0.index',['container0'=>'faqs']) }}",
                             "type": "link"
                         },
                         {
                             "label": "Contact",
-                            "url": "/en/contacts",
+                            "url": "{{ route('container0.index',['container0'=>'contacts']) }}",
                             "type": "link"
                         }
                     ]
@@ -107,37 +107,37 @@
                     "brand": "Sottana Service",
                     "brand_subtitle": null,
                     "cta_label": "Konsultation Anfordern",
-                    "cta_url": "/de/kontakt",
+                    "cta_url": "{{ route('container0.index',['container0'=>'contacts']) }}",
                     "items": [
                         {
                             "label": "Startseite",
-                            "url": "/de",
+                            "url": "{{ route('home') }}",
                             "type": "link",
                             "active": true
                         },
                         {
                             "label": "Über Uns",
-                            "url": "/de/about",
+                            "url": "{{ route('container0.index',['container0'=>'about']) }}",
                             "type": "link"
                         },
                         {
                             "label": "Dienstleistungen",
-                            "url": "/de/services",
+                            "url": "{{ route('container0.index',['container0'=>'services']) }}",
                             "type": "link"
                         },
                         {
                             "label": "Blog",
-                            "url": "/de/blog",
+                            "url": "{{ route('blog') }}",
                             "type": "link"
                         },
                         {
                             "label": "FAQ",
-                            "url": "/de/faqs",
+                            "url": "{{ route('container0.index',['container0'=>'faqs']) }}",
                             "type": "link"
                         },
                         {
                             "label": "Kontakt",
-                            "url": "/de/contacts",
+                            "url": "{{ route('container0.index',['container0'=>'contacts']) }}",
                             "type": "link"
                         }
                     ]

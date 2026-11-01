@@ -16,25 +16,7 @@
                     "view": "pub_theme::components.blocks.hero.faq",
                     "title": "Domande Frequenti",
                     "subtitle": "Tutto quello che devi sapere sulla sicurezza radiologica, controlli e conformità normativa per studi dentistici e cliniche veterinarie",
-                    "search_placeholder": "Cerca nelle FAQ...",
-                    "stats": [
-                        {
-                            "label": "Domande Risposte",
-                            "value": "150+"
-                        },
-                        {
-                            "label": "Clienti Soddisfatti",
-                            "value": "98%"
-                        },
-                        {
-                            "label": "Risposta Rapida",
-                            "value": "24/48h"
-                        },
-                        {
-                            "label": "Anni di Esperienza",
-                            "value": "10+"
-                        }
-                    ]
+                    "search_placeholder": "Cerca nelle FAQ..."
                 }
             },
             {
@@ -50,28 +32,28 @@
                             "description": "Domande su controlli, sicurezza e normative radiologiche",
                             "icon": "shield",
                             "color": "blue",
-                            "count": 12
+                            "count": 4
                         },
                         {
                             "name": "Elettromedicali",
                             "description": "Verifiche e manutenzione apparecchiature elettromedicali",
                             "icon": "zap",
                             "color": "green",
-                            "count": 8
+                            "count": 3
                         },
                         {
                             "name": "Normative",
                             "description": "Obblighi legali, documentazione e conformità",
                             "icon": "file-text",
                             "color": "orange",
-                            "count": 15
+                            "count": 3
                         },
                         {
                             "name": "Formazione",
                             "description": "Corsi, qualifiche e aggiornamento professionale",
                             "icon": "graduation-cap",
                             "color": "purple",
-                            "count": 6
+                            "count": 3
                         }
                     ]
                 }
@@ -165,10 +147,10 @@
                 "data": {
                     "view": "pub_theme::components.blocks.contact.cta",
                     "title": "Non hai trovato la risposta che cercavi?",
-                    "subtitle": "Il nostro team di esperti è a tua disposizione per qualsiasi chiarimento sulla sicurezza radiologica e conformità normativa",
+                    "subtitle": "Contattaci per qualsiasi chiarimento sulla sicurezza radiologica e sulla conformità normativa",
                     "primary_cta": {
                         "label": "Contattaci Subito",
-                        "url": "/it/contacts"
+                        "url": "{{ route('container0.index',['container0'=>'contacts']) }}"
                     },
                     "secondary_cta": {
                         "label": "Invia Email",
@@ -190,25 +172,7 @@
                     "view": "pub_theme::components.blocks.hero.faq",
                     "title": "Frequently Asked Questions",
                     "subtitle": "Everything you need to know about radiation safety, controls and regulatory compliance for dental practices and veterinary clinics",
-                    "search_placeholder": "Search FAQs...",
-                    "stats": [
-                        {
-                            "label": "Questions Answered",
-                            "value": "150+"
-                        },
-                        {
-                            "label": "Satisfied Clients",
-                            "value": "98%"
-                        },
-                        {
-                            "label": "Quick Response",
-                            "value": "24/48h"
-                        },
-                        {
-                            "label": "Years Experience",
-                            "value": "10+"
-                        }
-                    ]
+                    "search_placeholder": "Search FAQs..."
                 }
             },
             {
@@ -224,28 +188,28 @@
                             "description": "Questions about controls, safety and radiological regulations",
                             "icon": "shield",
                             "color": "blue",
-                            "count": 12
+                            "count": 4
                         },
                         {
                             "name": "Electromedical",
                             "description": "Verification and maintenance of electromedical equipment",
                             "icon": "zap",
                             "color": "green",
-                            "count": 8
+                            "count": 3
                         },
                         {
                             "name": "Regulations",
                             "description": "Legal obligations, documentation and compliance",
                             "icon": "file-text",
                             "color": "orange",
-                            "count": 15
+                            "count": 3
                         },
                         {
                             "name": "Training",
                             "description": "Courses, qualifications and professional updates",
                             "icon": "graduation-cap",
                             "color": "purple",
-                            "count": 6
+                            "count": 3
                         }
                     ]
                 }
@@ -339,10 +303,10 @@
                 "data": {
                     "view": "pub_theme::components.blocks.contact.cta",
                     "title": "Didn't find the answer you were looking for?",
-                    "subtitle": "Our team of experts is at your disposal for any clarification on radiation safety and regulatory compliance",
+                    "subtitle": "Contact us for any clarification on radiation safety and regulatory compliance",
                     "primary_cta": {
                         "label": "Contact Us Now",
-                        "url": "/en/contacts"
+                        "url": "{{ route('container0.index',['container0'=>'contacts']) }}"
                     },
                     "secondary_cta": {
                         "label": "Send Email",

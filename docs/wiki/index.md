@@ -50,6 +50,17 @@ bashscripts/docs/llm-wiki-qmd.sh search "TechPlanner client" -c tp-mod-techplann
 3. **Appointment** — pianificazione visite, partecipanti, worker
 4. **Filament admin** — risorse XotBase, widget mappa (Geo), enum in fillable
 
+## Audit del modulo
+
+- [seo-head-deep-verification](./audits/seo-head-deep-verification.md) — verifica SEO specifica del sito TechPlanner e Theme Two.
+- [module-techplanner-audit](./audits/module-techplanner-audit.md) — audit del dominio e delle risorse Filament del modulo.
+- [site-reaudit](./audits/site-reaudit.md) — sintesi del re-audit del sito live su 12 aspetti, correzioni e piano per priorita'.
+- [gdpr-privacy-accessibility-audit](./audits/gdpr-privacy-accessibility-audit.md) — audit eseguito dal prompt GDPR, con sicurezza, form, lingue, cookie e WCAG.
+
+## Regole
+
+- [canonical-cms-url-contract](./rules/canonical-cms-url-contract.md) — URL CMS con `container0.index`/`container0.view`, mai path localizzati nei JSON.
+
 ## Source layer (evidence)
 
 - [philosophy.md](../concepts/philosophy.md)

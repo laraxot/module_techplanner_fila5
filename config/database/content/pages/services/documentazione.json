@@ -14,7 +14,7 @@
                     "view": "pub_theme::components.blocks.hero.internal",
                     "title": "Documentazione e Conformità",
                     "subtitle": "Gestione semplificata di tutti gli obblighi burocratici e tecnici per la sicurezza.",
-                    "image": "/themes/Two/images/medical-equipment.jpg"
+                    "image": "/images/hero-bg-2000.jpg"
                 }
             },
             {
@@ -22,9 +22,10 @@
                 "slug": "compliance-value",
                 "data": {
                     "view": "pub_theme::components.blocks.content.split",
-                    "title": "Zero Pensieri sulla Burocrazia",
-                    "content": "<p class='text-lg leading-relaxed text-gray-700'>La conformità normativa richiede una gestione documentale meticolosa. Ci occupiamo noi di tenere aggiornati i tuoi registri, redigere le relazioni tecniche post-intervento e gestire le comunicazioni obbligatorie verso gli enti competenti.</p><ul class='mt-4 space-y-2 text-gray-600'><li>&bull; Archiviazione digitale dei verbali di prova</li><li>&bull; Scadenzario automatico dei controlli</li><li>&bull; Assistenza dedicata in caso di ispezioni</li></ul>",
+                    "title": "Gestione della documentazione",
+                    "content": "<p class='text-lg leading-relaxed text-gray-700'>La conformità normativa richiede una gestione documentale meticolosa. Ci occupiamo noi di tenere aggiornati i tuoi registri, redigere le relazioni tecniche post-intervento e gestire le comunicazioni obbligatorie verso gli enti competenti.</p><ul class='mt-4 space-y-2 text-gray-600'><li>&bull; Archiviazione digitale dei verbali di prova</li><li>&bull; Scadenzario dei controlli</li><li>&bull; Assistenza dedicata in caso di ispezioni</li></ul>",
                     "image": "/themes/Two/images/radiologia-veterinaria.jpg",
+                    "image_alt": "Sala medica d'epoca con una radiografia del torace su un negatoscopio e una scrivania con un telefono",
                     "reverse": false
                 }
             },
@@ -34,9 +35,9 @@
                 "data": {
                     "view": "pub_theme::components.blocks.cta.simple",
                     "title": "Semplifica la tua gestione documentale",
-                    "subtitle": "Scegli un partner che si occupa della burocrazia per te.",
-                    "cta_label": "Richiedi Consulenza",
-                    "cta_url": "/it/contatti"
+                    "description": "Scegli un partner che si occupa della burocrazia per te.",
+                    "primary_cta_label": "Richiedi Consulenza",
+                    "primary_cta_url": "{{ route('container0.index',['container0'=>'contacts']) }}"
                 }
             }
         ]

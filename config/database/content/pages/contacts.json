@@ -84,94 +84,54 @@
                     "subtitle": "Compila il modulo sottostante e ti risponderemo il prima possibile con una consulenza personalizzata",
                     "fields": [
                         {
-                            "name": "first_name",
-                            "label": "Nome",
+                            "name": "nome",
+                            "label": "Nome e Cognome",
                             "type": "text",
-                            "required": true,
-                            "width": "half"
-                        },
-                        {
-                            "name": "last_name",
-                            "label": "Cognome",
-                            "type": "text",
-                            "required": true,
-                            "width": "half"
+                            "required": true
                         },
                         {
                             "name": "email",
                             "label": "Email",
                             "type": "email",
-                            "required": true,
-                            "width": "full"
+                            "required": true
                         },
                         {
-                            "name": "phone",
+                            "name": "telefono",
                             "label": "Telefono",
                             "type": "tel",
-                            "required": false,
-                            "width": "full"
+                            "required": false
                         },
                         {
-                            "name": "company",
+                            "name": "studio",
                             "label": "Azienda/Studio",
                             "type": "text",
-                            "required": false,
-                            "width": "full"
+                            "required": false
                         },
                         {
-                            "name": "service_type",
+                            "name": "tipo",
                             "label": "Tipo di Servizio Richiesto",
                             "type": "select",
                             "required": true,
-                            "width": "full",
                             "options": [
-                                {
-                                    "value": "radioprotezione",
-                                    "label": "Controllo Radioprotezione"
-                                },
-                                {
-                                    "value": "elettromedicali",
-                                    "label": "Controllo Elettromedicali"
-                                },
-                                {
-                                    "value": "documentazione",
-                                    "label": "Documentazione e Conformità"
-                                },
-                                {
-                                    "value": "consulenza",
-                                    "label": "Consulenza Generale"
-                                },
-                                {
-                                    "value": "formazione",
-                                    "label": "Formazione del Personale"
-                                },
-                                {
-                                    "value": "veterinario",
-                                    "label": "Servizi Veterinari"
-                                },
-                                {
-                                    "value": "dentistico",
-                                    "label": "Servizi Dentistici"
-                                },
-                                {
-                                    "value": "altro",
-                                    "label": "Altro"
-                                }
+                                "Controllo Radioprotezione",
+                                "Controllo Elettromedicali",
+                                "Documentazione e Conformità",
+                                "Consulenza Generale",
+                                "Formazione del Personale",
+                                "Servizi Veterinari",
+                                "Servizi Dentistici",
+                                "Altro"
                             ]
                         },
                         {
-                            "name": "message",
+                            "name": "messaggio",
                             "label": "Messaggio",
                             "type": "textarea",
                             "required": true,
-                            "width": "full",
                             "placeholder": "Descrivi brevemente la tua richiesta e le tue esigenze specifiche..."
                         }
                     ],
-                    "submit_button": {
-                        "label": "Invia Richiesta",
-                        "icon": "send"
-                    }
+                    "submit_label": "Invia Richiesta"
                 }
             },
             {

@@ -17,10 +17,10 @@
                     "title": "Chi Siamo",
                     "subtitle": "Sottana Service. Sicurezza e igiene nei tuoi studi professionali.",
                     "primary_cta_label": "Contattaci",
-                    "primary_cta_url": "/it/contatti",
+                    "primary_cta_url": "{{ route('container0.index',['container0'=>'contacts']) }}",
                     "secondary_cta_label": "Scopri i Servizi",
-                    "secondary_cta_url": "/it/services",
-                    "image": "/themes/Two/images/hero-bg.jpg"
+                    "secondary_cta_url": "{{ route('container0.index',['container0'=>'services']) }}",
+                    "image": "/images/hero-bg-2000.jpg"
                 }
             },
             {
@@ -112,7 +112,7 @@
                     "title": "Parliamo del Tuo Studio",
                     "description": "Contattaci per una consulenza gratuita e scopri come possiamo aiutarti",
                     "primary_cta_label": "Richiedi Consulenza Gratuita",
-                    "primary_cta_url": "/it/contatti",
+                    "primary_cta_url": "{{ route('container0.index',['container0'=>'contacts']) }}",
                     "background_color": "bg-brand-blue"
                 }
             }
@@ -126,10 +126,10 @@
                     "title": "About Us",
                     "subtitle": "Safety and hygiene experts for professional healthcare practices",
                     "primary_cta_label": "Contact Us",
-                    "primary_cta_url": "/en/contacts",
+                    "primary_cta_url": "{{ route('container0.index',['container0'=>'contacts']) }}",
                     "secondary_cta_label": "Explore Services",
-                    "secondary_cta_url": "/en/services",
-                    "image": "/themes/Two/images/hero-bg.jpg"
+                    "secondary_cta_url": "{{ route('container0.index',['container0'=>'services']) }}",
+                    "image": "/images/hero-bg-2000.jpg"
                 }
             },
             {
@@ -253,7 +253,7 @@
                     "title": "Let's Talk About Your Practice",
                     "description": "Contact us for a free consultation and discover how we can help you",
                     "primary_cta_label": "Request Free Consultation",
-                    "primary_cta_url": "/en/contacts",
+                    "primary_cta_url": "{{ route('container0.index',['container0'=>'contacts']) }}",
                     "background_color": "bg-brand-blue"
                 }
             }

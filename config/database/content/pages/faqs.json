@@ -60,7 +60,7 @@
                     "subtitle": "I nostri esperti sono a tua disposizione per rispondere a qualsiasi domanda sulla radioprotezione e sicurezza sanitaria.",
                     "primary_cta": {
                         "label": "Contatta un Esperto",
-                        "url": "/contacts"
+                        "url": "{{ route('container0.index',['container0'=>'contacts']) }}"
                     },
                     "secondary_cta": {
                         "label": "Invia Email",

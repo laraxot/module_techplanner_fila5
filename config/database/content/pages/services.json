@@ -15,7 +15,7 @@
                 "data": {
                     "view": "pub_theme::components.blocks.hero.internal",
                     "title": "Autorizzazioni Sanitarie, Controllo Apparecchi RX ed Elettromedicali, Documenti di Valutazione del Rischio",
-                    "subtitle": "Soluzioni complete per garantire la massima sicurezza, igiene e conformità normativa nel tuo studio dentistico o clinica veterinaria",
+                    "subtitle": "Soluzioni per la sicurezza, l'igiene e la conformità normativa nel tuo studio dentistico o clinica veterinaria",
                     "breadcrumb_label": "Servizi"
                 }
             },
@@ -28,20 +28,20 @@
                         {
                             "title": "Autorizzazioni Sanitarie",
                             "description": "Assistenza completa per l'ottenimento e il rinnovo delle autorizzazioni sanitarie per studi dentistici e cliniche veterinarie con apparecchiature radiologiche.",
-                            "image": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&h=400&fit=crop",
-                            "url": "/it/contatti"
+                            "image": "/images/stock/unsplash-1450101499163-c8848c66ca85-600x400.jpg",
+                            "url": "{{ route('container0.index',['container0'=>'contacts']) }}"
                         },
                         {
                             "title": "Controllo Apparecchi RX ed Elettromedicali",
                             "description": "Verifiche periodiche di sicurezza su apparecchiature radiologiche (RX endorale, OPT, CBCT) e dispositivi elettromedicali secondo IEC 62353.",
-                            "image": "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&h=400&fit=crop",
-                            "url": "/it/contatti"
+                            "image": "/images/stock/unsplash-1576091160550-2173dba999ef-600x400.jpg",
+                            "url": "{{ route('container0.index',['container0'=>'contacts']) }}"
                         },
                         {
                             "title": "Documenti di Valutazione del Rischio",
                             "description": "Redazione di DVR, relazioni tecniche, nomine degli esperti di radioprotezione e tutta la documentazione obbligatoria per la conformità normativa.",
-                            "image": "https://images.unsplash.com/photo-1584515933487-779824d29309?w=600&h=400&fit=crop",
-                            "url": "/it/contatti"
+                            "image": "/images/stock/unsplash-1584515933487-779824d29309-600x400.jpg",
+                            "url": "{{ route('container0.index',['container0'=>'contacts']) }}"
                         }
                     ]
                 }
@@ -62,10 +62,11 @@
                         "Formazione continua del personale",
                         "Protocolli di emergenza medica"
                     ],
-                    "compliance_text": "Conformità con normative ASL, linee guida nazionali ed europee per studi odontoiatrici, protocolli di sterilizzazione e disinfezione certificati.",
+                    "compliance_text": "Conformità con normative ASL, linee guida nazionali ed europee per studi odontoiatrici, protocolli di sterilizzazione e disinfezione.",
                     "cta_label": "Consulenza per Studi Dentistici",
-                    "cta_url": "/it/contatti",
+                    "cta_url": "{{ route('container0.index',['container0'=>'contacts']) }}",
                     "image": "/themes/Two/images/service-odontoiatria.jpg",
+                    "image_alt": "Studio odontoiatrico con poltrona rossa, riunito dentale e ampia vetrata sulla città",
                     "reversed": false,
                     "bg": "bg-white"
                 }
@@ -86,10 +87,11 @@
                         "Formazione specifica veterinaria",
                         "Conformità normative settore"
                     ],
-                    "compliance_text": "Conformità con normative ASL, linee guida nazionali per cliniche veterinarie, protocolli di sicurezza radiologica certificati e documentazione completa per gli organi di controllo.",
+                    "compliance_text": "Conformità con normative ASL, linee guida nazionali per cliniche veterinarie, protocolli di sicurezza radiologica e documentazione per gli organi di controllo.",
                     "cta_label": "Consulenza per Cliniche Veterinarie",
-                    "cta_url": "/it/contatti",
-                    "image": "https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=800&h=600&fit=crop",
+                    "cta_url": "{{ route('container0.index',['container0'=>'contacts']) }}",
+                    "image": "/themes/Two/images/radiologia-veterinaria.jpg",
+                    "image_alt": "Sala medica d'epoca con una radiografia del torace su un negatoscopio e una scrivania con un telefono",
                     "reversed": true,
                     "bg": "bg-gray-50"
                 }
@@ -100,9 +102,11 @@
                 "data": {
                     "view": "pub_theme::components.blocks.cta.banner",
                     "title": "Inizia Oggi il Tuo Percorso verso la Conformità",
-                    "subtitle": "Contattaci per una consulenza personalizzata e scopri come possiamo aiutare il tuo studio",
-                    "cta_label": "Richiedi Consulenza Gratuita",
-                    "cta_url": "/it/contatti"
+                    "description": "Contattaci per una consulenza personalizzata e scopri come possiamo aiutare il tuo studio",
+                    "cta_primary": {
+                        "label": "Richiedi Consulenza Gratuita",
+                        "url": "{{ route('container0.index',['container0'=>'contacts']) }}"
+                    }
                 }
             }
         ],
@@ -113,7 +117,7 @@
                 "data": {
                     "view": "pub_theme::components.blocks.hero.internal",
                     "title": "Sanitary Authorizations, RX and Electromedical Equipment Control, Risk Assessment Documents",
-                    "subtitle": "Complete solutions to ensure maximum safety, hygiene and regulatory compliance in your dental or veterinary practice",
+                    "subtitle": "Solutions for safety, hygiene and regulatory compliance in your dental or veterinary practice",
                     "breadcrumb_label": "Services"
                 }
             },
@@ -126,20 +130,20 @@
                         {
                             "title": "Sanitary Authorizations",
                             "description": "Full assistance for obtaining and renewing sanitary authorizations for dental practices and veterinary clinics with radiological equipment.",
-                            "image": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&h=400&fit=crop",
-                            "url": "/en/contact"
+                            "image": "/images/stock/unsplash-1450101499163-c8848c66ca85-600x400.jpg",
+                            "url": "{{ route('container0.index',['container0'=>'contacts']) }}"
                         },
                         {
                             "title": "RX and Electromedical Equipment Control",
                             "description": "Periodic safety checks on radiological equipment (intraoral RX, OPT, CBCT) and electromedical devices according to IEC 62353.",
-                            "image": "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&h=400&fit=crop",
-                            "url": "/en/contact"
+                            "image": "/images/stock/unsplash-1576091160550-2173dba999ef-600x400.jpg",
+                            "url": "{{ route('container0.index',['container0'=>'contacts']) }}"
                         },
                         {
                             "title": "Risk Assessment Documents",
                             "description": "Drafting of DVR, technical reports, appointments of radiation protection experts and all mandatory documentation for regulatory compliance.",
-                            "image": "https://images.unsplash.com/photo-1584515933487-779824d29309?w=600&h=400&fit=crop",
-                            "url": "/en/contact"
+                            "image": "/images/stock/unsplash-1584515933487-779824d29309-600x400.jpg",
+                            "url": "{{ route('container0.index',['container0'=>'contacts']) }}"
                         }
                     ]
                 }
@@ -160,10 +164,11 @@
                         "Continuous staff training",
                         "Medical emergency protocols"
                     ],
-                    "compliance_text": "Compliance with ASL regulations, national and European guidelines for dental practices, certified sterilization and disinfection protocols.",
+                    "compliance_text": "Compliance with ASL regulations, national and European guidelines for dental practices, sterilization and disinfection protocols.",
                     "cta_label": "Consultation for Dental Practices",
-                    "cta_url": "/en/contact",
+                    "cta_url": "{{ route('container0.index',['container0'=>'contacts']) }}",
                     "image": "/themes/Two/images/service-odontoiatria.jpg",
+                    "image_alt": "Dental practice with a red patient chair, dental unit and a large window overlooking the city",
                     "reversed": false,
                     "bg": "bg-white"
                 }
@@ -184,10 +189,11 @@
                         "Specific veterinary training",
                         "Sector regulatory compliance"
                     ],
-                    "compliance_text": "Compliance with ASL regulations, national guidelines for veterinary clinics, certified radiological safety protocols and complete documentation for control bodies.",
+                    "compliance_text": "Compliance with ASL regulations, national guidelines for veterinary clinics, radiological safety protocols and documentation for control bodies.",
                     "cta_label": "Consultation for Veterinary Clinics",
-                    "cta_url": "/en/contact",
+                    "cta_url": "{{ route('container0.index',['container0'=>'contacts']) }}",
                     "image": "/themes/Two/images/radiologia-veterinaria.jpg",
+                    "image_alt": "Vintage medical room with a chest X-ray on a light box and a desk with a telephone",
                     "reversed": true,
                     "bg": "bg-gray-50"
                 }
@@ -198,9 +204,11 @@
                 "data": {
                     "view": "pub_theme::components.blocks.cta.banner",
                     "title": "Start Your Journey to Compliance Today",
-                    "subtitle": "Contact us for a personalized consultation and discover how we can help your practice",
-                    "cta_label": "Request Free Consultation",
-                    "cta_url": "/en/contact"
+                    "description": "Contact us for a personalized consultation and discover how we can help your practice",
+                    "cta_primary": {
+                        "label": "Request Free Consultation",
+                        "url": "{{ route('container0.index',['container0'=>'contacts']) }}"
+                    }
                 }
             }
         ]

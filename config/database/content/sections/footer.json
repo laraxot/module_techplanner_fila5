@@ -52,11 +52,16 @@
                         "items": [
                             {
                                 "type": "address",
-                                "value": "Via Vanzo 86, 31021 Mogliano Veneto TV"
+                                "value": "Via Augusto Vanzo 86 A, 31021 Mogliano Veneto (TV)"
                             },
                             {
                                 "type": "email",
                                 "value": "studio@sottana.com"
+                            },
+                            {
+                                "type": "pec",
+                                "label": "PEC",
+                                "value": "sottanamarco@pec.it"
                             },
                             {
                                 "type": "phone",
@@ -67,6 +72,7 @@
                                 "value": "+39 347 58 96 127"
                             }
                         ],
+                        "legal_name": "Sottana Service di Sottana Marco",
                         "piva": "05532540266",
                         "rea": "TV - 451911"
                     },
@@ -85,37 +91,6 @@
                             }
                         ]
                     },
-                    "testimonials": {
-                        "title": "Dicono di Noi",
-                        "items": [
-                            {
-                                "text": "Servizio eccellente e professionale. Marco è molto competente e disponibile per qualsiasi chiarimento.",
-                                "author": "Dr. Alberto Rossi",
-                                "role": "Studio Dentistico Rossi",
-                                "location": "Treviso"
-                            },
-                            {
-                                "text": "Puntuali, precisi e sempre aggiornati sulle normative. Consiglio vivamente.",
-                                "author": "Dr.ssa Giulia Bianchi",
-                                "role": "Clinica Veterinaria VetLife",
-                                "location": "Venezia"
-                            }
-                        ]
-                    },
-                    "quick_actions": {
-                        "call": {
-                            "phone": "+39 041 455552",
-                            "label": "Chiama Ora"
-                        },
-                        "whatsapp": {
-                            "number": "+39 347 58 96 127",
-                            "label": "WhatsApp"
-                        },
-                        "appointment": {
-                            "url": "/it/contatti",
-                            "label": "Prenota Appuntamento"
-                        }
-                    },
                     "map": {
                         "address": "Via Vanzo 86, 31021 Mogliano Veneto TV",
                         "embed_url": "https://www.openstreetmap.org/export/embed.html?bbox=12.2406%2C45.5533%2C12.2606%2C45.5733&layer=mapnik&marker=45.5633%2C12.2506",
@@ -126,11 +101,15 @@
                         "links": [
                             {
                                 "label": "Privacy Policy",
-                                "url": "/it/privacy"
+                                "url": "{{ route('container0.index',['container0'=>'privacy']) }}"
                             },
                             {
                                 "label": "Termini e Condizioni",
-                                "url": "/it/terms"
+                                "url": "{{ route('container0.index',['container0'=>'terms']) }}"
+                            },
+                            {
+                                "label": "Cookie Policy",
+                                "url": "{{ route('container0.index',['container0'=>'cookies']) }}"
                             }
                         ]
                     }
@@ -183,11 +162,16 @@
                         "items": [
                             {
                                 "type": "address",
-                                "value": "Via Vanzo 86, 31021 Mogliano Veneto TV, Italy"
+                                "value": "Via Augusto Vanzo 86 A, 31021 Mogliano Veneto (TV), Italy"
                             },
                             {
                                 "type": "email",
                                 "value": "studio@sottana.com"
+                            },
+                            {
+                                "type": "pec",
+                                "label": "PEC",
+                                "value": "sottanamarco@pec.it"
                             },
                             {
                                 "type": "phone",
@@ -198,6 +182,7 @@
                                 "value": "+39 347 58 96 127"
                             }
                         ],
+                        "legal_name": "Sottana Service di Sottana Marco",
                         "piva": "05532540266",
                         "rea": "TV - 451911"
                     },
@@ -216,47 +201,20 @@
                             }
                         ]
                     },
-                    "testimonials": {
-                        "title": "What They Say",
-                        "items": [
-                            {
-                                "text": "Excellent and professional service. Marco is very competent and available for any clarification.",
-                                "author": "Dr. Alberto Rossi",
-                                "role": "Studio Dentistico Rossi",
-                                "location": "Treviso"
-                            },
-                            {
-                                "text": "Punctual, precise and always up to date on regulations. Highly recommended.",
-                                "author": "Dr.ssa Giulia Bianchi",
-                                "role": "Clinica Veterinaria VetLife",
-                                "location": "Venezia"
-                            }
-                        ]
-                    },
-                    "quick_actions": {
-                        "call": {
-                            "phone": "+39 041 455552",
-                            "label": "Call Now"
-                        },
-                        "whatsapp": {
-                            "number": "+39 347 58 96 127",
-                            "label": "WhatsApp"
-                        },
-                        "appointment": {
-                            "url": "/en/contacts",
-                            "label": "Book Appointment"
-                        }
-                    },
                     "legal": {
                         "copyright": "© 2026 Sottana Service - Safety and Radiation Protection Consulting. All rights reserved.",
                         "links": [
                             {
                                 "label": "Privacy Policy",
-                                "url": "/en/privacy"
+                                "url": "{{ route('container0.index',['container0'=>'privacy']) }}"
                             },
                             {
                                 "label": "Terms and Conditions",
-                                "url": "/en/terms"
+                                "url": "{{ route('container0.index',['container0'=>'terms']) }}"
+                            },
+                            {
+                                "label": "Cookie Policy",
+                                "url": "{{ route('container0.index',['container0'=>'cookies']) }}"
                             }
                         ]
                     }

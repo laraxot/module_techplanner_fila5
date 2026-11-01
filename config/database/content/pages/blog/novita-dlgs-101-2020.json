@@ -26,14 +26,22 @@
                 }
             },
             {
+                "type": "share",
+                "slug": "share-links",
+                "data": {
+                    "view": "pub_theme::components.blocks.share.links",
+                    "text": "Le novità del D.Lgs 101/2020 per gli studi odontoiatrici"
+                }
+            },
+            {
                 "type": "cta",
                 "slug": "article-cta",
                 "data": {
                     "view": "pub_theme::components.blocks.cta.simple",
                     "title": "Il tuo studio è in regola?",
-                    "subtitle": "Richiedi un audit gratuito sulla conformità al D.Lgs 101/2020.",
-                    "cta_label": "Contattaci ora",
-                    "cta_url": "/it/contatti"
+                    "description": "Richiedi un audit gratuito sulla conformità al D.Lgs 101/2020.",
+                    "primary_cta_label": "Contattaci ora",
+                    "primary_cta_url": "{{ route('container0.index',['container0'=>'contacts']) }}"
                 }
             }
         ]

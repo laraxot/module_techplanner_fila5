@@ -17,10 +17,10 @@
                     "title": "Il Mio Profilo",
                     "subtitle": "Gestisci le tue informazioni personali e le impostazioni dell'account.",
                     "primary_cta_label": "Modifica Profilo",
-                    "primary_cta_url": "/it/profile/edit",
+                    "primary_cta_url": "{{ route('profile.edit') }}",
                     "secondary_cta_label": "Dashboard",
                     "secondary_cta_url": "/admin",
-                    "image": "/images/hero-bg.jpg"
+                    "image": "/images/hero-bg-2000.jpg"
                 }
             },
             {
@@ -42,10 +42,10 @@
                     "title": "My Profile",
                     "subtitle": "Manage your personal information and account settings.",
                     "primary_cta_label": "Edit Profile",
-                    "primary_cta_url": "/en/profile/edit",
+                    "primary_cta_url": "{{ route('profile.edit') }}",
                     "secondary_cta_label": "Dashboard",
                     "secondary_cta_url": "/admin",
-                    "image": "/images/hero-bg.jpg"
+                    "image": "/images/hero-bg-2000.jpg"
                 }
             },
             {

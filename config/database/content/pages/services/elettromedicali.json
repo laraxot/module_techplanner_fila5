@@ -14,7 +14,7 @@
                     "view": "pub_theme::components.blocks.hero.internal",
                     "title": "Controllo Apparecchiature Elettromedicali",
                     "subtitle": "Verifiche di sicurezza elettrica (IEC 62353) e manutenzione preventiva per dispositivi medici.",
-                    "image": "/themes/Two/images/medical-equipment.jpg"
+                    "image": "/images/hero-bg-2000.jpg"
                 }
             },
             {
@@ -23,8 +23,9 @@
                 "data": {
                     "view": "pub_theme::components.blocks.content.split",
                     "title": "Sicurezza al Primo Posto",
-                    "content": "<p class='text-lg leading-relaxed text-gray-700'>Le apparecchiature elettromedicali richiedono controlli rigorosi per prevenire rischi di folgorazione o malfunzionamenti critici. Il nostro servizio di verifica assicura che ogni dispositivo nel tuo studio sia sicuro sia per il paziente che per l'operatore, rispendo gli standard internazionali IEC 62353.</p><p class='mt-4 text-gray-600'>Eseguiamo misurazioni di correnti di dispersione, resistenza di terra e verifiche funzionali complete, rilasciando il verbale di prova obbligatorio per ogni dispositivo controllato.</p>",
-                    "image": "/themes/Two/images/medical-equipment.jpg",
+                    "content": "<p class='text-lg leading-relaxed text-gray-700'>Le apparecchiature elettromedicali richiedono controlli rigorosi per prevenire rischi di folgorazione o malfunzionamenti critici. Il nostro servizio di verifica controlla la sicurezza dei dispositivi nel tuo studio, per il paziente e per l'operatore, secondo la norma IEC 62353.</p><p class='mt-4 text-gray-600'>Eseguiamo misurazioni di correnti di dispersione, resistenza di terra e verifiche funzionali complete, rilasciando il verbale di prova obbligatorio per ogni dispositivo controllato.</p>",
+                    "image": "/themes/Two/images/service-patient-safety.jpg",
+                    "image_alt": "Sala di uno studio odontoiatrico con poltrona del paziente, riunito e panca azzurra",
                     "reverse": true
                 }
             },
@@ -34,9 +35,9 @@
                 "data": {
                     "view": "pub_theme::components.blocks.cta.simple",
                     "title": "Metti in sicurezza il tuo parco macchine",
-                    "subtitle": "Pianifica oggi stesso le verifiche periodiche per i tuoi elettromedicali.",
-                    "cta_label": "Richiedi Info",
-                    "cta_url": "/it/contatti"
+                    "description": "Pianifica oggi stesso le verifiche periodiche per i tuoi elettromedicali.",
+                    "primary_cta_label": "Richiedi Info",
+                    "primary_cta_url": "{{ route('container0.index',['container0'=>'contacts']) }}"
                 }
             }
         ]
