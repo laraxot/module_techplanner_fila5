@@ -37,6 +37,9 @@ return [
         'toggleColumns' => [
             'label' => 'toggleColumns',
         ],
+        'created_at' => [
+            'label' => 'created_at',
+        ],
     ],
     'model' => [
         'label' => 'Direttore Sanitario',
@@ -45,12 +48,78 @@ return [
     'actions' => [
         'downloadExample' => [
             'label' => 'downloadExample',
+            'icon' => 'downloadExample',
+            'tooltip' => 'downloadExample',
         ],
         'importMedicalDirector' => [
             'label' => 'importMedicalDirector',
+            'icon' => 'importMedicalDirector',
+            'tooltip' => 'importMedicalDirector',
         ],
         'reorderRecords' => [
             'tooltip' => 'reorderRecords',
+            'label' => 'reorderRecords',
+            'icon' => 'reorderRecords',
+        ],
+        'create' => [
+            'label' => 'create',
+            'icon' => 'create',
+            'tooltip' => 'create',
+        ],
+        'applyFilters' => [
+            'label' => 'applyFilters',
+            'icon' => 'applyFilters',
+            'tooltip' => 'applyFilters',
+        ],
+        'resetFilters' => [
+            'label' => 'resetFilters',
+            'icon' => 'resetFilters',
+            'tooltip' => 'resetFilters',
+        ],
+        'openFilters' => [
+            'label' => 'openFilters',
+            'icon' => 'openFilters',
+            'tooltip' => 'openFilters',
+        ],
+        'applyTableColumnManager' => [
+            'label' => 'applyTableColumnManager',
+            'icon' => 'applyTableColumnManager',
+            'tooltip' => 'applyTableColumnManager',
+        ],
+        'openColumnManager' => [
+            'label' => 'openColumnManager',
+            'icon' => 'openColumnManager',
+            'tooltip' => 'openColumnManager',
+        ],
+        'resetColumnManager' => [
+            'label' => 'resetColumnManager',
+            'icon' => 'resetColumnManager',
+            'tooltip' => 'resetColumnManager',
+        ],
+        'profile' => [
+            'label' => 'profile',
+            'icon' => 'profile',
+            'tooltip' => 'profile',
+        ],
+        'logout' => [
+            'label' => 'logout',
+            'icon' => 'logout',
+            'tooltip' => 'logout',
+        ],
+        'removeAllFilters' => [
+            'label' => 'removeAllFilters',
+            'icon' => 'removeAllFilters',
+            'tooltip' => 'removeAllFilters',
+        ],
+        'createAnother' => [
+            'label' => 'createAnother',
+            'icon' => 'createAnother',
+            'tooltip' => 'createAnother',
+        ],
+        'cancel' => [
+            'label' => 'cancel',
+            'icon' => 'cancel',
+            'tooltip' => 'cancel',
         ],
     ],
     'label' => 'medical director',

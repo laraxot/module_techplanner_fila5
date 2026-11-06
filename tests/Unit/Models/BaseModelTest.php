@@ -6,36 +6,31 @@ namespace Modules\TechPlanner\Tests\Unit\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Modules\TechPlanner\Models\BaseModel;
-use Modules\TechPlanner\Tests\TestCase;
 
-uses(TestCase::class);
-
-function createTechPlannerTestBaseModel(): BaseModel
-{
-    return new class() extends BaseModel
+beforeEach(function () {
+    $this->baseModel = new class() extends BaseModel
     {
         protected $table = 'test_techplanner_table';
     };
-}
+});
 
 test('base model extends eloquent model', function () {
-    $this->assertInstanceOf(Model::class, createTechPlannerTestBaseModel());
+    expect($this->baseModel)->toBeInstanceOf(Model::class);
 });
 
 test('base model has correct table name', function () {
-    $this->assertSame('test_techplanner_table', createTechPlannerTestBaseModel()->getTable());
+    expect($this->baseModel->getTable())->toBe('test_techplanner_table');
 });
 
 test('base model can be instantiated', function () {
-    $this->assertInstanceOf(BaseModel::class, createTechPlannerTestBaseModel());
+    expect($this->baseModel)->toBeInstanceOf(BaseModel::class);
 });
 
 test('base model has proper inheritance chain', function () {
-    $baseModel = createTechPlannerTestBaseModel();
-    $this->assertInstanceOf(BaseModel::class, $baseModel);
-    $this->assertInstanceOf(Model::class, $baseModel);
+    expect($this->baseModel)->toBeInstanceOf(BaseModel::class);
+    expect($this->baseModel)->toBeInstanceOf(Model::class);
 });
 
 test('base model has timestamps enabled', function () {
-    $this->assertTrue(createTechPlannerTestBaseModel()->usesTimestamps());
+    expect($this->baseModel->usesTimestamps())->toBeTrue();
 });

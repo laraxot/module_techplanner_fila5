@@ -16,6 +16,8 @@ return [
     'actions' => [
         'create' => [
             'label' => 'create',
+            'icon' => 'create',
+            'tooltip' => 'create',
         ],
         'importDevice' => [
             'label' => 'importDevice',
@@ -25,6 +27,48 @@ return [
         ],
         'reorderRecords' => [
             'tooltip' => 'reorderRecords',
+            'label' => 'reorderRecords',
+            'icon' => 'reorderRecords',
+        ],
+        'applyFilters' => [
+            'label' => 'applyFilters',
+            'icon' => 'applyFilters',
+            'tooltip' => 'applyFilters',
+        ],
+        'resetFilters' => [
+            'label' => 'resetFilters',
+            'icon' => 'resetFilters',
+            'tooltip' => 'resetFilters',
+        ],
+        'openFilters' => [
+            'label' => 'openFilters',
+            'icon' => 'openFilters',
+            'tooltip' => 'openFilters',
+        ],
+        'applyTableColumnManager' => [
+            'label' => 'applyTableColumnManager',
+            'icon' => 'applyTableColumnManager',
+            'tooltip' => 'applyTableColumnManager',
+        ],
+        'openColumnManager' => [
+            'label' => 'openColumnManager',
+            'icon' => 'openColumnManager',
+            'tooltip' => 'openColumnManager',
+        ],
+        'resetColumnManager' => [
+            'label' => 'resetColumnManager',
+            'icon' => 'resetColumnManager',
+            'tooltip' => 'resetColumnManager',
+        ],
+        'profile' => [
+            'label' => 'profile',
+            'icon' => 'profile',
+            'tooltip' => 'profile',
+        ],
+        'logout' => [
+            'label' => 'logout',
+            'icon' => 'logout',
+            'tooltip' => 'logout',
         ],
     ],
     'fields' => [
@@ -62,4 +106,5 @@ return [
             'label' => 'openFilters',
         ],
     ],
+    'label' => 'legal representative',
 ];

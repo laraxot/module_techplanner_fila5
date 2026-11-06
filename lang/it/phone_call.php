@@ -28,6 +28,8 @@ return [
     'actions' => [
         'create' => [
             'label' => 'Crea',
+            'icon' => 'create',
+            'tooltip' => 'create',
         ],
         'import' => [
             'label' => 'Importa',
@@ -37,28 +39,109 @@ return [
         ],
         'cancel' => [
             'tooltip' => 'cancel',
+            'label' => 'cancel',
+            'icon' => 'cancel',
         ],
         'reorderRecords' => [
             'tooltip' => 'reorderRecords',
             'icon' => 'reorderRecords',
             'label' => 'reorderRecords',
         ],
+        'openColumnManager' => [
+            'tooltip' => 'openColumnManager',
+            'icon' => 'openColumnManager',
+            'label' => 'openColumnManager',
+        ],
+        'edit' => [
+            'label' => 'edit',
+            'icon' => 'edit',
+            'tooltip' => 'edit',
+        ],
+        'detach' => [
+            'label' => 'detach',
+            'icon' => 'detach',
+            'tooltip' => 'detach',
+        ],
+        'delete' => [
+            'label' => 'delete',
+            'icon' => 'delete',
+            'tooltip' => 'delete',
+        ],
+        'attach' => [
+            'label' => 'attach',
+            'icon' => 'attach',
+            'tooltip' => 'attach',
+        ],
+        'applyFilters' => [
+            'label' => 'applyFilters',
+            'icon' => 'applyFilters',
+            'tooltip' => 'applyFilters',
+        ],
+        'openFilters' => [
+            'label' => 'openFilters',
+            'icon' => 'openFilters',
+            'tooltip' => 'openFilters',
+        ],
+        'resetFilters' => [
+            'label' => 'resetFilters',
+            'icon' => 'resetFilters',
+            'tooltip' => 'resetFilters',
+        ],
+        'applyTableColumnManager' => [
+            'label' => 'applyTableColumnManager',
+            'icon' => 'applyTableColumnManager',
+            'tooltip' => 'applyTableColumnManager',
+        ],
+        'submit' => [
+            'label' => 'submit',
+            'icon' => 'submit',
+            'tooltip' => 'submit',
+        ],
+        'createAnother' => [
+            'label' => 'createAnother',
+            'icon' => 'createAnother',
+            'tooltip' => 'createAnother',
+        ],
+        'resetColumnManager' => [
+            'label' => 'resetColumnManager',
+            'icon' => 'resetColumnManager',
+            'tooltip' => 'resetColumnManager',
+        ],
+        'profile' => [
+            'label' => 'profile',
+            'icon' => 'profile',
+            'tooltip' => 'profile',
+        ],
+        'logout' => [
+            'label' => 'logout',
+            'icon' => 'logout',
+            'tooltip' => 'logout',
+        ],
     ],
     'fields' => [
         'date' => [
             'label' => 'Data',
+            'placeholder' => 'date',
+            'helper_text' => 'date',
+            'description' => 'date',
         ],
         'duration' => [
             'label' => 'Durata',
+            'placeholder' => 'duration',
+            'helper_text' => 'duration',
+            'description' => 'duration',
         ],
         'notes' => [
             'label' => 'Note',
             'description' => 'notes',
+            'placeholder' => 'notes',
+            'helper_text' => 'notes',
         ],
         'call_type' => [
             'label' => 'Tipo Chiamata',
             'description' => 'call_type',
             'helper_text' => 'call_type',
+            'placeholder' => 'call_type',
         ],
         'id' => [
             'label' => 'ID',

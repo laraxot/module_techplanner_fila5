@@ -9,29 +9,12 @@ use PHPUnit\Framework\Assert;
 use Modules\TechPlanner\Actions\Contact\PurgeExpiredContactMessagesAction;
 use Modules\TechPlanner\Actions\Contact\StoreContactMessageAction;
 use Modules\TechPlanner\Actions\Contact\UpdateContactMessageStatusAction;
-use Modules\TechPlanner\Datas\ContactMessageData;
 use Modules\TechPlanner\Enums\ContactMessageStatusEnum;
 use Modules\TechPlanner\Models\ContactMessage;
 use Modules\TechPlanner\Tests\TestCase;
+use Modules\TechPlanner\Tests\Unit\Actions\Contact\TechPlannerContactStoreFake;
 
 uses(TestCase::class);
-
-final class TechPlannerContactStoreFake extends StoreContactMessageAction
-{
-    private int $stored = 0;
-
-    public function execute(ContactMessageData $data, string $locale): ContactMessage
-    {
-        ++$this->stored;
-
-        return new ContactMessage(['name' => $data->name]);
-    }
-
-    public function storedCount(): int
-    {
-        return $this->stored;
-    }
-}
 
 /*
  * POST del form di contatto attraverso il router (sessione, validazione, redirect), senza database ne' posta reali:

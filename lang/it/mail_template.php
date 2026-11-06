@@ -185,6 +185,18 @@ return [
         ],
         'applyFilters' => [
             'tooltip' => 'applyFilters',
+            'label' => 'applyFilters',
+            'icon' => 'applyFilters',
+        ],
+        'openFilters' => [
+            'label' => 'openFilters',
+            'icon' => 'openFilters',
+            'tooltip' => 'openFilters',
+        ],
+        'resetColumnManager' => [
+            'label' => 'resetColumnManager',
+            'icon' => 'resetColumnManager',
+            'tooltip' => 'resetColumnManager',
         ],
     ],
     'messages' => [

@@ -9,6 +9,7 @@ use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Component;
+use Modules\TechPlanner\Models\Client;
 use Modules\Xot\Filament\Resources\Schemas\XotBaseResourceForm;
 
 class DeviceForm extends XotBaseResourceForm
@@ -21,6 +22,10 @@ class DeviceForm extends XotBaseResourceForm
         return [
             'client_id' => Select::make('client_id')
                 ->relationship('client', 'company_name')
+                ->getOptionLabelFromRecordUsing(static function (Client $client): string {
+                    return $client->company_name
+                        ?: ($client->name ?: 'Client');
+                })
                 ->searchable()
                 ->preload(),
             'type' => TextInput::make('type')->maxLength(255),
