@@ -126,7 +126,6 @@ use function Safe\preg_replace;
  */
 class Client extends BaseModel
 {
-    /** @use GeoTrait<Client> */
     use GeoTrait;
 
     /** @use HasAddress<Client> */
