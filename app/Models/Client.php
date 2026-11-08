@@ -12,6 +12,7 @@ use Modules\Geo\Enums\AddressItemEnum;
 use Modules\Geo\Models\Address;
 use Modules\Geo\Models\Traits\GeoTrait;
 use Modules\Geo\Models\Traits\HasAddress;
+use Modules\TechPlanner\Enums\ControlTypeEnum;
 use Modules\Xot\Models\Traits\HasDynamicFillable;
 use Override;
 use UnitEnum;
@@ -173,14 +174,25 @@ class Client extends BaseModel
         if ($value !== null) {
             return (string) $value;
         }
-        $address = sprintf(
-            '%s, %s - %s, %s (%s)',
-            (string) ($this->route ?? ''),
-            (string) ($this->street_number ?? ''),
-            (string) ($this->postal_code ?? ''),
-            (string) ($this->city ?? ''),
-            (string) ($this->province ?? ''),
-        );
+        $route = (string) ($this->route ?? '');
+
+        // Campi già contenuti in `route` (import legacy: route = indirizzo
+        // completo) vengono saltati per non duplicare token nel query di
+        // geocoding ("... PD 12 - 35020, , ()" confonde il geocoder).
+        $parts = [$route];
+        foreach (['street_number', 'postal_code', 'city', 'province'] as $field) {
+            $value = $this->getAttribute($field);
+            if (! is_string($value) && ! is_int($value)) {
+                continue;
+            }
+            $value = (string) $value;
+            if ($value === '' || ($route !== '' && mb_stripos($route, $value) !== false)) {
+                continue;
+            }
+            $parts[] = $value;
+        }
+
+        $address = implode(' ', $parts);
 
         $replaced = preg_replace('/[,\s]+/', ' ', $address);
         if ($replaced === null || is_array($replaced)) {
@@ -198,6 +210,51 @@ class Client extends BaseModel
     public function devices(): HasMany
     {
         return $this->hasMany(Device::class);
+    }
+
+    /**
+     * Controlli tecnici e sanitari unificati del cliente.
+     *
+     * @return HasMany<Control, $this>
+     */
+    public function controls(): HasMany
+    {
+        return $this->hasMany(Control::class);
+    }
+
+    /**
+     * Aggiunge alla lista le ultime date per i controlli operativi.
+     *
+     * @param  Builder<Client>  $query
+     * @return Builder<Client>
+     */
+    public function scopeWithLatestControlDates(Builder $query): Builder
+    {
+        $controlQuery = Control::query();
+        if (! $controlQuery->getModel()->getConnection()->getSchemaBuilder()->hasTable('controls')) {
+            return $query;
+        }
+
+        $table = $query->getModel()->getTable();
+
+        return $query->addSelect([
+            'last_rx_control_date' => (clone $controlQuery)
+                ->selectRaw('MAX(control_date)')
+                ->whereColumn('controls.client_id', $table.'.id')
+                ->where('control_type', ControlTypeEnum::RX->value),
+            'last_intraoral_control_date' => (clone $controlQuery)
+                ->selectRaw('MAX(control_date)')
+                ->whereColumn('controls.client_id', $table.'.id')
+                ->where('control_type', ControlTypeEnum::INTRAORAL->value),
+            'last_electromedical_control_date' => (clone $controlQuery)
+                ->selectRaw('MAX(control_date)')
+                ->whereColumn('controls.client_id', $table.'.id')
+                ->where('control_type', ControlTypeEnum::ELECTROMEDICAL->value),
+            'last_health_authorization_date' => (clone $controlQuery)
+                ->selectRaw('MAX(control_date)')
+                ->whereColumn('controls.client_id', $table.'.id')
+                ->where('control_type', ControlTypeEnum::HEALTH_AUTHORIZATION->value),
+        ]);
     }
 
     /**

@@ -16,9 +16,9 @@ class CoordinatesWidget extends XotBaseWidget
 {
     protected string $view = 'techplanner::filament.widgets.coordinates-widget';
 
-    public float $latitude = 0;
+    public string|float|null $latitude = '0';
 
-    public float $longitude = 0;
+    public string|float|null $longitude = '0';
 
     /**
      * @return array<int, Component>
@@ -30,42 +30,59 @@ class CoordinatesWidget extends XotBaseWidget
 
     public function mount(): void
     {
-        $this->latitude = app(SafeFloatCastAction::class)
+        $this->latitude = (string) app(SafeFloatCastAction::class)
             ->execute(Session::get('user_latitude', Cookie::get('user_latitude', 0)));
-        $this->longitude = app(SafeFloatCastAction::class)
+        $this->longitude = (string) app(SafeFloatCastAction::class)
             ->execute(Session::get('user_longitude', Cookie::get('user_longitude', 0)));
     }
 
     public function updateCoordinates(): void
     {
-        Session::put('user_latitude', $this->latitude);
-        Session::put('user_longitude', $this->longitude);
+        if (! $this->coordinatesAreValid()) {
+            Notification::make()
+                ->danger()
+                ->title(__('techplanner::coordinates_widget.notifications.invalid.title'))
+                ->body(__('techplanner::coordinates_widget.notifications.invalid.body'))
+                ->send();
 
-        Cookie::queue('user_latitude', $this->latitude, 60 * 24 * 30); // 30 days
-        Cookie::queue('user_longitude', $this->longitude, 60 * 24 * 30);
+            return;
+        }
+
+        $latitude = (float) $this->latitude;
+        $longitude = (float) $this->longitude;
+        Session::put('user_latitude', $latitude);
+        Session::put('user_longitude', $longitude);
+
+        Cookie::queue('user_latitude', (string) $latitude, 60 * 24 * 30); // 30 days
+        Cookie::queue('user_longitude', (string) $longitude, 60 * 24 * 30);
 
         $this->dispatch('coordinates-updated');
 
-        // Ordina la tabella per distanza
-        $target = 'filament.techplanner::admin.resources.clients.index';
-        $dispatch = $this->dispatch('sort-by-distance');
-        if (is_object($dispatch) && method_exists($dispatch, 'to')) {
-            $dispatch->to($target);
-        }
+        // Livewire propaga l'evento a tutti i componenti: ListClients lo riceve
+        // via #[On('sort-by-distance')] e riapplica la query con withDistance().
+        $this->dispatch('sort-by-distance');
 
         Notification::make()
             ->success()
-            ->title('Coordinate aggiornate')
-            ->body('La tabella è stata ordinata in base alla distanza dalle coordinate impostate')
+            ->title(__('techplanner::coordinates_widget.notifications.updated.title'))
+            ->body(__('techplanner::coordinates_widget.notifications.updated.body'))
             ->send();
+    }
+
+    private function coordinatesAreValid(): bool
+    {
+        return is_numeric($this->latitude) && is_numeric($this->longitude)
+            && is_finite((float) $this->latitude) && is_finite((float) $this->longitude)
+            && (float) $this->latitude >= -90.0 && (float) $this->latitude <= 90.0
+            && (float) $this->longitude >= -180.0 && (float) $this->longitude <= 180.0;
     }
 
     #[On('coordinates-updated')]
     public function refreshCoordinates(): void
     {
-        $this->latitude = app(SafeFloatCastAction::class)
+        $this->latitude = (string) app(SafeFloatCastAction::class)
             ->execute(Session::get('user_latitude', Cookie::get('user_latitude', 0)));
-        $this->longitude = app(SafeFloatCastAction::class)
+        $this->longitude = (string) app(SafeFloatCastAction::class)
             ->execute(Session::get('user_longitude', Cookie::get('user_longitude', 0)));
     }
 }

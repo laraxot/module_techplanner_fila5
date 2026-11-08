@@ -13,10 +13,11 @@ Per la conoscenza "second brain" orientata AI (frontmatter, tag, qmd) vedi [wiki
 
 ## Filosofia e principi
 
-- [philosophy.md](concepts/philosophy.md) - purpose e design principles del modulo
-- [philosophy-complete.md](concepts/philosophy-complete.md) - filosofia estesa (logica, religione, politica, zen)
+- [concepts/vision-and-philosophy.md](concepts/vision-and-philosophy.md) - **canonico**: filosofia/visione v2.0 (sintetizza le precedenti)
+- [concepts/philosophy.md](concepts/philosophy.md) - purpose e design principles del modulo (conciso)
+- [concepts/philosophy-complete.md](concepts/philosophy-complete.md) - filosofia estesa precedente (logica, religione, politica, zen)
+- [concepts/filosofia-modulo-techplanner.md](concepts/filosofia-modulo-techplanner.md) - versione italiana originale (pre-vision v2.0)
 - [companysection-philosophy.md](companysection-philosophy.md) - filosofia del componente CompanySection
-- vedi anche "Storico / da consolidare" per le due varianti di `filosofia_modulo_techplanner`
 
 ## Architettura e regole XotBase
 
@@ -48,7 +49,7 @@ Per la conoscenza "second brain" orientata AI (frontmatter, tag, qmd) vedi [wiki
 
 - [filament-5x-compatibility.md](filament-5x-compatibility.md)
 - [filament-4x-compatibility.md](filament-4x-compatibility.md)
-- [filament_v4_upgrade_notes.md](filament_v4_upgrade_notes.md)
+- [filament-v4-upgrade-notes.md](filament-v4-upgrade-notes.md)
 
 ### AddressSection / ContactColumn
 
@@ -79,13 +80,13 @@ Per la conoscenza "second brain" orientata AI (frontmatter, tag, qmd) vedi [wiki
 
 ## Qualità del codice e PHPStan
 
-- [phpstan-level-10-compliance.md](phpstan-level-10-compliance.md) - stato compliance Level 10
-- [phpstan-compliance-status.md](phpstan-compliance-status.md) - stato compliance (aggiornamento più recente)
-- [phpstan-compliance.md](phpstan-compliance.md) - stato compliance
-- [phpstan-complete-fixes.md](phpstan-complete-fixes.md) - riepilogo fix completati
-- [phpstan-fixes-implemented.md](phpstan-fixes-implemented.md) - fix implementati
-- [phpstan-errors-analysis.md](phpstan-errors-analysis.md) - analisi errori
-- [phpstan-widget-formschema-and-pest-bridge-fixes.md](phpstan-widget-formschema-and-pest-bridge-fixes.md) - fix widget formSchema e bridge Pest
+- [phpstan/phpstan-level-10-compliance.md](phpstan/phpstan-level-10-compliance.md) - stato compliance Level 10
+- [phpstan/phpstan-compliance-status.md](phpstan/phpstan-compliance-status.md) - stato compliance (aggiornamento più recente)
+- [phpstan/phpstan-compliance.md](phpstan/phpstan-compliance.md) - stato compliance
+- [phpstan/phpstan-complete-fixes.md](phpstan/phpstan-complete-fixes.md) - riepilogo fix completati
+- [phpstan/phpstan-fixes-implemented.md](phpstan/phpstan-fixes-implemented.md) - fix implementati
+- [phpstan/phpstan-errors-analysis.md](phpstan/phpstan-errors-analysis.md) - analisi errori
+- [phpstan/phpstan-widget-formschema-and-pest-bridge-fixes.md](phpstan/phpstan-widget-formschema-and-pest-bridge-fixes.md) - fix widget formSchema e bridge Pest
 - [dry-kiss-improvements.md](dry-kiss-improvements.md) - miglioramenti DRY + KISS
 - [clean-code-violation-fix.md](clean-code-violation-fix.md) - fix violazione clean code (UpdateCoordinates action)
 - vedi "Storico / da consolidare" per i report qualità generici (`code-quality-improvement-report.md`, `code-quality-report.md`, `quality-analysis-report.md`)
@@ -109,6 +110,7 @@ Per la conoscenza "second brain" orientata AI (frontmatter, tag, qmd) vedi [wiki
 - [client-notifications.md](client-notifications.md) - aggiornamenti gestione client/notifiche
 - [mail-template-translations.md](mail-template-translations.md) - traduzioni template email
 - [api-reference.md](api-reference.md) - riferimento API del modulo
+- [competitive-analysis-field-controls.md](competitive-analysis-field-controls.md) - analisi competitiva controlli da campo (2026-11)
 
 ## Roadmap collegate
 
@@ -135,11 +137,11 @@ Per la conoscenza "second brain" orientata AI (frontmatter, tag, qmd) vedi [wiki
 
 File non cancellati/rinominati (per policy) ma sovrapposti o superati da altri documenti in questa lista. Da rivedere in un task dedicato di consolidamento, non in questo audit.
 
-- [00-index.md](00-index.md) - vecchio indice del modulo, sostituito da questo `index.md`; mantenuto per storico
-- [filosofia_modulo_techplanner.md](filosofia_modulo_techplanner.md) - mantenuto; `FILOSOFIA_MODULO_TECHPLANNER.md` (duplicato) rimosso
+- [00-index.md](00-index.md) - redirect a questo `index.md` (stub)
+- `concepts/PHILOSOPHY.md` → rinominato `concepts/vision-and-philosophy.md`; `filosofia_modulo_techplanner.md` → `concepts/filosofia-modulo-techplanner.md`; `filament_v4_upgrade_notes.md` → `filament-v4-upgrade-notes.md`; 7 file `phpstan-*` → `phpstan/`; 3 report qualità → `audits/`
 - [models/dynamic-fillable-enums.md](models/dynamic-fillable-enums.md) - mantenuto; `models/dynamic_fillable_enums.md` (versione obsoleta) rimosso
-- [code-quality-improvement-report.md](code-quality-improvement-report.md), [code-quality-report.md](code-quality-report.md), [quality-analysis-report.md](quality-analysis-report.md) - tre report di qualità del codice sovrapposti, snapshot in date diverse
-- [phpstan-compliance.md](phpstan-compliance.md), [phpstan-compliance-status.md](phpstan-compliance-status.md), [phpstan-level-10-compliance.md](phpstan-level-10-compliance.md), [phpstan-complete-fixes.md](phpstan-complete-fixes.md), [phpstan-fixes-implemented.md](phpstan-fixes-implemented.md), [phpstan-errors-analysis.md](phpstan-errors-analysis.md) - sei documenti PHPStan sovrapposti nel tempo; `phpstan-compliance-status.md` risulta l'aggiornamento più recente
+- [audits/code-quality-improvement-report.md](audits/code-quality-improvement-report.md), [audits/code-quality-report.md](audits/code-quality-report.md), [audits/quality-analysis-report.md](audits/quality-analysis-report.md) - tre report di qualità del codice sovrapposti, snapshot in date diverse (in `audits/`)
+- [phpstan-compliance.md](phpstan/phpstan-compliance.md), [phpstan-compliance-status.md](phpstan/phpstan-compliance-status.md), [phpstan-level-10-compliance.md](phpstan/phpstan-level-10-compliance.md), [phpstan-complete-fixes.md](phpstan/phpstan-complete-fixes.md), [phpstan-fixes-implemented.md](phpstan/phpstan-fixes-implemented.md), [phpstan-errors-analysis.md](phpstan/phpstan-errors-analysis.md) - sei documenti PHPStan sovrapposti nel tempo; `phpstan-compliance-status.md` risulta l'aggiornamento più recente
 - [filament/contacts-column-implementation.md](filament/contacts-column-implementation.md), [filament/contacts-column-implementation-complete.md](filament/contacts-column-implementation-complete.md), [filament/contacts-column-error-fix.md](filament/contacts-column-error-fix.md) - sequenza piano/completamento/fix sulla stessa feature, sovrapposti
 - [refactoring/refactoring-update-coordinates.md](refactoring/refactoring-update-coordinates.md) vs [refactoring/client-coordinate-actions.md](refactoring/client-coordinate-actions.md) - stesso refactor (bulk update coordinate), documentato due volte
 

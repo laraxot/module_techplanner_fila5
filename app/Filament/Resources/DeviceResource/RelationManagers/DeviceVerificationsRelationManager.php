@@ -19,7 +19,7 @@ use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
 
 class DeviceVerificationsRelationManager extends XotBaseRelationManager
 {
-    protected static string $relationship = 'deviceVerifications';
+    protected static string $relationship = 'verifications';
 
     protected static ?string $recordTitleAttribute = 'verification_date';
 
@@ -32,9 +32,8 @@ class DeviceVerificationsRelationManager extends XotBaseRelationManager
             DatePicker::make('verification_date')->required(),
             DatePicker::make('next_verification_date')->required(),
             TextInput::make('verification_type')->maxLength(100),
-            TextInput::make('verification_result')->maxLength(100),
-            TextInput::make('verifier_name')->maxLength(100),
-            TextInput::make('verifier_company')->maxLength(100),
+            TextInput::make('result')->maxLength(100),
+            TextInput::make('exposure_parameters')->maxLength(100),
             Textarea::make('notes')->maxLength(65535),
         ];
     }
@@ -46,8 +45,7 @@ class DeviceVerificationsRelationManager extends XotBaseRelationManager
                 TextColumn::make('verification_date')->date()->sortable(),
                 TextColumn::make('next_verification_date')->date()->sortable(),
                 TextColumn::make('verification_type')->searchable(),
-                TextColumn::make('verification_result')->searchable(),
-                TextColumn::make('verifier_name')->searchable(),
+                TextColumn::make('result')->searchable(),
             ])
             ->filters([
 

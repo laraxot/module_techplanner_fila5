@@ -197,7 +197,7 @@ All Filament resources follow the XotBaseResource pattern:
 - [API Documentation](./api-documentation.md) - Integration endpoints
 - [Config Icon Key Analysis](./filament/config-icon-key-analysis.md) - Configurazione chiave `icon` nel config.php
 ### Quality Assurance
-- [PHPStan Complete Fixes 2025](./phpstan-complete-fixes-2025.md) - ✅ **COMPLETE SUCCESS**: All PHPStan errors resolved (0 errors)
+- [PHPStan Complete Fixes 2025](./phpstan/phpstan-complete-fixes.md) - ✅ **COMPLETE SUCCESS**: All PHPStan errors resolved (0 errors)
 - [Testing Documentation](./testing/) - Test coverage and strategies
 - [Type Safety Guidelines](../Xot/docs/filament-component-type-safety.md) - Filament v4 compliance
 ## 🚀 Quick Start Guide

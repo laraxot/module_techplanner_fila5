@@ -10,18 +10,28 @@ declare(strict_types=1);
             
             <div class="grid grid-cols-2 gap-4">
                 <x-filament::input.wrapper>
+                    <label for="coordinates-latitude" class="sr-only">
+                        {{ __('techplanner::coordinates_widget.fields.latitude') }}
+                    </label>
                     <x-filament::input 
+                        id="coordinates-latitude"
                         type="number" 
-                        wire:model="latitude" 
+                        wire:model.defer="latitude"
+                        aria-label="{{ __('techplanner::coordinates_widget.fields.latitude') }}"
                         step="0.000001"
                         placeholder="{{ __('techplanner::client.fields.latitude.label') }}"
                     />
                 </x-filament::input.wrapper>
 
                 <x-filament::input.wrapper>
+                    <label for="coordinates-longitude" class="sr-only">
+                        {{ __('techplanner::coordinates_widget.fields.longitude') }}
+                    </label>
                     <x-filament::input 
+                        id="coordinates-longitude"
                         type="number" 
-                        wire:model="longitude" 
+                        wire:model.defer="longitude"
+                        aria-label="{{ __('techplanner::coordinates_widget.fields.longitude') }}"
                         step="0.000001"
                         placeholder="{{ __('techplanner::client.fields.longitude.label') }}"
                     />

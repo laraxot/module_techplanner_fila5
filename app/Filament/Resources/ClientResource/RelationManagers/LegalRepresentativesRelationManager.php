@@ -11,11 +11,8 @@ use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\Toggle;
 use Filament\Schemas\Components\Component;
-use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
-use Filament\Tables\Filters\TernaryFilter;
 use Filament\Tables\Table;
 use Modules\TechPlanner\Filament\Resources\LegalRepresentativeResource;
 use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
@@ -24,7 +21,7 @@ class LegalRepresentativesRelationManager extends XotBaseRelationManager
 {
     protected static string $relationship = 'legalRepresentatives';
 
-    protected static ?string $recordTitleAttribute = 'full_name';
+    protected static ?string $recordTitleAttribute = 'name';
 
     protected static string $resource = LegalRepresentativeResource::class;
 
@@ -34,13 +31,10 @@ class LegalRepresentativesRelationManager extends XotBaseRelationManager
     public function getFormSchema(): array
     {
         return [
-            TextInput::make('first_name')->required()->maxLength(100),
-            TextInput::make('last_name')->required()->maxLength(100),
+            TextInput::make('name')->required()->maxLength(255),
             TextInput::make('fiscal_code')->maxLength(16),
-            TextInput::make('phone')->tel()->maxLength(20),
-            TextInput::make('mobile')->tel()->maxLength(20),
+            TextInput::make('phone')->tel()->maxLength(255),
             TextInput::make('email')->email()->maxLength(255),
-            Toggle::make('is_inactive')->default(false),
             Textarea::make('notes')->maxLength(65535),
         ];
     }
@@ -49,15 +43,12 @@ class LegalRepresentativesRelationManager extends XotBaseRelationManager
     {
         return $table
             ->columns([
-                TextColumn::make('full_name')->searchable(['first_name', 'last_name']),
-                IconColumn::make('is_inactive')->boolean(),
+                TextColumn::make('name')->searchable(),
                 TextColumn::make('fiscal_code')->searchable(),
                 TextColumn::make('phone')->searchable(),
                 TextColumn::make('email')->searchable(),
             ])
-            ->filters([
-                TernaryFilter::make('is_inactive'),
-            ])
+            ->filters([])
             ->headerActions([
                 CreateAction::make(),
             ])

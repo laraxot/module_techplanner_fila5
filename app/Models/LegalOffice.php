@@ -58,7 +58,11 @@ class LegalOffice extends BaseModel
     protected $fillable = [
         'name',
         'address',
+        'city',
+        'postal_code',
+        'province',
         'phone',
         'email',
+        'notes',
     ];
 }

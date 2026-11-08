@@ -9,11 +9,9 @@ use Filament\Actions\CreateAction;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
-use Filament\Forms\Components\DatePicker;
+use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\Toggle;
 use Filament\Schemas\Components\Component;
-use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Modules\TechPlanner\Filament\Resources\MedicalDirectorResource;
@@ -34,18 +32,10 @@ class MedicalDirectorsRelationManager extends XotBaseRelationManager
     {
         return [
             TextInput::make('name')->required()->maxLength(255),
-            TextInput::make('fiscal_code')->required()->maxLength(255),
-            TextInput::make('phone')
-                ->tel()
-                ->required()
-                ->maxLength(255),
-            TextInput::make('email')
-                ->email()
-                ->required()
-                ->maxLength(255),
-            DatePicker::make('appointment_date')->required(),
-            DatePicker::make('expiry_date')->required(),
-            Toggle::make('is_active')->required(),
+            TextInput::make('fiscal_code')->maxLength(16),
+            TextInput::make('phone')->tel()->maxLength(255),
+            TextInput::make('email')->email()->maxLength(255),
+            Textarea::make('notes')->maxLength(65535),
         ];
     }
 
@@ -57,9 +47,6 @@ class MedicalDirectorsRelationManager extends XotBaseRelationManager
                 TextColumn::make('fiscal_code'),
                 TextColumn::make('phone'),
                 TextColumn::make('email'),
-                TextColumn::make('appointment_date')->date(),
-                TextColumn::make('expiry_date')->date(),
-                IconColumn::make('is_active')->boolean(),
             ])
             ->filters([])
             ->headerActions([

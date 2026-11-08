@@ -29,14 +29,12 @@ class LegalOfficesRelationManager extends XotBaseRelationManager
     public function getFormSchema(): array
     {
         return [
-            TextInput::make('name')->required()->maxLength(100),
-            TextInput::make('street_address')->maxLength(100),
-            TextInput::make('street_number')->maxLength(10),
-            TextInput::make('city')->maxLength(100),
-            TextInput::make('province')->maxLength(2),
-            TextInput::make('postal_code')->maxLength(5),
-            TextInput::make('phone')->tel()->maxLength(20),
-            TextInput::make('fax')->maxLength(20),
+            TextInput::make('name')->required()->maxLength(255),
+            TextInput::make('address')->maxLength(255),
+            TextInput::make('city')->maxLength(255),
+            TextInput::make('province')->maxLength(100),
+            TextInput::make('postal_code')->maxLength(10),
+            TextInput::make('phone')->tel()->maxLength(255),
             TextInput::make('email')->email()->maxLength(255),
             Textarea::make('notes')->maxLength(65535),
         ];

@@ -53,9 +53,10 @@ class LegalRepresentative extends BaseModel
 {
     protected $fillable = [
         'name',
-        'identification_number',
+        'fiscal_code',
         'phone',
         'email',
+        'notes',
     ];
 
     /**

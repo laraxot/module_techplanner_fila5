@@ -22,6 +22,7 @@ related:
 | [techplanner-business-domain.md](./techplanner-business-domain.md) | Dominio business (SSoT perché) |
 | [ai-harness-techplanner-discipline.md](./ai-harness-techplanner-discipline.md) | Harness agenti modulo |
 | [second-brain-local-discipline.md](./second-brain-local-discipline.md) | Stub → canon Xot |
+| [competitor-landscape.md](./competitor-landscape.md) | Confronto FSM/CMMS e gap competitivo |
 
 
 ## Resource schema contract

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\TechPlanner\Tests;
 
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
 use Modules\Xot\Tests\CreatesApplication;
 
@@ -13,4 +14,10 @@ use Modules\Xot\Tests\CreatesApplication;
 abstract class TestCase extends BaseTestCase
 {
     use CreatesApplication;
+    use DatabaseTransactions;
+
+    /**
+     * @var array<int, string>
+     */
+    protected $connectionsToTransact = ['sqlite'];
 }

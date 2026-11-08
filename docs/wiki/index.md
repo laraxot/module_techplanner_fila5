@@ -25,8 +25,9 @@ Modulo **dominio business** del progetto: gestione clienti, dispositivi, appunta
 
 - [ai-harness-techplanner-discipline](./concepts/ai-harness-techplanner-discipline.md)
 - [techplanner-business-domain](./concepts/techplanner-business-domain.md) — **perché** del modulo
+- [client-coordinate-editing-ux](./concepts/client-coordinate-editing-ux.md) — UX e contratto di aggiornamento coordinate
 - [second-brain-local-discipline](./concepts/second-brain-local-discipline.md) — stub → canon Xot
-- [cursor-second-brain-max-workflow](../../../../../docs/wiki/skills/cursor-second-brain-max-workflow.md)
+- [cursor-second-brain-max-workflow](../../../../bashscripts/ai/wiki/skills/cursor-second-brain-max-workflow.md)
 
 ## QMD
 
@@ -40,7 +41,7 @@ bashscripts/docs/llm-wiki-qmd.sh search "TechPlanner client" -c tp-mod-techplann
 |----------|-----------|
 | [concepts/](./concepts/INDEX.md) | Business logic, pattern Filament, harness |
 | [entities/](./entities/INDEX.md) | Modelli core (Client, Device, Appointment) |
-| [troubleshooting/](./troubleshooting/) | Runbook errori noti |
+| [audits/](../audits/) | Report audit e quality gate |
 | [../](../00-index.md) | Corpus sorgente legacy (`docs/` non-wiki) |
 
 ## Scopo operativo
@@ -48,10 +49,12 @@ bashscripts/docs/llm-wiki-qmd.sh search "TechPlanner client" -c tp-mod-techplann
 1. **Client** come entità centrale — anagrafica, geo, contatti, uffici legali
 2. **Device / Machine** — verifiche, scadenze, relation manager su Client
 3. **Appointment** — pianificazione visite, partecipanti, worker
-4. **Filament admin** — risorse XotBase, widget mappa (Geo), enum in fillable
+4. **Control** — controlli STI unificati e date di ultima verifica
+5. **Filament admin** — risorse XotBase, widget mappa (Geo), enum in fillable
 
 ## Audit del modulo
 
+- [techplanner-documentation-audit](../audits/techplanner-documentation-audit.md) — allineamento BMAD/ECC/second-brain e contratti del dominio.
 - [seo-head-deep-verification](./audits/seo-head-deep-verification.md) — verifica SEO specifica del sito TechPlanner e Theme Two.
 - [module-techplanner-audit](./audits/module-techplanner-audit.md) — audit del dominio e delle risorse Filament del modulo.
 - [site-reaudit](./audits/site-reaudit.md) — sintesi del re-audit del sito live su 12 aspetti, correzioni e piano per priorita'.

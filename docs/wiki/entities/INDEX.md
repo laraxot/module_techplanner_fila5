@@ -2,7 +2,7 @@
 title: "TechPlanner Entities Index"
 type: index
 module: TechPlanner
-tags: [techplanner, entities, index, client, device, appointment]
+tags: [techplanner, entities, index, client, device, appointment, control]
 created: 2026-06-06
 updated: 2026-06-06
 qmd: "techplanner entities index client device appointment models"
@@ -14,6 +14,7 @@ related:
   - ./client.md
   - ./device.md
   - ./appointment.md
+  - ./control.md
 ---
 
 # Entities — TechPlanner
@@ -23,5 +24,6 @@ related:
 | Client (core) | [client.md](./client.md) |
 | Device / Verification | [device.md](./device.md) |
 | Appointment | [appointment.md](./appointment.md) |
+| Control / inspection | [control.md](./control.md) |
 
 Schema completo: [models-and-relationships.md](../../models-and-relationships.md)

@@ -134,6 +134,16 @@ class Device extends BaseModel
     }
 
     /**
+     * Controlli unificati eseguiti su questa macchina (tabella controls).
+     *
+     * @return HasMany<Control, $this>
+     */
+    public function controls(): HasMany
+    {
+        return $this->hasMany(Control::class, 'device_id');
+    }
+
+    /**
      * Get the latest verification for this device.
      */
     public function getLatestVerificationAttribute(): ?DeviceVerification

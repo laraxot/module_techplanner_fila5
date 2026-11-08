@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Modules\TechPlanner\Models;
 
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Carbon;
 
 /**
@@ -46,6 +47,18 @@ class DeviceVerification extends BaseModel
     protected $fillable = [
         'device_id',
         'verification_date',
-        'status',
+        'next_verification_date',
+        'result',
+        'exposure_parameters',
+        'verification_type',
+        'notes',
     ];
+
+    /**
+     * @return BelongsTo<Device, $this>
+     */
+    public function device(): BelongsTo
+    {
+        return $this->belongsTo(Device::class, 'device_id');
+    }
 }

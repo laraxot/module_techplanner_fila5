@@ -32,6 +32,11 @@ class DevicesTable extends XotBaseResourceTable
             'kv' => TextColumn::make('kv')->sortable()->searchable()->visibleFrom('md'),
             'ma' => TextColumn::make('ma')->sortable()->searchable()->visibleFrom('md'),
             'first_verification_date' => TextColumn::make('first_verification_date')->sortable()->searchable(),
+            'controls_count' => TextColumn::make('controls_count')
+                ->counts('controls')
+                ->label('Controlli')
+                ->sortable()
+                ->toggleable(),
             'notes' => TextColumn::make('notes')->sortable()->searchable()->wrap()->visibleFrom('md'),
         ];
     }

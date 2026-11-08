@@ -6,9 +6,10 @@ namespace Modules\TechPlanner\Filament\Resources\ClientResource\Pages;
 
 use Filament\Actions\DeleteAction;
 use Filament\Actions\EditAction;
+use Filament\Schemas\Components\Component;
 use Modules\TechPlanner\Filament\Resources\ClientResource;
-use Modules\Xot\Filament\Resources\Pages\XotBaseViewRecord;
 use Modules\TechPlanner\Filament\Resources\ClientResource\Schemas\ClientInfolist;
+use Modules\Xot\Filament\Resources\Pages\XotBaseViewRecord;
 
 class ViewClient extends XotBaseViewRecord
 {
@@ -23,7 +24,7 @@ class ViewClient extends XotBaseViewRecord
     }
 
     /**
-     * @return array<string, \Filament\Schemas\Components\Component>
+     * @return array<string, Component>
      */
     protected function getInfolistSchema(): array
     {
