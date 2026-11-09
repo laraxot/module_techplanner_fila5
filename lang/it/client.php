@@ -160,6 +160,7 @@ return [
         ],
         'submit' => [
             'tooltip' => 'submit',
+            'icon' => 'submit',
         ],
     ],
     'fields' => [
@@ -474,7 +475,8 @@ return [
         'label' => 'Cliente',
         'plural' => 'Clienti',
     ],
-    'sections' => [        'contacts' => [
+    'sections' => [
+        'contacts' => [
             'heading' => 'Contatti',
             'label' => 'Contatti',
         ],

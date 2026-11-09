@@ -15,6 +15,14 @@ related:
   - ./concepts/techplanner-business-domain.md
 ---
 
+## [2026-11-09] client-map + coordinates | fix "usa come origine" e merge conflict fullscreen
+
+- `ClientMapWidget::setDistanceOrigin`: aggiunto `dispatch('coordinates-updated')` — il CoordinatesWidget (posizione di riferimento) si aggiorna solo su quell'evento; prima restava stale dopo il click sulla popup.
+- `ClientsTable` action `sortByDistance`: chiudeva il salvataggio sessione/cookie senza riqueryare — ora inietta `ListClients $livewire` (dependency Filament `livewire`), dispatcha `coordinates-updated` e `resetTable()`.
+- Verificato headless: click popup → notifica "origine impostata", campi widget `0,0` → `-23.02,-46.84`, `__dispatch`/`setDistanceOrigin` 200, 0 errori.
+- `base-map.blade.php`: risolti 2 conflitti merge (arrivati da origin/master) che reiniettavano vecchio bottone absolute + CSS `position:fixed` — tenuta la versione `L.Control` in `.leaflet-bar`.
+
+
 ## [2026-11-19] appointment conflict detection + indice moduli
 
 - Nuova capability: `duration_minutes` su appointments (migration applicata),

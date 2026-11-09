@@ -65,8 +65,12 @@ class ClientMapWidget extends BaseMapWidget
 
         // 'coordinates-updated' fa rileggere sessione/cookie al
         // CoordinatesWidget (checkbox "posizione di riferimento");
+        // 'set-client-distance-origin' fa persistere sessione/cookie e
+        // chiamare resetTable() in ListClients (stesso identikit di
+        // CoordinatesWidget::updateCoordinate()).
         // 'sort-by-distance' fa resettare e riordinare la tabella.
         $this->dispatch('coordinates-updated');
+        $this->dispatch('set-client-distance-origin', $clientId);
         $this->dispatch('sort-by-distance');
 
         Notification::make()
