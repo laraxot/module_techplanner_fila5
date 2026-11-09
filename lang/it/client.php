@@ -10,11 +10,6 @@ return [
         'sort' => 30,
     ],
     'actions' => [
-        'geocodeCoordinates' => [
-            'label' => 'Aggiorna da indirizzo',
-            'failed_title' => 'Geocoding non riuscito',
-            'success_title' => 'Coordinate aggiornate dall\'indirizzo',
-        ],
         'create' => [
             'label' => 'Nuovo Cliente',
             'tooltip' => 'create',
@@ -466,35 +461,6 @@ return [
             'label' => 'Autorizzazione sanitaria',
         ],
     ],
-    'map' => [
-        'markers_shown' => 'Mostrati :count marker di clienti con coordinate',
-        'aria_label' => 'Mappa dei clienti',
-        'fullscreen' => 'Schermo intero',
-        'locate' => 'Centra sulla mia posizione',
-        'layer_satellite' => 'Satellite',
-        'set_origin' => 'Usa come origine',
-        'set_origin_tooltip' => 'Ordina tutti i clienti per distanza da questo punto',
-        'origin_popup' => 'Punto di riferimento per la distanza',
-        'origin_set' => [
-            'title' => 'Punto di partenza impostato',
-            'body' => 'La tabella è stata ordinata per distanza da questo cliente.',
-        ],
-        'origin_missing' => [
-            'title' => 'Coordinate mancanti',
-            'body' => 'Il cliente selezionato non ha coordinate utilizzabili.',
-        ],
-        'origin_missing_geocode_failed' => [
-            'title' => 'Geocodifica non riuscita',
-            'body' => 'Impossibile geocodificare l\'indirizzo del cliente. Controlla l\'indirizzo o usa "Aggiorna Coordinate" per popolare tutte le coordinate mancanti.',
-        ],
-    ],
-    'location_map' => [
-        'heading' => 'Posizione cliente',
-        'aria_label' => 'Mappa della posizione del cliente',
-        'google_maps' => 'Apri in Google Maps',
-        'viamichelin' => 'Apri in ViaMichelin',
-        'missing' => 'Coordinate non disponibili. Completa l’indirizzo e usa “Aggiorna da indirizzo” nella sezione Coordinate.',
-    ],
     'messages' => [
         'coordinates_batch_summary' => 'Elaborati :processed clienti. Coordinate aggiornate per :success.',
         'coordinates_batch_warning' => 'Aggiornamento coordinate completato con errori',
@@ -508,12 +474,7 @@ return [
         'label' => 'Cliente',
         'plural' => 'Clienti',
     ],
-    'sections' => [
-        'coordinates' => [
-            'label' => 'Coordinate',
-            'description' => 'Latitudine e longitudine del cliente. Salva prima l’indirizzo, poi aggiorna qui le coordinate per distanza e mappa.',
-        ],
-        'contacts' => [
+    'sections' => [        'contacts' => [
             'heading' => 'Contatti',
             'label' => 'Contatti',
         ],

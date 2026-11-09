@@ -68,7 +68,7 @@ class ListClients extends XotBaseListRecords
         }
 
         if (! is_numeric($latitude) || ! is_numeric($longitude)) {
-            $this->notifyOriginMissing(__('techplanner::client.map.origin_missing_geocode_failed.body'));
+            $this->notifyOriginMissing(__('techplanner::client_map_widget.origin_missing_geocode_failed.body'));
 
             return;
         }
@@ -81,8 +81,8 @@ class ListClients extends XotBaseListRecords
 
         Notification::make()
             ->success()
-            ->title(__('techplanner::client.map.origin_set.title'))
-            ->body(__('techplanner::client.map.origin_set.body'))
+            ->title(__('techplanner::client_map_widget.origin_set.title'))
+            ->body(__('techplanner::client_map_widget.origin_set.body'))
             ->send();
     }
 
@@ -90,8 +90,8 @@ class ListClients extends XotBaseListRecords
     {
         Notification::make()
             ->warning()
-            ->title(__('techplanner::client.map.origin_missing.title'))
-            ->body($body ?? __('techplanner::client.map.origin_missing.body'))
+            ->title(__('techplanner::client_map_widget.origin_missing.title'))
+            ->body($body ?? __('techplanner::client_map_widget.origin_missing.body'))
             ->send();
     }
 

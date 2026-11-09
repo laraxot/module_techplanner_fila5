@@ -26,7 +26,7 @@ per distanza, e passare dal pin al record (view/edit) o al contatto telefonico.
   `geo::filament.widgets.base-map`. `MAX_MARKERS = 500`.
 - Il widget dichiara solo: `getMapMarkers()` (con popup HTML server-side),
   `getMapOrigin()` (sessione/cookie), `getMapStrings()` (chiavi
-  `techplanner::client.map.*`) e l'azione `setDistanceOrigin` invocata dalla
+  `techplanner::client_map_widget.*`) e l'azione `setDistanceOrigin` invocata dalla
   mappa via `data-map-method`.
 - Dati: `getMarkers()` (label, indirizzo, tel, whatsapp, lat/lng, url
   view/edit), `getOrigin()` (sessione/cookie `user_latitude/longitude`).

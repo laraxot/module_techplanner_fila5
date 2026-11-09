@@ -227,8 +227,8 @@ class ClientsTable extends XotBaseResourceTable
             Action::make('sortByDistance')
                 ->icon('heroicon-o-map')
                 ->iconButton()
-                ->label(__('techplanner::client.map.set_origin_tooltip'))
-                ->tooltip(__('techplanner::client.map.set_origin_tooltip'))
+                ->label(__('techplanner::client_map_widget.set_origin_tooltip'))
+                ->tooltip(__('techplanner::client_map_widget.set_origin_tooltip'))
                 ->action(static function (Client $record): void {
                     self::ensureClientCoordinates($record);
 
@@ -238,8 +238,8 @@ class ClientsTable extends XotBaseResourceTable
                     if (! is_numeric($latitude) || ! is_numeric($longitude)) {
                         Notification::make()
                             ->warning()
-                            ->title(__('techplanner::client.map.origin_missing.title'))
-                            ->body(__('techplanner::client.map.origin_missing_geocode_failed.body'))
+                            ->title(__('techplanner::client_map_widget.origin_missing.title'))
+                            ->body(__('techplanner::client_map_widget.origin_missing_geocode_failed.body'))
                             ->send();
 
                         return;
@@ -252,8 +252,8 @@ class ClientsTable extends XotBaseResourceTable
 
                     Notification::make()
                         ->success()
-                        ->title(__('techplanner::client.map.origin_set.title'))
-                        ->body(__('techplanner::client.map.origin_set.body'))
+                        ->title(__('techplanner::client_map_widget.origin_set.title'))
+                        ->body(__('techplanner::client_map_widget.origin_set.body'))
                         ->send();
                 }),
         ];

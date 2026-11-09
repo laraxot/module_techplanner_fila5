@@ -221,3 +221,5 @@ related:
 - Popup marker ora HTML server-side escaped con `data-map-method="setDistanceOrigin"` (niente `state.setOrigin` JS custom).
 - Contract: `getMapMarkers()/getMapOrigin()/getMapStrings()`; vedi Geo wiki `concepts/base-map-widget.md`.
 - Verificato: mappa 1216px, popup con link/azioni, 0 errori JS, PHPStan 0.
+- 2026-11-09 — Convenzione i18n: stringhe mappa client spostate da `techplanner::client.map.*` a `techplanner::client_map_widget.*` (nuovo file lang per widget, come `coordinates_widget.php`). Aggiornati ClientMapWidget, ListClients, ClientsTable.
+- 2026-11-09 — i18n widget: popup mappa usa chiavi proprie client_map_widget.view/edit + tooltip (niente filament-actions::modal.*); indirizzo geo spostato in Geo: AddressItemEnum::getFormSchema include CoordinatesSection + location-map, AddressSection delega.

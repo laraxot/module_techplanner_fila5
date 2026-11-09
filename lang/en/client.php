@@ -10,11 +10,6 @@ return [
         'sort' => 30,
     ],
     'actions' => [
-        'geocodeCoordinates' => [
-            'label' => 'Update from address',
-            'failed_title' => 'Geocoding failed',
-            'success_title' => 'Coordinates updated from address',
-        ],
         'create' => [
             'label' => 'New Client',
         ],
@@ -313,29 +308,6 @@ return [
         'has_electromedical_control' => ['label' => 'Electromedical control'],
         'has_health_authorization' => ['label' => 'Health authorization'],
     ],
-    'map' => [
-        'markers_shown' => 'Showing :count client markers with coordinates',
-        'aria_label' => 'Client map',
-        'fullscreen' => 'Fullscreen',
-        'locate' => 'Center on my location',
-        'layer_satellite' => 'Satellite',
-        'set_origin' => 'Use as origin',
-        'set_origin_tooltip' => 'Sort all clients by distance from this point',
-        'origin_popup' => 'Distance reference point',
-        'origin_set' => ['title' => 'Origin point set', 'body' => 'The table has been sorted by distance from this client.'],
-        'origin_missing' => ['title' => 'Missing coordinates', 'body' => 'The selected client has no usable coordinates.'],
-        'origin_missing_geocode_failed' => [
-            'title' => 'Geocoding failed',
-            'body' => 'Could not geocode the client address. Check the address or use "Update Coordinates" to populate all missing coordinates.',
-        ],
-    ],
-    'location_map' => [
-        'heading' => 'Client location',
-        'aria_label' => 'Client location map',
-        'google_maps' => 'Open in Google Maps',
-        'viamichelin' => 'Open in ViaMichelin',
-        'missing' => 'Coordinates are not available. Complete the address and use “Update from address” in the Coordinates section.',
-    ],
     'messages' => [
         'coordinates_batch_summary' => 'Processed :processed clients. Successfully updated :success coordinates.',
         'coordinates_batch_warning' => 'Coordinate update completed with errors',
@@ -349,12 +321,7 @@ return [
         'label' => 'Client',
         'plural' => 'Clients',
     ],
-    'sections' => [
-        'coordinates' => [
-            'label' => 'Coordinates',
-            'description' => 'Client latitude and longitude. Save the address first, then update coordinates here for distance and map.',
-        ],
-        'contacts' => [
+    'sections' => [        'contacts' => [
             'heading' => 'Contacts',
             'label' => 'Contacts',
         ],

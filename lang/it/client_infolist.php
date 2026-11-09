@@ -28,6 +28,19 @@ return [
         ],
         'Informazioni Aggiuntive' => [
             'heading' => 'Informazioni Aggiuntive',
+            'label' => 'Informazioni Aggiuntive',
+        ],
+        'Informazioni Azienda' => [
+            'label' => 'Informazioni Azienda',
+            'heading' => 'Informazioni Azienda',
+        ],
+        'Indirizzo' => [
+            'label' => 'Indirizzo',
+            'heading' => 'Indirizzo',
+        ],
+        'Contatti' => [
+            'label' => 'Contatti',
+            'heading' => 'Contatti',
         ],
     ],
     'fields' => [
@@ -87,6 +100,12 @@ return [
         ],
         'notes' => [
             'label' => 'notes',
+        ],
+        'pec' => [
+            'label' => 'pec',
+        ],
+        'whatsapp' => [
+            'label' => 'whatsapp',
         ],
     ],
 ];
