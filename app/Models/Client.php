@@ -7,6 +7,7 @@ namespace Modules\TechPlanner\Models;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Support\Carbon;
 use Modules\Geo\Enums\AddressItemEnum;
 use Modules\Geo\Models\Address;
@@ -265,6 +266,17 @@ class Client extends BaseModel
     public function appointments(): HasMany
     {
         return $this->hasMany(Appointment::class);
+    }
+
+    /**
+     * Ultimo appuntamento del cliente (per data): dice "per cosa" e' stato
+     * l'ultimo intervento (rx, elettromedicali, ...) via `controls`.
+     *
+     * @return HasOne<Appointment, $this>
+     */
+    public function latestAppointment(): HasOne
+    {
+        return $this->hasOne(Appointment::class)->latestOfMany('date');
     }
 
     /**

@@ -210,6 +210,9 @@ return [
         'last_electromedical_control_date' => [
             'label' => 'Ultimo controllo elettromedicali',
         ],
+        'last_appointment' => [
+            'label' => 'Ultimo appuntamento',
+        ],
         'last_health_authorization_date' => [
             'label' => 'Ultima autorizzazione sanitaria',
         ],
@@ -446,6 +449,10 @@ return [
         'controls_expiring' => [
             'label' => 'Controlli in scadenza (30 gg)',
         ],
+        'last_appointment_type' => [
+            'label' => 'Ultimo appuntamento per tipo',
+            'none' => 'Nessun appuntamento',
+        ],
         'never_controlled_type' => [
             'label' => 'Mai controllato per tipo',
         ],
@@ -462,6 +469,9 @@ return [
     'map' => [
         'markers_shown' => 'Mostrati :count marker di clienti con coordinate',
         'aria_label' => 'Mappa dei clienti',
+        'fullscreen' => 'Schermo intero',
+        'locate' => 'Centra sulla mia posizione',
+        'layer_satellite' => 'Satellite',
         'set_origin' => 'Usa come origine',
         'set_origin_tooltip' => 'Ordina tutti i clienti per distanza da questo punto',
         'origin_popup' => 'Punto di riferimento per la distanza',

@@ -26,6 +26,8 @@ Modulo **dominio business** del progetto: gestione clienti, dispositivi, appunta
 - [ai-harness-techplanner-discipline](./concepts/ai-harness-techplanner-discipline.md)
 - [techplanner-business-domain](./concepts/techplanner-business-domain.md) — **perché** del modulo
 - [client-coordinate-editing-ux](./concepts/client-coordinate-editing-ux.md) — UX e contratto di aggiornamento coordinate
+- [last-appointment-purpose](./concepts/last-appointment-purpose.md) — ultimo appuntamento + tipo via `controls.control_type`
+- [client-map](./concepts/client-map.md) — mappa clienti admin: cluster Leaflet, controlli UX, decisioni e trappole
 - [second-brain-local-discipline](./concepts/second-brain-local-discipline.md) — stub → canon Xot
 - [cursor-second-brain-max-workflow](../../../../bashscripts/ai/wiki/skills/cursor-second-brain-max-workflow.md)
 

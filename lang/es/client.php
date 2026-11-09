@@ -29,6 +29,9 @@ return [
         'last_electromedical_control_date' => [
             'label' => 'Último control electromédico',
         ],
+        'last_appointment' => [
+            'label' => 'Última cita',
+        ],
         'last_health_authorization_date' => [
             'label' => 'Última autorización sanitaria',
         ],
@@ -36,6 +39,7 @@ return [
     'filters' => [
         'has_controls' => ['label' => 'Tiene controles registrados'],
         'controls_expiring' => ['label' => 'Controles que vencen (30 días)'],
+        'last_appointment_type' => ['label' => 'Última cita por tipo', 'none' => 'Sin cita'],
         'never_controlled_type' => ['label' => 'Nunca controlado por tipo'],
         'has_rx_control' => ['label' => 'Control RX'],
         'has_electromedical_control' => ['label' => 'Control electromédico'],
@@ -44,6 +48,9 @@ return [
     'map' => [
         'markers_shown' => 'Mostrando :count marcadores de clientes con coordenadas',
         'aria_label' => 'Mapa de clientes',
+        'fullscreen' => 'Pantalla completa',
+        'locate' => 'Centrar en mi ubicación',
+        'layer_satellite' => 'Satélite',
         'set_origin' => 'Usar como origen',
         'set_origin_tooltip' => 'Ordenar todos los clientes por distancia desde este punto',
         'origin_popup' => 'Punto de referencia para la distancia',

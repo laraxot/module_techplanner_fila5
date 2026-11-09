@@ -24,6 +24,7 @@ use Modules\Notify\Filament\Actions\SendRecordsNotificationBulkAction;
 use Modules\Notify\Filament\Tables\Columns\ContactColumn;
 use Modules\TechPlanner\Enums\ControlTypeEnum;
 use Modules\TechPlanner\Models\Client;
+use Modules\TechPlanner\Models\Control;
 use Modules\Xot\Actions\Cast\SafeStringCastAction;
 use Modules\Xot\Filament\Resources\Tables\XotBaseResourceTable;
 use Modules\Xot\Filament\Tables\Actions\XotBaseBulkAction;
@@ -55,6 +56,40 @@ class ClientsTable extends XotBaseResourceTable
             'last_health_authorization_date' => TextColumn::make('last_health_authorization_date')
                 ->label(__('techplanner::client.fields.last_health_authorization_date.label'))
                 ->date()->sortable()->placeholder('—'),
+            /*
+             * Ultimo appuntamento: la data da sola non dice "per cosa" si e' andati
+             * dal cliente — i `controls` di quell'appuntamento portano il
+             * `control_type` (rx, elettromedicali, ...). Senza questa informazione
+             * il tecnico non sa se la prossima chiamata e' di manutenzione RX o
+             * di verifica elettromedicale.
+             */
+            'last_appointment' => TextColumn::make('last_appointment')
+                ->label(__('techplanner::client.fields.last_appointment.label'))
+                ->state(static function (Client $record): ?string {
+                    $appointment = $record->latestAppointment;
+                    if ($appointment === null) {
+                        return null;
+                    }
+
+                    $types = $appointment->controls
+                        ->map(static function (Control $control): ?ControlTypeEnum {
+                            $type = $control->getAttribute('control_type');
+
+                            return $type instanceof ControlTypeEnum ? $type : null;
+                        })
+                        ->filter()
+                        ->unique()
+                        ->map(static fn (ControlTypeEnum $type): string => $type->getLabel())
+                        ->implode(', ');
+
+                    $date = $appointment->date?->format('d/m/Y');
+
+                    return $types === '' ? $date : $date.' — '.$types;
+                })
+                ->placeholder('—')
+                ->icon('heroicon-o-calendar-days')
+                ->iconColor('gray')
+                ->wrap(),
             'longitude' => TextColumn::make('longitude')->sortable()->toggleable(isToggledHiddenByDefault: true),
             'latitude' => TextColumn::make('latitude')->sortable()->toggleable(isToggledHiddenByDefault: true),
             'business_closed' => TextColumn::make('business_closed')->toggleable(isToggledHiddenByDefault: true),
@@ -122,6 +157,28 @@ class ClientsTable extends XotBaseResourceTable
                     'controls',
                     static fn (Builder $controls) => $controls->whereDate('next_control_date', '<=', now()->addDays(30)),
                 )),
+            SelectFilter::make('last_appointment_type')
+                ->label(__('techplanner::client.filters.last_appointment_type.label'))
+                ->options(static fn (): array => collect(ControlTypeEnum::cases())
+                    ->mapWithKeys(static fn (ControlTypeEnum $type): array => [$type->value => $type->getLabel()])
+                    ->put('none', __('techplanner::client.filters.last_appointment_type.none'))
+                    ->all())
+                ->query(static function (Builder $query, array $data): Builder {
+                    $value = $data['value'] ?? null;
+                    if (! is_string($value) || $value === '') {
+                        return $query;
+                    }
+
+                    // "Nessun appuntamento" isola i clienti mai visitati.
+                    if ($value === 'none') {
+                        return $query->whereDoesntHave('appointments');
+                    }
+
+                    // whereHas su `latestAppointment` (hasOne latestOfMany) limita
+                    // il controllo ALL'ultimo appuntamento, non a qualunque storico.
+                    return $query->whereHas('latestAppointment', static fn (Builder $appointments): Builder => $appointments
+                        ->whereHas('controls', static fn (Builder $controls): Builder => $controls->where('control_type', $value)));
+                }),
             SelectFilter::make('never_controlled_type')
                 ->label(__('techplanner::client.filters.never_controlled_type.label'))
                 ->options(static fn (): array => collect(ControlTypeEnum::cases())

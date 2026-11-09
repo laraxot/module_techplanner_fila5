@@ -198,6 +198,11 @@ return [
             'icon' => 'resetColumnManager',
             'tooltip' => 'resetColumnManager',
         ],
+        'createAnother' => [
+            'label' => 'createAnother',
+            'icon' => 'createAnother',
+            'tooltip' => 'createAnother',
+        ],
     ],
     'messages' => [
         'empty_state' => 'Nessun template email TechPlanner definito al momento.',

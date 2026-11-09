@@ -205,7 +205,7 @@ class ListClients extends XotBaseListRecords
         }
 
         /** @var Builder<Client> $clientQuery */
-        $clientQuery = $query;
+        $clientQuery = $query->with(['latestAppointment.controls']);
         $query = $clientQuery->withLatestControlDates();
 
         $latitude = Session::get('user_latitude');

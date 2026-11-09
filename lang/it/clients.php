@@ -79,6 +79,12 @@ return [
         'has_health_authorization' => [
             'label' => 'has_health_authorization',
         ],
+        'last_appointment_type' => [
+            'label' => 'last_appointment_type',
+        ],
+        'last_appointment' => [
+            'label' => 'last_appointment',
+        ],
     ],
     'actions' => [
         'create' => [

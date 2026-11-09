@@ -81,6 +81,9 @@ return [
         'last_electromedical_control_date' => [
             'label' => 'Letzte elektromedizinische Kontrolle',
         ],
+        'last_appointment' => [
+            'label' => 'Letzter Termin',
+        ],
         'last_health_authorization_date' => [
             'label' => 'Letzte Gesundheitszulassung',
         ],
@@ -304,6 +307,7 @@ return [
     'filters' => [
         'has_controls' => ['label' => 'Hat erfasste Kontrollen'],
         'controls_expiring' => ['label' => 'Kontrollen laufen ab (30 Tage)'],
+        'last_appointment_type' => ['label' => 'Letzter Termin nach Typ', 'none' => 'Kein Termin'],
         'never_controlled_type' => ['label' => 'Nach Typ nie kontrolliert'],
         'has_rx_control' => ['label' => 'Röntgenkontrolle'],
         'has_electromedical_control' => ['label' => 'Elektromedizinische Kontrolle'],
@@ -312,6 +316,9 @@ return [
     'map' => [
         'markers_shown' => ':count Kunden-Marker mit Koordinaten werden angezeigt',
         'aria_label' => 'Kundenkarte',
+        'fullscreen' => 'Vollbild',
+        'locate' => 'Auf meinen Standort zentrieren',
+        'layer_satellite' => 'Satellit',
         'set_origin' => 'Als Ursprung verwenden',
         'set_origin_tooltip' => 'Alle Kunden nach Entfernung von diesem Punkt sortieren',
         'origin_popup' => 'Referenzpunkt für die Entfernung',

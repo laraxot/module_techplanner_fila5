@@ -5,35 +5,39 @@ declare(strict_types=1);
 namespace Modules\TechPlanner\Filament\Widgets;
 
 use Filament\Notifications\Notification;
-use Filament\Schemas\Components\Component;
-use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Session;
+use Modules\Geo\Filament\Widgets\BaseMapWidget;
 use Modules\TechPlanner\Filament\Resources\ClientResource;
 use Modules\TechPlanner\Models\Client;
 use Modules\Xot\Actions\Cast\SafeFloatCastAction;
 use Modules\Xot\Actions\Cast\SafeStringCastAction;
-use Modules\Xot\Filament\Widgets\XotBaseWidget;
+use Override;
 
-class ClientMapWidget extends XotBaseWidget
+/**
+ * Mappa clienti per la pianificazione delle uscite.
+ *
+ * Estende `BaseMapWidget` (Geo): marker, cluster, controlli e fullscreen
+ * sono forniti dalla vista condivisa `geo::filament.widgets.base-map`.
+ * Questo widget dichina solo i dati (client con coordinate), l'origine
+ * per le distanze e le stringhe di traduzione TechPlanner.
+ */
+class ClientMapWidget extends BaseMapWidget
 {
-    protected string $view = 'techplanner::filament.widgets.client-map';
-
-    protected int|string|array $columnSpan = 'full';
-
-    private const int MAX_MARKERS = 500;
-
-    /**
-     * @return array<int, Component>
+    /*
+     * La mappa e' il widget principale della lista clienti (punti visita,
+     * marker, origine per le distanze): il lazy-load Livewire la rendeva
+     * fragile — la request di resume riceveva HTML invece di JSON e la
+     * mappa non appariva mai. Render eager nel payload iniziale.
      */
-    public function getFormSchema(): array
-    {
-        return [];
-    }
+    protected static ?bool $isLazyLoaded = false;
+
+    protected int $maxMarkers = 500;
 
     /**
      * Imposta le coordinate di un cliente come punto di riferimento
      * per l'ordinamento per distanza nella tabella clienti.
+     * Chiamato dalla mappa via `data-map-method="setDistanceOrigin"`.
      */
     public function setDistanceOrigin(int $clientId): void
     {
@@ -72,9 +76,10 @@ class ClientMapWidget extends XotBaseWidget
      * Coordinate del punto di riferimento corrente (sessione/cookie),
      * esposto alla mappa per il marker dedicato.
      *
-     * @return array{latitude: float|null, longitude: float|null}
+     * @return array{latitude: float|null, longitude: float|null, label: string}
      */
-    protected function getOrigin(): array
+    #[Override]
+    protected function getMapOrigin(): array
     {
         $latitude = Session::get('user_latitude', Cookie::get('user_latitude'));
         $longitude = Session::get('user_longitude', Cookie::get('user_longitude'));
@@ -82,59 +87,84 @@ class ClientMapWidget extends XotBaseWidget
         return [
             'latitude' => is_numeric($latitude) ? (float) $latitude : null,
             'longitude' => is_numeric($longitude) ? (float) $longitude : null,
+            'label' => (string) trans('techplanner::client.map.origin_popup'),
         ];
     }
 
     /**
-     * @return array<int, array<string, mixed>>
+     * @return array<int, array{id: int|string, label: string, latitude: float, longitude: float, popup: string}>
      */
-    protected function getMarkers(): array
+    #[Override]
+    public function getMapMarkers(): array
     {
         return Client::query()
             ->whereNotNull('latitude')
             ->whereNotNull('longitude')
             ->orderBy('company_name')
-            ->limit(self::MAX_MARKERS)
+            ->limit($this->maxMarkers)
             ->get([
                 'id', 'name', 'company_name', 'address', 'city', 'postal_code',
                 'province', 'route', 'street_number',
                 'phone', 'mobile', 'whatsapp', 'latitude', 'longitude',
             ])
-            ->map(static function (Client $client): array {
+            ->map(function (Client $client): array {
                 $safeString = app(SafeStringCastAction::class);
+                $label = $safeString->execute($client->company_name ?: $client->name)
+                    ?: 'Client #'.$safeString->execute($client->getKey());
+                $id = $safeString->execute($client->getKey());
 
                 return [
-                    'id' => $client->getKey(),
-                    'label' => $safeString->execute($client->company_name ?: $client->name) ?: 'Client #'.$safeString->execute($client->getKey()),
-                    'address' => $safeString->execute($client->getAttribute('full_address')),
-                    'phone' => $safeString->execute($client->getAttribute('phone') ?: $client->getAttribute('mobile')),
-                    'whatsapp' => $safeString->execute($client->getAttribute('whatsapp')),
+                    'id' => $id,
+                    'label' => $label,
                     'latitude' => app(SafeFloatCastAction::class)->execute($client->getAttribute('latitude')),
                     'longitude' => app(SafeFloatCastAction::class)->execute($client->getAttribute('longitude')),
-                    'view_url' => ClientResource::getUrl('view', ['record' => $client]),
-                    'edit_url' => ClientResource::getUrl('edit', ['record' => $client]),
+                    'popup' => $this->buildMarkerPopup($client, $label, $id),
                 ];
             })
             ->all();
     }
 
     /**
-     * @return array<string, mixed>
+     * Popup del marker: HTML costruito server-side (escape via e()),
+     * con link view/edit e azione Livewire dichiarativa
+     * `data-map-method="setDistanceOrigin"` instradata dalla vista base.
      */
-    protected function getData(): array
+    private function buildMarkerPopup(Client $client, string $label, int|string $id): string
     {
-        return [
-            'markers' => $this->getMarkers(),
-            'origin' => $this->getOrigin(),
-            'asset_base' => asset('assets/geo/assets'),
-        ];
+        $safeString = app(SafeStringCastAction::class);
+        $address = $safeString->execute($client->getAttribute('full_address'));
+        $phone = $safeString->execute($client->getAttribute('phone') ?: $client->getAttribute('mobile'));
+
+        $rows = ($address !== '' ? '<div>'.e($address).'</div>' : '')
+            .($phone !== '' ? '<div><a href="tel:'.e($phone).'">'.e($phone).'</a></div>' : '');
+
+        return '<div class="client-map-popup" style="min-width: 200px;">'
+            .'<strong>'.e($label).'</strong>'.$rows
+            .'<div style="margin-top: 6px; display: flex; gap: 6px; flex-wrap: wrap;">'
+            .'<a class="fi-btn fi-btn-color-gray fi-btn-size-sm" href="'.e(ClientResource::getUrl('view', ['record' => $client])).'">'
+                .e((string) trans('filament-actions::modal.view.actions.view.label')).'</a>'
+            .'<a class="fi-btn fi-btn-color-gray fi-btn-size-sm" href="'.e(ClientResource::getUrl('edit', ['record' => $client])).'">'
+                .e((string) trans('filament-actions::modal.edit.actions.edit.label')).'</a>'
+            .'<button type="button" class="fi-btn fi-btn-color-primary fi-btn-size-sm"'
+                .' data-map-method="setDistanceOrigin" data-map-arg="'.e((string) $id).'">'
+                .e((string) trans('techplanner::client.map.set_origin')).'</button>'
+            .'</div></div>';
     }
 
-    public function render(): View
+    /**
+     * Stringhe TechPlanner per la mappa condivisa.
+     *
+     * @return array{aria_label: string, fullscreen: string, locate: string, layer_satellite: string, footer: string}
+     */
+    #[Override]
+    protected function getMapStrings(int $markerCount): array
     {
-        /** @var array<string, mixed> $data */
-        $data = $this->getData();
-
-        return view($this->view, $data);
+        return [
+            'aria_label' => (string) trans('techplanner::client.map.aria_label'),
+            'fullscreen' => (string) trans('techplanner::client.map.fullscreen'),
+            'locate' => (string) trans('techplanner::client.map.locate'),
+            'layer_satellite' => (string) trans('techplanner::client.map.layer_satellite'),
+            'footer' => (string) trans('techplanner::client.map.markers_shown', ['count' => $markerCount]),
+        ];
     }
 }

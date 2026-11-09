@@ -175,3 +175,49 @@ related:
 - **phpunit.xml**: aggiunte suite `Seo` e `Themes` (~85 test che non giravano mai)
 - **PageSpeed**: immagini 404 fixate (path nesting), 62→13MB ricompressi, CSS Filament rimosso (994→395KB), `@filamentScripts`/`@livewire('notifications')` rimossi dai layout pubblici, `APP_DEBUG=false`
 - **In attesa deploy**: produzione remota — applicare `.env` prod + nginx cache headers
+
+## 2026-11-19 — clients: ultimo appuntamento + filtro per tipo
+
+- **Decisione** ([concepts/last-appointment-purpose.md](./concepts/last-appointment-purpose.md)): il "per cosa" dell'appuntamento si deriva dai `controls.appointment_id` + `control_type` — nessun campo `type` nuovo su `appointments`.
+- **Modello**: `Client::latestAppointment()` (hasOne `latestOfMany('date')`), `Appointment::controls()` (hasMany).
+- **Tabella clienti**: colonna `last_appointment` (data + tipi controllo, eager-load `latestAppointment.controls` in `ListClients::getTableQuery`) e `SelectFilter last_appointment_type` (enum + `none` = mai visitati; `whereHas` su `latestAppointment` → solo ultimo appuntamento).
+- **i18n**: `client.fields.last_appointment` + `client.filters.last_appointment_type` in it/en/de/es.
+- **Test**: `tests/Unit/Models/ClientLatestAppointmentTest.php` — 2 passed.
+- **Verifiche**: phpstan 0 errori, pint passed, `php -l` ok. DB locale: `controls` vuota → la colonna mostra la data da sola finché i controlli non vengono registrati.
+
+## 2026-11-09 — clients: fix mappa non visibile
+
+- **Root cause**: `ClientMapWidget` lazy-loadava via Livewire; la request di resume tornava HTML invece di JSON → `JSON.parse` falliva e la mappa non partiva mai. In più `initialize()` non aveva retry se il div non era ancora nel DOM.
+- **Fix**: `protected static ?bool $isLazyLoaded = false` (render eager — la mappa è il widget principale, ~300KB markers accettabili) + `tryInitialize()` con retry 30×100ms nel blade.
+- **Bug operativo trovato**: scrivere `@script` dentro un commento JS del blade fa interpreare la direttiva a Blade → JS corrotto (`Invalid or unexpected token`). Attenzione: nessuna direttiva Blade nei commenti `@script`.
+- **Verificato headless Chrome**: tile OSM caricati, 501 marker, 0 errori console. PHPStan/Pint ok.
+
+## 2026-11-09 — clients map: marker cluster
+
+- **ClientMapWidget**: marker singoli → `L.markerClusterGroup` (maxClusterRadius 60, spiderfyOnMaxZoom, iconCreateFunction con divIcon contestuale — niente PNG/MarkerCluster.css).
+- **Asset**: `leaflet.markercluster.js` UMD copiato in `Modules/Geo/public/assets/` (nome stabile, sopravvive alle build Vite grazie a `emptyOutDir:false`; la build ESM hashed non era referenziabile in modo stabile).
+- **Loader**: `ensureLibraries()` carica leaflet.js → leaflet.markercluster.js prima di `tryInitialize()`; fallback automatico ai marker singoli se la lib manca.
+- **Verificato headless Chrome**: z6 → 1 cluster; z12 Padova → 41 cluster + 41 marker; 0 errori JS.
+
+## 2026-11-09 — clients map: cluster options da leaflet.markercluster docs
+
+- `chunkedLoading` + `chunkInterval/chunkDelay`: marker aggiunti a scaglioni, niente freeze UI con 500 marker.
+- `removeOutsideVisibleBounds`: render solo nel viewport (perf).
+- `disableClusteringAtZoom: 15`: oltre lo zoom 15 pin singoli (comportamento tipo Google marker clusterer).
+- `zoomToBoundsOnClick` esplicito. Verificato headless Chrome: z6 → 1 cluster, z12 → 41 cluster + 41 marker, 0 errori JS.
+
+## 2026-11-19 — clients map: UX overhaul ispirata a farmshops.eu
+
+- **Bug larghezza**: la vista senza `<x-filament-widgets::widget>` perdeva le classi grid → mappa a metà larghezza. Aggiunto il wrapper (convenzione dei widget del modulo).
+- **Controlli nuovi**: layer control OSM+satellite Esri, scala metrica, geolocalizzazione browser con cerchio accuratezza, permalink `#map=lat,lng,zoom`, fullscreen (API + fallback CSS), popup proporzionati al container, `maxClusterRadius` adattivo allo zoom.
+- **Asset fix**: `images/layers.png` + `layers-2x.png` copiati in `Geo/public/assets/images/` (404 del layer control).
+- **i18n**: `client.map.fullscreen|locate|layer_satellite` in it/en/de/es.
+- **Doc**: nuova concept page `concepts/client-map.md` (decisioni, trappole, verifiche).
+- Verificato headless Chrome: 1216px full width, tutti i controlli presenti, 0 errori.
+
+## 2026-11-19 — ClientMapWidget → BaseMapWidget (Geo)
+
+- Refactor: `ClientMapWidget extends Modules\Geo\Filament\Widgets\BaseMapWidget`; rimossa la vista duplicata `client-map.blade.php`.
+- Popup marker ora HTML server-side escaped con `data-map-method="setDistanceOrigin"` (niente `state.setOrigin` JS custom).
+- Contract: `getMapMarkers()/getMapOrigin()/getMapStrings()`; vedi Geo wiki `concepts/base-map-widget.md`.
+- Verificato: mappa 1216px, popup con link/azioni, 0 errori JS, PHPStan 0.

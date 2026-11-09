@@ -100,6 +100,17 @@ class Appointment extends Model
     }
 
     /**
+     * Controlli eseguiti in questo appuntamento: il `control_type`
+     * (rx, elettromedicali, ...) dice per cosa era l'intervento.
+     *
+     * @return HasMany<Control, $this>
+     */
+    public function controls(): HasMany
+    {
+        return $this->hasMany(Control::class);
+    }
+
+    /**
      * @return array<string, string>
      */
     protected function casts(): array
