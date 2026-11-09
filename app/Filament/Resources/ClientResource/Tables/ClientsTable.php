@@ -23,6 +23,7 @@ use Modules\Geo\Filament\Tables\Columns\AddressColumn;
 use Modules\Notify\Filament\Actions\SendRecordsNotificationBulkAction;
 use Modules\Notify\Filament\Tables\Columns\ContactColumn;
 use Modules\TechPlanner\Enums\ControlTypeEnum;
+use Modules\TechPlanner\Filament\Resources\ClientResource\Pages\ListClients;
 use Modules\TechPlanner\Models\Client;
 use Modules\TechPlanner\Models\Control;
 use Modules\Xot\Actions\Cast\SafeStringCastAction;
@@ -229,7 +230,7 @@ class ClientsTable extends XotBaseResourceTable
                 ->iconButton()
                 ->label(__('techplanner::client_map_widget.set_origin_tooltip'))
                 ->tooltip(__('techplanner::client_map_widget.set_origin_tooltip'))
-                ->action(static function (Client $record): void {
+                ->action(static function (Client $record, ListClients $livewire): void {
                     self::ensureClientCoordinates($record);
 
                     $latitude = $record->getAttribute('latitude');
@@ -249,6 +250,11 @@ class ClientsTable extends XotBaseResourceTable
                     Session::put('user_longitude', (float) $longitude);
                     Cookie::queue('user_latitude', (string) $latitude, 60 * 24 * 30);
                     Cookie::queue('user_longitude', (string) $longitude, 60 * 24 * 30);
+
+                    // Le sessioni sono aggiornate: la tabella deve riqueryare
+                    // con withDistance() e il CoordinatesWidget rileggere i campini.
+                    $livewire->dispatch('coordinates-updated');
+                    $livewire->resetTable();
 
                     Notification::make()
                         ->success()

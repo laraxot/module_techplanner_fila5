@@ -6,6 +6,7 @@ return [
         'markers_shown' => ':count Kunden-Marker mit Koordinaten werden angezeigt',
         'aria_label' => 'Kundenkarte',
         'fullscreen' => 'Vollbild',
+        'fullscreen_exit' => 'Vollbild beenden',
         'locate' => 'Auf meinen Standort zentrieren',
         'layer_satellite' => 'Satellit',
         'set_origin' => 'Als Ursprung verwenden',

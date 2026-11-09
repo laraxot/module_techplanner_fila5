@@ -6,6 +6,7 @@ return [
         'markers_shown' => 'Mostrando :count marcadores de clientes con coordenadas',
         'aria_label' => 'Mapa de clientes',
         'fullscreen' => 'Pantalla completa',
+        'fullscreen_exit' => 'Salir de pantalla completa',
         'locate' => 'Centrar en mi ubicación',
         'layer_satellite' => 'Satélite',
         'set_origin' => 'Usar como origen',

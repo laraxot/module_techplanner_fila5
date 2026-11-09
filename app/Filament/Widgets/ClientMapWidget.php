@@ -63,6 +63,10 @@ class ClientMapWidget extends BaseMapWidget
         Cookie::queue('user_latitude', (string) $latitude, 60 * 24 * 30);
         Cookie::queue('user_longitude', (string) $longitude, 60 * 24 * 30);
 
+        // 'coordinates-updated' fa rileggere sessione/cookie al
+        // CoordinatesWidget (checkbox "posizione di riferimento");
+        // 'sort-by-distance' fa resettare e riordinare la tabella.
+        $this->dispatch('coordinates-updated');
         $this->dispatch('sort-by-distance');
 
         Notification::make()
@@ -181,7 +185,7 @@ class ClientMapWidget extends BaseMapWidget
     /**
      * Stringhe TechPlanner per la mappa condivisa.
      *
-     * @return array{aria_label: string, fullscreen: string, locate: string, layer_satellite: string, footer: string}
+     * @return array{aria_label: string, fullscreen: string, fullscreen_exit: string, locate: string, layer_satellite: string, footer: string}
      */
     #[Override]
     protected function getMapStrings(int $markerCount): array
@@ -189,6 +193,7 @@ class ClientMapWidget extends BaseMapWidget
         return [
             'aria_label' => (string) trans('techplanner::client_map_widget.aria_label'),
             'fullscreen' => (string) trans('techplanner::client_map_widget.fullscreen'),
+            'fullscreen_exit' => (string) trans('techplanner::client_map_widget.fullscreen_exit'),
             'locate' => (string) trans('techplanner::client_map_widget.locate'),
             'layer_satellite' => (string) trans('techplanner::client_map_widget.layer_satellite'),
             'footer' => (string) trans('techplanner::client_map_widget.markers_shown', ['count' => $markerCount]),

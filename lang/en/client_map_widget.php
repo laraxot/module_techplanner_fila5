@@ -6,6 +6,7 @@ return [
         'markers_shown' => 'Showing :count client markers with coordinates',
         'aria_label' => 'Client map',
         'fullscreen' => 'Fullscreen',
+        'fullscreen_exit' => 'Exit fullscreen',
         'locate' => 'Center on my location',
         'layer_satellite' => 'Satellite',
         'set_origin' => 'Use as origin',
