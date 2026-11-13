@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Env;
+
 return [
     'frequencies' => [
         [
@@ -217,21 +219,21 @@ return [
         ],
     ],
     'web' => [
-        'middleware' => Illuminate\Support\Env::get('TOTEM_WEB_MIDDLEWARE', 'web'),
-        'route_prefix' => Illuminate\Support\Env::get('TOTEM_WEB_ROUTE_PREFIX', 'totem'),
+        'middleware' => Env::get('TOTEM_WEB_MIDDLEWARE', 'web'),
+        'route_prefix' => Env::get('TOTEM_WEB_ROUTE_PREFIX', 'totem'),
     ],
     'api' => [
-        'middleware' => Illuminate\Support\Env::get('TOTEM_API_MIDDLEWARE', 'api'),
+        'middleware' => Env::get('TOTEM_API_MIDDLEWARE', 'api'),
     ],
-    'table_prefix' => Illuminate\Support\Env::get('TOTEM_TABLE_PREFIX', ''),
+    'table_prefix' => Env::get('TOTEM_TABLE_PREFIX', ''),
     'artisan' => [
         'command_filter' => [],
         'whitelist' => true,
     ],
-    'database_connection' => Illuminate\Support\Env::get('TOTEM_DATABASE_CONNECTION'),
+    'database_connection' => Env::get('TOTEM_DATABASE_CONNECTION'),
 
     'broadcasting' => [
-        'enabled' => Illuminate\Support\Env::get('TOTEM_BROADCASTING_ENABLED', true),
-        'channel' => Illuminate\Support\Env::get('TOTEM_BROADCASTING_CHANNEL', 'task.events'),
+        'enabled' => Env::get('TOTEM_BROADCASTING_ENABLED', true),
+        'channel' => Env::get('TOTEM_BROADCASTING_CHANNEL', 'task.events'),
     ],
 ];

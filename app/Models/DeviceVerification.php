@@ -6,7 +6,9 @@ namespace Modules\TechPlanner\Models;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Carbon;
+use Override;
 
 /**
  * Class DeviceVerification.
@@ -44,6 +46,15 @@ use Illuminate\Support\Carbon;
  */
 class DeviceVerification extends BaseModel
 {
+    use SoftDeletes;
+
+    /**
+     * Colonne reali di `device_verifications` (vedi la migrazione del modulo).
+     * Prima elencava `status`, che non esiste: data prossima verifica, esito e
+     * tipo non venivano mai salvati.
+     *
+     * @var list<string>
+     */
     protected $fillable = [
         'device_id',
         'verification_date',
@@ -59,6 +70,16 @@ class DeviceVerification extends BaseModel
      */
     public function device(): BelongsTo
     {
-        return $this->belongsTo(Device::class, 'device_id');
+        return $this->belongsTo(Device::class);
+    }
+
+    #[Override]
+    protected function casts(): array
+    {
+        return array_merge(parent::casts(), [
+            'device_id' => 'integer',
+            'verification_date' => 'date',
+            'next_verification_date' => 'date',
+        ]);
     }
 }

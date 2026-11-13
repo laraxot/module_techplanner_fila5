@@ -5,24 +5,41 @@ declare(strict_types=1);
 namespace Modules\TechPlanner\Filament\Resources;
 
 use Filament\Resources\Pages\PageRegistration;
-use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Auth\Access\Response;
+use Illuminate\Database\Eloquent\Model;
 use Modules\Notify\Filament\Resources\MailTemplateResource as NotifyBaseMailTemplateResource;
-use Modules\Notify\Models\MailTemplate;
-use Modules\Progressioni\Providers\Filament\AdminPanelProvider;
+use Modules\TechPlanner\Models\Policies\TechPlannerBasePolicy;
+use Modules\Xot\Contracts\UserContract;
 use Override;
+use UnitEnum;
 
 /**
- * Resource per la gestione template email specifici del modulo Progressioni.
+ * Modelli e-mail nel pannello TechPlanner.
  *
- * Estende la resource base di Notify mantenendo stessa struttura ma
- * con filtro scope per mostrare solo template rilevanti per Progressioni.
+ * Estende la resource di Notify con la stessa struttura e mostra tutti i modelli.
+ * Il vecchio override di getEloquentQuery() filtrava `slug LIKE '%'`, cioè nulla
+ * (slug obbligatorio e univoco): rimosso il 2026-11-05. Un filtro per prefisso di
+ * slug (`techplanner-`) andrebbe aggiunto qui con un override di getEloquentQuery().
  *
- * ⚠️ IMPORTANTE: Richiede SpatieTranslatablePlugin registrato nel panel!
- *
- * @see AdminPanelProvider
+ * Richiede SpatieTranslatablePlugin registrato nel panel.
  */
 class MailTemplateResource extends NotifyBaseMailTemplateResource
 {
+    /**
+     * La policy di Notify riserva i modelli e-mail al super-admin: nel pannello TechPlanner
+     * li gestisce anche l'amministratore del modulo, l'operatore no.
+     */
+    #[Override]
+    public static function getAuthorizationResponse(string|UnitEnum $action, ?Model $record = null): Response
+    {
+        $user = auth()->user();
+        if ($user instanceof UserContract && $user->hasRole(TechPlannerBasePolicy::ROLE_ADMIN)) {
+            return Response::allow();
+        }
+
+        return parent::getAuthorizationResponse($action, $record);
+    }
+
     /**
      * @return array<string, PageRegistration>
      */
@@ -31,25 +48,6 @@ class MailTemplateResource extends NotifyBaseMailTemplateResource
     {
         return [
             ...parent::getPages(),
-            // 'index' => \Modules\Progressioni\Filament\Resources\MailTemplateResource\Pages\ListMailTemplates::route('/'),
         ];
-    }
-
-    /**
-     * Filtra solo template email per modulo Progressioni.
-     *
-     * Mostra template il cui mailable contiene "Progressioni" o
-     * il cui slug inizia con "progressioni-".
-     *
-     * @return Builder<MailTemplate>
-     */
-    #[Override]
-    public static function getEloquentQuery(): Builder
-    {
-        return MailTemplate::query()
-            ->where(function (Builder $query): void {
-                // $query->where('slug', 'like', 'techplanner-%');
-                $query->where('slug', 'like', '%');
-            });
     }
 }

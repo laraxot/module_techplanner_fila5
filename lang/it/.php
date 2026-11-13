@@ -11,12 +11,12 @@ return [
     ],
     'actions' => [
         'logout' => [
-            'tooltip' => 'logout',
+            'tooltip' => '',
             'icon' => 'logout',
             'label' => 'logout',
         ],
         'profile' => [
-            'tooltip' => 'profile',
+            'tooltip' => '',
             'icon' => 'profile',
             'label' => 'profile',
         ],

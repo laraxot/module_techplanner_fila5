@@ -6,9 +6,9 @@ namespace Modules\TechPlanner\Filament\Resources\LegalRepresentativeResource\Tab
 
 use Filament\Tables\Columns\Column;
 use Filament\Tables\Columns\TextColumn;
-use Modules\Xot\Filament\Resources\Tables\XotBaseResourceTable;
+use Modules\TechPlanner\Filament\Resources\Tables\TechPlannerBaseTable;
 
-class LegalRepresentativesTable extends XotBaseResourceTable
+class LegalRepresentativesTable extends TechPlannerBaseTable
 {
     /**
      * @return array<int|string, Column>

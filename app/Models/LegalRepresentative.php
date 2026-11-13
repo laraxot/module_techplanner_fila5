@@ -6,6 +6,7 @@ namespace Modules\TechPlanner\Models;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Carbon;
 
 /**
@@ -51,13 +52,10 @@ use Illuminate\Support\Carbon;
  */
 class LegalRepresentative extends BaseModel
 {
-    protected $fillable = [
-        'name',
-        'fiscal_code',
-        'phone',
-        'email',
-        'notes',
-    ];
+    use SoftDeletes;
+
+    /** Le colonne della tabella (2026-11-10: prima mancavano client_id e altre, e ce n'erano di inesistenti). */
+    protected $fillable = ['client_id', 'name', 'fiscal_code', 'phone', 'email', 'notes'];
 
     /**
      * Get the client that owns the legal representative.

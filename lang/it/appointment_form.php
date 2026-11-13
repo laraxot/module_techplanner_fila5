@@ -4,18 +4,25 @@ declare(strict_types=1);
 
 return [
     'fields' => [
+        'client_id' => [
+            'label' => 'Cliente',
+            'placeholder' => '',
+            'helper_text' => '',
+            'description' => 'client_id',
+        ],
         'date' => [
-            'label' => 'date',
-            'placeholder' => 'date',
-            'helper_text' => 'date',
+            'label' => 'Data e ora',
+            'placeholder' => '',
+            'helper_text' => '',
             'description' => 'date',
         ],
         'notes' => [
-            'label' => 'notes',
-            'placeholder' => 'notes',
-            'helper_text' => 'notes',
+            'label' => 'Note',
+            'placeholder' => '',
+            'helper_text' => '',
             'description' => 'notes',
         ],
+<<<<<<< .merge_file_WDnJMn
         'client_id' => [
             'label' => 'client_id',
             'placeholder' => 'client_id',
@@ -45,6 +52,31 @@ return [
             'placeholder' => 'outcome',
             'helper_text' => 'outcome',
             'description' => 'outcome',
+=======
+        'worker_id' => [
+            'label' => 'Tecnico',
+            'placeholder' => '',
+            'helper_text' => '',
+            'description' => '',
+        ],
+        'duration_minutes' => [
+            'label' => 'Durata (minuti)',
+            'placeholder' => '',
+            'helper_text' => '',
+            'description' => '',
+        ],
+        'status' => [
+            'label' => 'Stato',
+            'placeholder' => '',
+            'helper_text' => '',
+            'description' => '',
+        ],
+        'outcome' => [
+            'label' => 'Esito',
+            'placeholder' => '',
+            'helper_text' => '',
+            'description' => '',
+>>>>>>> .merge_file_vH7r1e
         ],
     ],
 ];

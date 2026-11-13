@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Env;
+
 return [
 
     /*
@@ -13,9 +15,9 @@ return [
     |
     */
 
-    'private_key' => Illuminate\Support\Env::get('PASSPORT_PRIVATE_KEY'),
+    'private_key' => Env::get('PASSPORT_PRIVATE_KEY'),
 
-    'public_key' => Illuminate\Support\Env::get('PASSPORT_PUBLIC_KEY'),
+    'public_key' => Env::get('PASSPORT_PUBLIC_KEY'),
 
     /*
     |--------------------------------------------------------------------------
@@ -42,8 +44,8 @@ return [
     */
 
     'personal_access_client' => [
-        'id' => Illuminate\Support\Env::get('PASSPORT_PERSONAL_ACCESS_CLIENT_ID'),
-        'secret' => Illuminate\Support\Env::get('PASSPORT_PERSONAL_ACCESS_CLIENT_SECRET'),
+        'id' => Env::get('PASSPORT_PERSONAL_ACCESS_CLIENT_ID'),
+        'secret' => Env::get('PASSPORT_PERSONAL_ACCESS_CLIENT_SECRET'),
     ],
 
     /*
@@ -59,7 +61,7 @@ return [
 
     'storage' => [
         'database' => [
-            'connection' => Illuminate\Support\Env::get('DB_CONNECTION', 'mysql'),
+            'connection' => Env::get('DB_CONNECTION', 'mysql'),
         ],
     ],
 

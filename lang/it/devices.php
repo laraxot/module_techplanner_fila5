@@ -6,62 +6,99 @@ return [
     'fields' => [
         'client' => [
             'company_name' => [
-                'label' => 'client.company_name',
+                'label' => 'Cliente',
             ],
         ],
         'type' => [
-            'label' => 'type',
+            'label' => 'Tipo',
         ],
         'brand' => [
-            'label' => 'brand',
+            'label' => 'Marca',
         ],
         'model' => [
-            'label' => 'model',
+            'label' => 'Modello',
         ],
         'headset_serial' => [
-            'label' => 'headset_serial',
+            'label' => 'Matricola cuffia',
         ],
         'tube_serial' => [
-            'label' => 'tube_serial',
+            'label' => 'Matricola tubo',
         ],
         'kv' => [
-            'label' => 'kv',
+            'label' => 'kV',
         ],
         'ma' => [
-            'label' => 'ma',
+            'label' => 'mA',
         ],
         'first_verification_date' => [
-            'label' => 'first_verification_date',
+            'label' => 'Prima verifica',
+        ],
+        'next_verification_date' => [
+            'label' => 'Prossima verifica',
         ],
         'notes' => [
-            'label' => 'notes',
+            'label' => 'Note',
+        ],
+        'due' => [
+            'label' => 'Scadenza verifica',
+        ],
+        'trashed' => [
+            'label' => 'Record eliminati',
+        ],
+        'controls_count' => [
+            'label' => 'Controlli',
+        ],
+    ],
+    'filters' => [
+        'due' => [
+            'label' => 'Scadenza verifica',
+            'options' => [
+                'overdue' => 'Scadute',
+                30 => 'Entro 30 giorni',
+                60 => 'Entro 60 giorni',
+                90 => 'Entro 90 giorni',
+                'never' => 'Mai verificati',
+            ],
+        ],
+        'trashed' => [
+            'label' => 'Record eliminati',
         ],
     ],
     'actions' => [
         'create' => [
             'label' => 'create',
             'icon' => 'create',
-            'tooltip' => 'create',
+            'tooltip' => '',
         ],
         'layout' => [
             'label' => 'layout',
             'icon' => 'layout',
-            'tooltip' => 'layout',
+            'tooltip' => '',
         ],
         'view' => [
             'label' => 'view',
             'icon' => 'view',
-            'tooltip' => 'view',
+            'tooltip' => '',
         ],
         'edit' => [
             'label' => 'edit',
             'icon' => 'edit',
-            'tooltip' => 'edit',
+            'tooltip' => '',
         ],
         'delete' => [
             'label' => 'delete',
             'icon' => 'delete',
-            'tooltip' => 'delete',
+            'tooltip' => '',
+        ],
+        'restore' => [
+            'label' => 'restore',
+            'icon' => 'restore',
+            'tooltip' => '',
+        ],
+        'forceDelete' => [
+            'label' => 'forceDelete',
+            'icon' => 'forceDelete',
+            'tooltip' => '',
         ],
     ],
 ];

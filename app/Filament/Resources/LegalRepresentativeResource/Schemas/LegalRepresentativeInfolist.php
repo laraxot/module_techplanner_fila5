@@ -16,12 +16,12 @@ class LegalRepresentativeInfolist extends XotBaseResourceInfolist
     public function getInfolistSchema(): array
     {
         return [
+            'client.company_name' => TextEntry::make('client.company_name'),
             'name' => TextEntry::make('name'),
-            'surname' => TextEntry::make('surname'),
-            'email' => TextEntry::make('email'),
+            'fiscal_code' => TextEntry::make('fiscal_code'),
             'phone' => TextEntry::make('phone'),
-            'tax_code' => TextEntry::make('tax_code'),
-            'role' => TextEntry::make('role'),
+            'email' => TextEntry::make('email'),
+            'notes' => TextEntry::make('notes'),
         ];
     }
 }

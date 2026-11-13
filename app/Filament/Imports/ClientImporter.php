@@ -5,12 +5,14 @@ declare(strict_types=1);
 namespace Modules\TechPlanner\Filament\Imports;
 
 use Filament\Actions\Imports\ImportColumn;
-use Filament\Actions\Imports\Models\Import;
+use Modules\TechPlanner\Filament\Imports\Concerns\ResolvesExistingRecord;
 use Modules\TechPlanner\Models\Client;
 use Modules\Xot\Filament\Actions\Imports\XotBaseImporter;
 
 class ClientImporter extends XotBaseImporter
 {
+    use ResolvesExistingRecord;
+
     protected static ?string $model = Client::class;
 
     public static function getColumns(): array
@@ -38,32 +40,16 @@ class ClientImporter extends XotBaseImporter
 
     public function resolveRecord(): ?Client
     {
-        // return Client::firstOrNew([
-        //     // Update existing records, matching them by `$this->data['column_name']`
-        //     'email' => $this->data['email'],
-        // ]);
+        $record = $this->resolveExistingRecord();
 
-        return new Client();
+        return $record instanceof Client ? $record : new Client();
     }
 
-    public static function getCompletedNotificationBody(Import $import): string
+    /**
+     * @return list<string>
+     */
+    protected function matchingKeys(): array
     {
-        $body =
-            'Your client import has completed and '.
-            number_format($import->successful_rows).
-            ' '.
-            str('row')->plural($import->successful_rows).
-            ' imported.';
-
-        if ($failedRowsCount = $import->getFailedRowsCount()) {
-            $body .=
-                ' '.
-                number_format($failedRowsCount).
-                ' '.
-                str('row')->plural($failedRowsCount).
-                ' failed to import.';
-        }
-
-        return $body;
+        return ['id', 'vat_number', 'tax_code'];
     }
 }

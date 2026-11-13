@@ -126,9 +126,21 @@ class CreateProfilesTable extends XotBaseMigration
     protected function changeIdToBigint(string $tableName): void
     {
         $conn = DB::connection($this->getConnection());
-        if ($conn->getDriverName() === 'mysql') {
+        if (in_array($conn->getDriverName(), ['mysql', 'mariadb'], true)) {
             $conn->statement('ALTER TABLE '.$tableName.' MODIFY id BIGINT UNSIGNED AUTO_INCREMENT');
+
+            return;
         }
+
+        /*
+         * FRESH-01: su SQLite (e Postgres) `MODIFY` non esiste e l'id restava varchar senza valore
+         * generato: la prima creazione di un profilo dopo il login falliva con 500. La tabella qui
+         * è vuota (chiamata solo senza dati), quindi si ricrea con lo schema giusto.
+         */
+        $this->dropTableIfExists($tableName);
+        $this->tableCreate(function (Blueprint $table): void {
+            $this->profilesSchema($table);
+        });
     }
 
     protected function updatePivotTables(): void
@@ -145,7 +157,7 @@ class CreateProfilesTable extends XotBaseMigration
 
             // Aggiorna foreign keys che referenziano profile
             if (in_array('profile_id', $columns, true)) {
-                if ($conn->getDriverName() === 'mysql') {
+                if (in_array($conn->getDriverName(), ['mysql', 'mariadb'], true)) {
                     $conn->statement('ALTER TABLE '.$pivotTable.' MODIFY profile_id BIGINT UNSIGNED NULL');
                 }
             }

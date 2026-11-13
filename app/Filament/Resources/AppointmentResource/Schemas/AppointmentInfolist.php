@@ -19,7 +19,7 @@ class AppointmentInfolist extends XotBaseResourceInfolist
             'id' => TextEntry::make('id'),
             'client.company_name' => TextEntry::make('client.company_name'),
             'worker.full_name' => TextEntry::make('worker.full_name')->placeholder('—'),
-            'date' => TextEntry::make('date')->dateTime(),
+            'date' => TextEntry::make('date')->dateTime('d/m/Y H:i'),
             'duration_minutes' => TextEntry::make('duration_minutes')
                 ->suffix(' '.__('techplanner::appointment.fields.duration_minutes.suffix'))
                 ->placeholder('—'),

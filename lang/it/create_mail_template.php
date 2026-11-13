@@ -7,32 +7,32 @@ return [
         'activeLocale' => [
             'label' => 'activeLocale',
             'icon' => 'activeLocale',
-            'tooltip' => 'activeLocale',
+            'tooltip' => '',
         ],
         'create' => [
             'label' => 'create',
             'icon' => 'create',
-            'tooltip' => 'create',
+            'tooltip' => '',
         ],
         'createAnother' => [
             'label' => 'createAnother',
             'icon' => 'createAnother',
-            'tooltip' => 'createAnother',
+            'tooltip' => '',
         ],
         'cancel' => [
             'label' => 'cancel',
             'icon' => 'cancel',
-            'tooltip' => 'cancel',
+            'tooltip' => '',
         ],
         'profile' => [
             'label' => 'profile',
             'icon' => 'profile',
-            'tooltip' => 'profile',
+            'tooltip' => '',
         ],
         'logout' => [
             'label' => 'logout',
             'icon' => 'logout',
-            'tooltip' => 'logout',
+            'tooltip' => '',
         ],
     ],
 ];

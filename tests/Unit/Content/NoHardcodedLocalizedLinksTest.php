@@ -36,15 +36,15 @@ function techPlannerContentJsonFiles(): array
 }
 
 /**
- * @param array<array-key, mixed> $value
- * @param list<string> $violations
+ * @param  array<array-key, mixed>  $value
+ * @param  list<string>  $violations
  */
 function collectHardcodedLocalizedLinks(array $value, string $path, array &$violations): void
 {
     foreach ($value as $key => $item) {
         $itemPath = $path.'.'.(string) $key;
         if (is_string($item)
-            && 1 === preg_match("#(?:^|[\"'])/(it|en|de|es)(?:/|$)#", $item)) {
+            && preg_match("#(?:^|[\"'])/(it|en|de|es)(?:/|$)#", $item) === 1) {
             $violations[] = $itemPath.'='.$item;
         }
 

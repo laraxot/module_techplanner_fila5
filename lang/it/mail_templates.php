@@ -5,52 +5,52 @@ declare(strict_types=1);
 return [
     'fields' => [
         'name' => [
-            'label' => 'name',
+            'label' => 'Nome',
         ],
         'mailable' => [
-            'label' => 'mailable',
+            'label' => 'Tipo di e-mail',
         ],
         'slug' => [
-            'label' => 'slug',
+            'label' => 'Codice',
         ],
         'counter' => [
-            'label' => 'counter',
+            'label' => 'Numero',
         ],
         'version' => [
-            'label' => 'version',
+            'label' => 'Versione',
         ],
         'created_at' => [
-            'label' => 'created_at',
+            'label' => 'Creato il',
         ],
         'updated_at' => [
-            'label' => 'updated_at',
+            'label' => 'Modificato il',
         ],
     ],
     'actions' => [
         'create' => [
             'label' => 'create',
             'icon' => 'create',
-            'tooltip' => 'create',
+            'tooltip' => '',
         ],
         'layout' => [
             'label' => 'layout',
             'icon' => 'layout',
-            'tooltip' => 'layout',
+            'tooltip' => '',
         ],
         'view' => [
             'label' => 'view',
             'icon' => 'view',
-            'tooltip' => 'view',
+            'tooltip' => '',
         ],
         'edit' => [
             'label' => 'edit',
             'icon' => 'edit',
-            'tooltip' => 'edit',
+            'tooltip' => '',
         ],
         'delete' => [
             'label' => 'delete',
             'icon' => 'delete',
-            'tooltip' => 'delete',
+            'tooltip' => '',
         ],
     ],
 ];

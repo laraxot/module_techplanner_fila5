@@ -16,7 +16,7 @@ class PhoneCallInfolist extends XotBaseResourceInfolist
     public function getInfolistSchema(): array
     {
         return [
-            'date' => TextEntry::make('date')->dateTime(),
+            'date' => TextEntry::make('date')->dateTime('d/m/Y H:i'),
             'duration' => TextEntry::make('duration'),
             'call_type' => TextEntry::make('call_type'),
             'notes' => TextEntry::make('notes'),

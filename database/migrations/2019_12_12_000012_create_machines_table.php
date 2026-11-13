@@ -24,7 +24,8 @@ return new class() extends XotBaseMigration
         // -- UPDATE --
         $this->tableUpdate(function (Blueprint $table): void {
             if (! $this->hasColumn('client_id')) {
-                $table->integer('client_id')->index()->nullable();
+                // Stesso tipo di clients.id: con integer() la FK aggiunta da create_device_table falliva su MySQL.
+                $table->unsignedBigInteger('client_id')->index()->nullable();
             }
 
             if (! $this->hasColumn('appointment_id')) {

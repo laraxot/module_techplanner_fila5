@@ -8,7 +8,10 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Query\Builder as QueryBuilder;
 use Illuminate\Support\Carbon;
+use Modules\TechPlanner\Models\Traits\CascadesSoftDeletes;
 use Override;
 
 /**
@@ -80,6 +83,9 @@ use Override;
  */
 class Device extends BaseModel
 {
+    use CascadesSoftDeletes;
+    use SoftDeletes;
+
     protected $table = 'machines';
 
     /**
@@ -93,6 +99,8 @@ class Device extends BaseModel
         return [
             'client_id' => 'integer',
             'first_verification_date' => 'datetime',
+            // Colonna calcolata da scopeWithNextVerificationDate().
+            'next_verification_date' => 'date',
             'created_at' => 'datetime',
             'updated_at' => 'datetime',
             'deleted_at' => 'datetime',
@@ -134,6 +142,67 @@ class Device extends BaseModel
     }
 
     /**
+     * Aggiunge la colonna calcolata `next_verification_date`: la prossima verifica indicata
+     * nell'ultima verifica registrata (per data, poi per id). NULL se mai verificato.
+     *
+     * @param  Builder<static>  $query
+     * @return Builder<static>
+     */
+    public function scopeWithNextVerificationDate(Builder $query): Builder
+    {
+        if ($query->getQuery()->columns === null) {
+            $query->select($query->getModel()->qualifyColumn('*'));
+        }
+
+        return $query->addSelect([
+            'next_verification_date' => static fn (QueryBuilder $subquery): QueryBuilder => static::nextVerificationDateSubquery($subquery),
+        ]);
+    }
+
+    /**
+     * Apparecchi con la prossima verifica entro la data indicata (scadute comprese).
+     *
+     * @param  Builder<static>  $query
+     * @return Builder<static>
+     */
+    public function scopeVerificationDueBy(Builder $query, \DateTimeInterface $date): Builder
+    {
+        return $query->where(
+            static fn (QueryBuilder $subquery): QueryBuilder => static::nextVerificationDateSubquery($subquery),
+            '<=',
+            Carbon::instance($date)->toDateString(),
+        );
+    }
+
+    /**
+     * Apparecchi senza nessuna verifica registrata.
+     *
+     * @param  Builder<static>  $query
+     * @return Builder<static>
+     */
+    public function scopeNeverVerified(Builder $query): Builder
+    {
+        return $query->whereDoesntHave('verifications');
+    }
+
+    /**
+     * La prossima verifica dell'ultima verifica non nel cestino, come sottoquery correlata all'apparecchio.
+     */
+    protected static function nextVerificationDateSubquery(QueryBuilder $subquery): QueryBuilder
+    {
+        $verification = new DeviceVerification();
+
+        return $subquery
+            ->select($verification->qualifyColumn('next_verification_date'))
+            ->from($verification->getTable())
+            ->whereColumn($verification->qualifyColumn('device_id'), (new self())->getQualifiedKeyName())
+            ->whereNull($verification->qualifyColumn('deleted_at'))
+            ->orderByDesc($verification->qualifyColumn('verification_date'))
+            ->orderByDesc($verification->qualifyColumn('id'))
+            ->limit(1);
+    }
+
+    /**
      * Controlli unificati eseguiti su questa macchina (tabella controls).
      *
      * @return HasMany<Control, $this>
@@ -148,9 +217,12 @@ class Device extends BaseModel
      */
     public function getLatestVerificationAttribute(): ?DeviceVerification
     {
-        return ($this->verifications()->latest()->first() instanceof DeviceVerification)
-            ? $this->verifications()->latest()->first()
-            : null;
+        $latest = $this->verifications()
+            ->orderByDesc('verification_date')
+            ->orderByDesc('id')
+            ->first();
+
+        return $latest instanceof DeviceVerification ? $latest : null;
     }
 
     /**
@@ -158,16 +230,26 @@ class Device extends BaseModel
      */
     public function getNeedsVerificationAttribute(): bool
     {
-        if (! $this->latest_verification) {
+        $latest = $this->latest_verification;
+        if (! $latest instanceof DeviceVerification) {
             return true;
         }
 
-        // Verifica se la data di prossima verifica è passata
-        $nextVerificationDate = $this->latest_verification->getAttribute('next_verification_date');
-        if (! $nextVerificationDate) {
+        $nextVerificationDate = $latest->getAttribute('next_verification_date');
+        if (! $nextVerificationDate instanceof \DateTimeInterface) {
             return true;
         }
 
         return $nextVerificationDate <= now();
+    }
+
+    /**
+     * Nel cestino insieme al record (TPL-03).
+     *
+     * @return list<string>
+     */
+    protected function softDeleteCascades(): array
+    {
+        return ['verifications'];
     }
 }

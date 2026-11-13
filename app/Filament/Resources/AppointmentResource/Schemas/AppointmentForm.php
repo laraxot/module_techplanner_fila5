@@ -9,6 +9,7 @@ use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
+use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Schemas\Components\Component;
 use Filament\Schemas\Components\Utilities\Get;
 use Illuminate\Database\Eloquent\Model;
@@ -36,7 +37,9 @@ class AppointmentForm extends XotBaseResourceForm
                 )
                 ->searchable()
                 ->preload()
-                ->required(),
+                ->required()
+                // Dalla scheda del cliente il cliente è già quello: il campo non serve.
+                ->hidden(static fn (mixed $livewire): bool => $livewire instanceof RelationManager),
             'worker_id' => Select::make('worker_id')
                 ->relationship('worker', 'first_name')
                 ->getOptionLabelFromRecordUsing(

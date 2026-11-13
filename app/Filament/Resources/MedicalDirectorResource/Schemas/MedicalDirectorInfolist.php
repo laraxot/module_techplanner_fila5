@@ -16,12 +16,16 @@ class MedicalDirectorInfolist extends XotBaseResourceInfolist
     public function getInfolistSchema(): array
     {
         return [
+            'client.company_name' => TextEntry::make('client.company_name'),
             'name' => TextEntry::make('name'),
+            'fiscal_code' => TextEntry::make('fiscal_code'),
             'license_number' => TextEntry::make('license_number'),
             'specialization' => TextEntry::make('specialization'),
             'email' => TextEntry::make('email'),
             'phone' => TextEntry::make('phone'),
-            'license_expiry' => TextEntry::make('license_expiry')->date(),
+            'license_expiry' => TextEntry::make('license_expiry')->date('d/m/Y'),
+            'start_date' => TextEntry::make('start_date')->date('d/m/Y'),
+            'end_date' => TextEntry::make('end_date')->date('d/m/Y')->placeholder('—'),
             'notes' => TextEntry::make('notes'),
         ];
     }

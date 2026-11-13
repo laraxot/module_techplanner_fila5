@@ -17,7 +17,7 @@ use Modules\TechPlanner\Tests\TestCase;
 uses(TestCase::class);
 
 it('maps every control type enum case to a child model', function (): void {
-    $control = new Control;
+    $control = new Control();
 
     foreach (ControlTypeEnum::cases() as $case) {
         $childClass = $control->classFromAlias($case->value);
@@ -37,23 +37,23 @@ it('hydrates the correct child model from the discriminator column', function ()
     ];
 
     foreach ($cases as $alias => $expectedClass) {
-        $model = (new Control)->newFromBuilder(['id' => 1, 'control_type' => $alias]);
+        $model = (new Control())->newFromBuilder(['id' => 1, 'control_type' => $alias]);
 
         expect($model::class)->toBe($expectedClass);
     }
 });
 
 it('uses the controls table for parent and children', function (): void {
-    expect((new Control)->getTable())->toBe('controls')
-        ->and((new RxControl)->getTable())->toBe('controls')
-        ->and((new IntraoralControl)->getTable())->toBe('controls')
-        ->and((new HealthAuthorizationControl)->getTable())->toBe('controls')
-        ->and((new ElectromedicalControl)->getTable())->toBe('controls')
-        ->and((new OtherControl)->getTable())->toBe('controls');
+    expect((new Control())->getTable())->toBe('controls')
+        ->and((new RxControl())->getTable())->toBe('controls')
+        ->and((new IntraoralControl())->getTable())->toBe('controls')
+        ->and((new HealthAuthorizationControl())->getTable())->toBe('controls')
+        ->and((new ElectromedicalControl())->getTable())->toBe('controls')
+        ->and((new OtherControl())->getTable())->toBe('controls');
 });
 
 it('exposes client, device and worker relationships', function (): void {
-    $control = new Control;
+    $control = new Control();
 
     expect($control->client()->getForeignKeyName())->toBe('client_id')
         ->and($control->device()->getForeignKeyName())->toBe('device_id')

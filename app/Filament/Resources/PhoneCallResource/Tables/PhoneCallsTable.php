@@ -6,9 +6,9 @@ namespace Modules\TechPlanner\Filament\Resources\PhoneCallResource\Tables;
 
 use Filament\Tables\Columns\Column;
 use Filament\Tables\Columns\TextColumn;
-use Modules\Xot\Filament\Resources\Tables\XotBaseResourceTable;
+use Modules\TechPlanner\Filament\Resources\Tables\TechPlannerBaseTable;
 
-class PhoneCallsTable extends XotBaseResourceTable
+class PhoneCallsTable extends TechPlannerBaseTable
 {
     /**
      * @return array<int|string, Column>
@@ -16,7 +16,8 @@ class PhoneCallsTable extends XotBaseResourceTable
     public function getTableColumns(): array
     {
         return [
-            'date' => TextColumn::make('date')->sortable(),
+            'client.company_name' => TextColumn::make('client.company_name')->searchable()->sortable(),
+            'date' => TextColumn::make('date')->dateTime('d/m/Y H:i')->sortable(),
             'duration' => TextColumn::make('duration')->sortable(),
             'notes' => TextColumn::make('notes')->limit(50),
             'call_type' => TextColumn::make('call_type')->sortable(),

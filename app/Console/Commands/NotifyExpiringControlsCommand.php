@@ -70,7 +70,7 @@ class NotifyExpiringControlsCommand extends Command
 
                 return is_scalar($type) ? (string) $type : '';
             })
-            ->map(static fn ($group): int => $group->count())
+            ->map(static fn (Collection $group): int => $group->count())
             ->all();
 
         $lines = collect($byType)
@@ -102,7 +102,7 @@ class NotifyExpiringControlsCommand extends Command
         );
 
         $sent = 0;
-        User::role(['admin', 'super-admin'])->chunk(100, function ($users) use ($notification, &$sent): void {
+        User::role(['admin', 'super-admin'])->chunk(100, function (Collection $users) use ($notification, &$sent): void {
             foreach ($users as $user) {
                 $user->notify($notification);
                 $sent++;

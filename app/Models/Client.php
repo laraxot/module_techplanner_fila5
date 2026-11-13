@@ -7,13 +7,18 @@ namespace Modules\TechPlanner\Models;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+<<<<<<< .merge_file_LardQ9
 use Illuminate\Database\Eloquent\Relations\HasOne;
+=======
+use Illuminate\Database\Eloquent\SoftDeletes;
+>>>>>>> .merge_file_yvnqO7
 use Illuminate\Support\Carbon;
 use Modules\Geo\Enums\AddressItemEnum;
 use Modules\Geo\Models\Address;
 use Modules\Geo\Models\Traits\GeoTrait;
 use Modules\Geo\Models\Traits\HasAddress;
 use Modules\TechPlanner\Enums\ControlTypeEnum;
+use Modules\TechPlanner\Models\Traits\CascadesSoftDeletes;
 use Modules\Xot\Models\Traits\HasDynamicFillable;
 use Override;
 use UnitEnum;
@@ -128,12 +133,14 @@ use function Safe\preg_replace;
  */
 class Client extends BaseModel
 {
+    use CascadesSoftDeletes;
     use GeoTrait;
 
     /** @use HasAddress<Client> */
     use HasAddress;
 
     use HasDynamicFillable;
+    use SoftDeletes;
 
     /**
      * Define which enums contribute to the dynamic fillable fields.
@@ -485,5 +492,15 @@ class Client extends BaseModel
         ];
 
         return $icons[$iconName] ?? '';
+    }
+
+    /**
+     * Nel cestino insieme al record (TPL-03).
+     *
+     * @return list<string>
+     */
+    protected function softDeleteCascades(): array
+    {
+        return ['devices', 'controls', 'appointments', 'phoneCalls', 'medicalDirectors', 'legalRepresentatives', 'legalOffices'];
     }
 }

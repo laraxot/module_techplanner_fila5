@@ -58,7 +58,7 @@ function techplannerBlockContractFindings(): array
                     $source = file_get_contents($viewFile);
                     foreach (array_keys($data) as $key) {
                         $name = (string) $key;
-                        if ('view' === $name || 1 === preg_match('/\$'.preg_quote($name, '/').'\b|[\'"]'.preg_quote($name, '/').'[\'"]/', $source)) {
+                        if ($name === 'view' || preg_match('/\$'.preg_quote($name, '/').'\b|[\'"]'.preg_quote($name, '/').'[\'"]/', $source) === 1) {
                             continue;
                         }
                         $findings[] = $relative.'|'.$view.'|'.$name;

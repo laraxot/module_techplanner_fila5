@@ -1,44 +1,45 @@
 <?php
 
 declare(strict_types=1);
+use Illuminate\Support\Env;
 
 return [
     'facebook' => [
-        'client_id' => Illuminate\Support\Env::get('FACEBOOK_CLIENT_ID'),
-        'client_secret' => Illuminate\Support\Env::get('FACEBOOK_CLIENT_SECRET'),
-        'redirect' => Illuminate\Support\Env::get('FACEBOOK_REDIRECT_URI'),
+        'client_id' => Env::get('FACEBOOK_CLIENT_ID'),
+        'client_secret' => Env::get('FACEBOOK_CLIENT_SECRET'),
+        'redirect' => Env::get('FACEBOOK_REDIRECT_URI'),
     ],
     'twitter' => [
-        'client_id' => Illuminate\Support\Env::get('TWITTER_CLIENT_ID'),
-        'client_secret' => Illuminate\Support\Env::get('TWITTER_CLIENT_SECRET'),
-        'redirect' => Illuminate\Support\Env::get('TWITTER_REDIRECT_URI'),
+        'client_id' => Env::get('TWITTER_CLIENT_ID'),
+        'client_secret' => Env::get('TWITTER_CLIENT_SECRET'),
+        'redirect' => Env::get('TWITTER_REDIRECT_URI'),
     ],
     'instagram' => [
-        'client_id' => Illuminate\Support\Env::get('INSTAGRAM_KEY'),
-        'client_secret' => Illuminate\Support\Env::get('INSTAGRAM_SECRET'),
-        'redirect' => Illuminate\Support\Env::get('INSTAGRAM_REDIRECT_URI'),
+        'client_id' => Env::get('INSTAGRAM_KEY'),
+        'client_secret' => Env::get('INSTAGRAM_SECRET'),
+        'redirect' => Env::get('INSTAGRAM_REDIRECT_URI'),
     ],
     'google' => [
-        'client_id' => Illuminate\Support\Env::get('GOOGLE_CLIENT_ID'),
-        'client_secret' => Illuminate\Support\Env::get('GOOGLE_CLIENT_SECRET'),
-        'redirect' => Illuminate\Support\Env::get('GOOGLE_REDIRECT_URI'),
-        'maps_api_key' => Illuminate\Support\Env::get('GOOGLE_MAPS_API_KEY'),
+        'client_id' => Env::get('GOOGLE_CLIENT_ID'),
+        'client_secret' => Env::get('GOOGLE_CLIENT_SECRET'),
+        'redirect' => Env::get('GOOGLE_REDIRECT_URI'),
+        'maps_api_key' => Env::get('GOOGLE_MAPS_API_KEY'),
     ],
     'bing' => [
-        'maps_api_key' => Illuminate\Support\Env::get('BING_MAPS_API_KEY'),
+        'maps_api_key' => Env::get('BING_MAPS_API_KEY'),
     ],
     'netfun' => [
-        'token' => Illuminate\Support\Env::get('NETFUN_TOKEN'),
+        'token' => Env::get('NETFUN_TOKEN'),
     ],
     'newsapi' => [
-        'app_key' => Illuminate\Support\Env::get('NEWSAPI_APP_KEY'),
+        'app_key' => Env::get('NEWSAPI_APP_KEY'),
     ],
     'telegram-bot-api' => [
-        'token' => Illuminate\Support\Env::get('TELEGRAM_BOT_TOKEN', 'YOUR BOT TOKEN HERE'),
-        'bot_url' => Illuminate\Support\Env::get('TELEGRAM_BOT_URL'),
-        'webhook' => Illuminate\Support\Env::get('TELEGRAM_BOT_WEBHOOK'),
+        'token' => Env::get('TELEGRAM_BOT_TOKEN', 'YOUR BOT TOKEN HERE'),
+        'bot_url' => Env::get('TELEGRAM_BOT_URL'),
+        'webhook' => Env::get('TELEGRAM_BOT_WEBHOOK'),
     ],
     'locationiq' => [
-        'key' => Illuminate\Support\Env::get('LOCATIONIQ_API_KEY'),
+        'key' => Env::get('LOCATIONIQ_API_KEY'),
     ],
 ];

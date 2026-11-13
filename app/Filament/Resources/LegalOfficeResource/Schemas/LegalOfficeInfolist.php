@@ -16,15 +16,15 @@ class LegalOfficeInfolist extends XotBaseResourceInfolist
     public function getInfolistSchema(): array
     {
         return [
-            'id' => TextEntry::make('id'),
+            'client.company_name' => TextEntry::make('client.company_name'),
             'name' => TextEntry::make('name'),
             'address' => TextEntry::make('address'),
             'city' => TextEntry::make('city'),
             'postal_code' => TextEntry::make('postal_code'),
             'province' => TextEntry::make('province'),
-            'country' => TextEntry::make('country'),
             'phone' => TextEntry::make('phone'),
             'email' => TextEntry::make('email'),
+            'notes' => TextEntry::make('notes'),
             'created_at' => TextEntry::make('created_at')->dateTime(),
             'updated_at' => TextEntry::make('updated_at')->dateTime(),
         ];

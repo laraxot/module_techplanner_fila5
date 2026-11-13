@@ -4,20 +4,19 @@ declare(strict_types=1);
 
 return [
     'navigation' => [
-        'label' => 'Rappresentante Legale',
+        'group' => 'Referenti dei clienti',
+        'label' => 'Rappresentanti legali',
+        'plural_label' => 'Rappresentanti legali',
+        'icon' => 'techplanner-legal-representative',
+        'sort' => 60,
         'name' => 'Rappresentante Legale',
         'plural' => 'Rappresentanti Legali',
-        'group' => [
-            'name' => 'Admin',
-        ],
-        'sort' => 84,
-        'icon' => 'techplanner-legal-representative',
     ],
     'actions' => [
         'create' => [
             'label' => 'create',
             'icon' => 'create',
-            'tooltip' => 'create',
+            'tooltip' => '',
         ],
         'importDevice' => [
             'label' => 'importDevice',
@@ -26,49 +25,89 @@ return [
             'label' => 'importMedicalDirector',
         ],
         'reorderRecords' => [
-            'tooltip' => 'reorderRecords',
+            'tooltip' => '',
             'label' => 'reorderRecords',
             'icon' => 'reorderRecords',
+        ],
+        'edit' => [
+            'label' => 'edit',
+            'icon' => 'edit',
+            'tooltip' => '',
+        ],
+        'delete' => [
+            'label' => 'delete',
+            'icon' => 'delete',
+            'tooltip' => '',
+        ],
+        'attach' => [
+            'label' => 'attach',
+            'icon' => 'attach',
+            'tooltip' => '',
         ],
         'applyFilters' => [
             'label' => 'applyFilters',
             'icon' => 'applyFilters',
-            'tooltip' => 'applyFilters',
+            'tooltip' => '',
         ],
         'resetFilters' => [
             'label' => 'resetFilters',
             'icon' => 'resetFilters',
-            'tooltip' => 'resetFilters',
+            'tooltip' => '',
         ],
         'openFilters' => [
             'label' => 'openFilters',
             'icon' => 'openFilters',
-            'tooltip' => 'openFilters',
+            'tooltip' => '',
         ],
         'applyTableColumnManager' => [
             'label' => 'applyTableColumnManager',
             'icon' => 'applyTableColumnManager',
-            'tooltip' => 'applyTableColumnManager',
+            'tooltip' => '',
         ],
         'openColumnManager' => [
             'label' => 'openColumnManager',
             'icon' => 'openColumnManager',
-            'tooltip' => 'openColumnManager',
+            'tooltip' => '',
         ],
         'resetColumnManager' => [
             'label' => 'resetColumnManager',
             'icon' => 'resetColumnManager',
-            'tooltip' => 'resetColumnManager',
+            'tooltip' => '',
+        ],
+        'submit' => [
+            'label' => 'submit',
+            'icon' => 'submit',
+            'tooltip' => '',
+        ],
+        'createAnother' => [
+            'label' => 'createAnother',
+            'icon' => 'createAnother',
+            'tooltip' => '',
+        ],
+        'cancel' => [
+            'label' => 'cancel',
+            'icon' => 'cancel',
+            'tooltip' => '',
         ],
         'profile' => [
             'label' => 'profile',
             'icon' => 'profile',
-            'tooltip' => 'profile',
+            'tooltip' => '',
         ],
         'logout' => [
             'label' => 'logout',
             'icon' => 'logout',
-            'tooltip' => 'logout',
+            'tooltip' => '',
+        ],
+        'back' => [
+            'label' => 'back',
+            'icon' => 'back',
+            'tooltip' => '',
+        ],
+        'save' => [
+            'label' => 'save',
+            'icon' => 'save',
+            'tooltip' => '',
         ],
     ],
     'fields' => [
@@ -105,6 +144,13 @@ return [
         'openFilters' => [
             'label' => 'openFilters',
         ],
+        'value' => [
+            'label' => 'Valore',
+            'placeholder' => '',
+            'helper_text' => '',
+            'description' => '',
+        ],
     ],
-    'label' => 'legal representative',
+    'label' => 'Rappresentante legale',
+    'plural_label' => 'Rappresentanti legali',
 ];

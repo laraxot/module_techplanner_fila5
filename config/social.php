@@ -8,7 +8,7 @@ return [
             'name' => 'facebook',
             'url' => '#',
             // 'icon'=>'<i fa fa-face'>
-            //'icon'=>'<i fa fa-face'>
+            // 'icon'=>'<i fa fa-face'>
             // 'icon'=>'<i fa fa-face'>
         ],
         (object) [

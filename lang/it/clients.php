@@ -5,70 +5,73 @@ declare(strict_types=1);
 return [
     'fields' => [
         'distance' => [
-            'label' => 'distance',
+            'label' => 'Distanza',
         ],
         'longitude' => [
-            'label' => 'longitude',
+            'label' => 'Longitudine',
         ],
         'latitude' => [
-            'label' => 'latitude',
+            'label' => 'Latitudine',
         ],
         'business_closed' => [
-            'label' => 'business_closed',
+            'label' => 'Cessato',
         ],
         'activity' => [
-            'label' => 'activity',
+            'label' => 'Attività',
         ],
         'company_name' => [
-            'label' => 'company_name',
+            'label' => 'Ragione sociale',
         ],
         'fiscal_code' => [
-            'label' => 'fiscal_code',
+            'label' => 'Codice fiscale',
         ],
         'full_address' => [
-            'label' => 'full_address',
+            'label' => 'Indirizzo completo',
         ],
         'city' => [
-            'label' => 'city',
+            'label' => 'Comune',
         ],
         'province' => [
-            'label' => 'province',
+            'label' => 'Provincia',
         ],
         'country' => [
-            'label' => 'country',
+            'label' => 'Nazione',
         ],
         'updated_at' => [
-            'label' => 'updated_at',
+            'label' => 'Modificato il',
         ],
         'created_at' => [
-            'label' => 'created_at',
+            'label' => 'Creato il',
         ],
         'contacts' => [
-            'label' => 'contacts',
+            'label' => 'Contatti',
         ],
         'address' => [
-            'label' => 'address',
+            'label' => 'Indirizzo',
+        ],
+        'trashed' => [
+            'label' => 'Record eliminati',
         ],
         'last_rx_control_date' => [
-            'label' => 'last_rx_control_date',
+            'label' => 'Ultimo controllo RX',
         ],
         'last_intraoral_control_date' => [
-            'label' => 'last_intraoral_control_date',
+            'label' => 'Ultimo controllo endorale',
         ],
         'last_electromedical_control_date' => [
-            'label' => 'last_electromedical_control_date',
+            'label' => 'Ultimo controllo elettromedicale',
         ],
         'last_health_authorization_date' => [
-            'label' => 'last_health_authorization_date',
+            'label' => 'Ultima autorizzazione sanitaria',
         ],
         'has_controls' => [
-            'label' => 'has_controls',
+            'label' => 'Con controlli',
         ],
         'controls_expiring' => [
-            'label' => 'controls_expiring',
+            'label' => 'Controlli in scadenza',
         ],
         'never_controlled_type' => [
-            'label' => 'never_controlled_type',
+            'label' => 'Mai controllato per',
         ],
         'has_rx_control' => [
             'label' => 'has_rx_control',
@@ -90,42 +93,52 @@ return [
         'create' => [
             'label' => 'create',
             'icon' => 'create',
-            'tooltip' => 'create',
+            'tooltip' => '',
         ],
         'layout' => [
             'label' => 'layout',
             'icon' => 'layout',
-            'tooltip' => 'layout',
+            'tooltip' => '',
         ],
         'delete' => [
             'label' => 'delete',
             'icon' => 'delete',
-            'tooltip' => 'delete',
+            'tooltip' => '',
         ],
         'view' => [
             'label' => 'view',
             'icon' => 'view',
-            'tooltip' => 'view',
+            'tooltip' => '',
         ],
         'edit' => [
             'label' => 'edit',
             'icon' => 'edit',
-            'tooltip' => 'edit',
-        ],
-        'sendRecordsNotification' => [
-            'tooltip' => 'sendRecordsNotification',
-            'icon' => 'sendRecordsNotification',
-            'label' => 'sendRecordsNotification',
-        ],
-        'updateCoordinates' => [
-            'tooltip' => 'updateCoordinates',
-            'icon' => 'updateCoordinates',
-            'label' => 'updateCoordinates',
+            'tooltip' => '',
         ],
         'sortByDistance' => [
-            'tooltip' => 'sortByDistance',
+            'label' => 'Ordina per distanza',
             'icon' => 'sortByDistance',
-            'label' => 'sortByDistance',
+            'tooltip' => 'Mette in cima i clienti più vicini a questo',
+        ],
+        'updateCoordinates' => [
+            'label' => 'Aggiorna coordinate',
+            'icon' => 'updateCoordinates',
+            'tooltip' => '',
+        ],
+        'sendRecordsNotification' => [
+            'label' => 'Invia notifica',
+            'icon' => 'sendRecordsNotification',
+            'tooltip' => '',
+        ],
+        'restore' => [
+            'label' => 'restore',
+            'icon' => 'restore',
+            'tooltip' => '',
+        ],
+        'forceDelete' => [
+            'label' => 'forceDelete',
+            'icon' => 'forceDelete',
+            'tooltip' => '',
         ],
     ],
 ];

@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Modules\TechPlanner\Models;
 
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Carbon;
 use Override;
 
@@ -46,6 +48,8 @@ use Override;
  */
 class PhoneCall extends BaseModel
 {
+    use SoftDeletes;
+
     protected $fillable = [
         'client_id',
         'date',
@@ -53,6 +57,14 @@ class PhoneCall extends BaseModel
         'notes',
         'call_type',
     ];
+
+    /**
+     * @return BelongsTo<Client, $this>
+     */
+    public function client(): BelongsTo
+    {
+        return $this->belongsTo(Client::class);
+    }
 
     /**
      * Get the attributes that should be cast.

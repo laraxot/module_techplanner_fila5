@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+use Illuminate\Support\Env;
 
 return [
     /*
@@ -14,7 +15,7 @@ return [
     |
     */
 
-    'default' => Illuminate\Support\Env::get('FILESYSTEM_DRIVER', 'local'),
+    'default' => Env::get('FILESYSTEM_DRIVER', 'local'),
 
     /*
     |--------------------------------------------------------------------------
@@ -27,7 +28,7 @@ return [
     |
     */
 
-    'cloud' => Illuminate\Support\Env::get('FILESYSTEM_CLOUD', 's3'),
+    'cloud' => Env::get('FILESYSTEM_CLOUD', 's3'),
 
     /*
     |--------------------------------------------------------------------------
@@ -58,7 +59,7 @@ return [
             'driver' => 'local',
             'root' => public_path('/'),
             // 'url' => url('/'),
-            //'url' => url('/'),
+            // 'url' => url('/'),
             // 'url' => url('/'),
             'url' => '/',
             'visibility' => 'public',
@@ -99,11 +100,11 @@ return [
 
         's3' => [
             'driver' => 's3',
-            'key' => Illuminate\Support\Env::get('AWS_ACCESS_KEY_ID'),
-            'secret' => Illuminate\Support\Env::get('AWS_SECRET_ACCESS_KEY'),
-            'region' => Illuminate\Support\Env::get('AWS_DEFAULT_REGION'),
-            'bucket' => Illuminate\Support\Env::get('AWS_BUCKET'),
-            'url' => Illuminate\Support\Env::get('AWS_URL'),
+            'key' => Env::get('AWS_ACCESS_KEY_ID'),
+            'secret' => Env::get('AWS_SECRET_ACCESS_KEY'),
+            'region' => Env::get('AWS_DEFAULT_REGION'),
+            'bucket' => Env::get('AWS_BUCKET'),
+            'url' => Env::get('AWS_URL'),
         ],
 
         'dropbox' => [

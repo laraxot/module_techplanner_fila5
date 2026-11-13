@@ -6,9 +6,9 @@ namespace Modules\TechPlanner\Models;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Carbon;
 use Modules\TechPlanner\Enums\AppointmentStatusEnum;
 
@@ -44,10 +44,15 @@ use Modules\TechPlanner\Enums\AppointmentStatusEnum;
  * @method static Builder<static>|Appointment whereUpdatedAt($value)
  * @method static Builder<static>|Appointment whereUpdatedBy($value)
  *
+ * Connessione `tech_planner` come gli altri modelli del modulo (prima estendeva Model e usava la default:
+ * stessa base dati in produzione, ma la migrazione finiva su un'altra connessione nei test).
+ *
  * @mixin \Eloquent
  */
-class Appointment extends Model
+class Appointment extends BaseModel
 {
+    use SoftDeletes;
+
     protected $fillable = [
         'client_id',
         'worker_id',

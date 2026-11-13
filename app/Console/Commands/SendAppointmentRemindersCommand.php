@@ -154,7 +154,7 @@ class SendAppointmentRemindersCommand extends Command
             ],
         );
 
-        User::role(['admin', 'super-admin'])->chunk(100, function ($users) use ($notification): void {
+        User::role(['admin', 'super-admin'])->chunk(100, function (Collection $users) use ($notification): void {
             foreach ($users as $user) {
                 $user->notify($notification);
             }

@@ -42,7 +42,8 @@ class ListMedicalDirectors extends XotBaseListRecords
         /** @var array<string, Action> $actions */
         $actions = [
             ...parent::getHeaderActions(),
-            ImportAction::make('importMedicalDirector')->importer(MedicalDirectorImporter::class),
+            ImportAction::make('importMedicalDirector')->importer(MedicalDirectorImporter::class)
+                ->pluralModelLabel(__('techplanner::medical_director.plural_label')),
         ];
 
         return $actions;

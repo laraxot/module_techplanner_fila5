@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 return [
     'navigation' => [
+        'group' => 'Lavoro quotidiano',
         'label' => 'Appuntamenti',
         'plural_label' => 'Appuntamenti',
-        'group' => 'TechPlanner',
         'icon' => 'heroicon-o-calendar-days',
-        'sort' => 28,
+        'sort' => 40,
         'badge' => 'Gestione appuntamenti',
     ],
     'model' => [
@@ -79,6 +79,29 @@ return [
             'label' => 'Ultima Modifica',
             'tooltip' => 'Data dell\'ultima modifica',
             'helper_text' => 'Data e ora dell\'ultimo aggiornamento dell\'appuntamento',
+        ],
+        'value' => [
+            'label' => 'Valore',
+            'placeholder' => '',
+            'helper_text' => '',
+            'description' => '',
+        ],
+        'worker_id' => [
+            'label' => 'Tecnico',
+            'placeholder' => 'Seleziona il tecnico',
+        ],
+        'duration_minutes' => [
+            'label' => 'Durata (minuti)',
+            'placeholder' => '60',
+            'helper_text' => 'Durata prevista dell\'appuntamento, usata per rilevare conflitti di agenda',
+            'suffix' => 'min',
+        ],
+        'outcome' => [
+            'label' => 'Esito',
+            'placeholder' => 'Esito del sopralluogo',
+        ],
+        'reminder_sent_at' => [
+            'label' => 'Promemoria inviato',
         ],
     ],
     'actions' => [
@@ -204,69 +227,79 @@ return [
             ],
         ],
         'reorderRecords' => [
-            'tooltip' => 'reorderRecords',
+            'tooltip' => '',
             'icon' => 'reorderRecords',
             'label' => 'reorderRecords',
         ],
         'openColumnManager' => [
-            'tooltip' => 'openColumnManager',
+            'tooltip' => '',
             'icon' => 'openColumnManager',
             'label' => 'openColumnManager',
         ],
         'applyTableColumnManager' => [
-            'tooltip' => 'applyTableColumnManager',
+            'tooltip' => '',
             'icon' => 'applyTableColumnManager',
             'label' => 'applyTableColumnManager',
         ],
         'resetFilters' => [
-            'tooltip' => 'resetFilters',
+            'tooltip' => '',
             'icon' => 'resetFilters',
             'label' => 'resetFilters',
         ],
         'applyFilters' => [
-            'tooltip' => 'applyFilters',
+            'tooltip' => '',
             'icon' => 'applyFilters',
             'label' => 'applyFilters',
         ],
         'createAnother' => [
-            'tooltip' => 'createAnother',
+            'tooltip' => '',
             'icon' => 'createAnother',
             'label' => 'createAnother',
         ],
         'submit' => [
-            'tooltip' => 'submit',
+            'tooltip' => '',
             'icon' => 'submit',
             'label' => 'submit',
         ],
         'openFilters' => [
-            'tooltip' => 'openFilters',
+            'tooltip' => '',
             'icon' => 'openFilters',
             'label' => 'openFilters',
         ],
         'detach' => [
-            'tooltip' => 'detach',
+            'tooltip' => '',
             'icon' => 'detach',
             'label' => 'detach',
         ],
         'attach' => [
-            'tooltip' => 'attach',
+            'tooltip' => '',
             'icon' => 'attach',
             'label' => 'attach',
         ],
         'resetColumnManager' => [
-            'tooltip' => 'resetColumnManager',
+            'tooltip' => '',
             'icon' => 'resetColumnManager',
             'label' => 'resetColumnManager',
         ],
         'profile' => [
             'label' => 'profile',
             'icon' => 'profile',
-            'tooltip' => 'profile',
+            'tooltip' => '',
         ],
         'logout' => [
             'label' => 'logout',
             'icon' => 'logout',
-            'tooltip' => 'logout',
+            'tooltip' => '',
+        ],
+        'back' => [
+            'label' => 'back',
+            'icon' => 'back',
+            'tooltip' => '',
+        ],
+        'save' => [
+            'label' => 'save',
+            'icon' => 'save',
+            'tooltip' => '',
         ],
     ],
     'sections' => [
@@ -285,23 +318,6 @@ return [
             'description' => 'Dettagli del cliente e note',
             'icon' => 'heroicon-o-user',
         ],
-    ],
-    'worker_id' => [
-        'label' => 'Tecnico',
-        'placeholder' => 'Seleziona il tecnico',
-    ],
-    'duration_minutes' => [
-        'label' => 'Durata (minuti)',
-        'placeholder' => '60',
-        'helper_text' => 'Durata prevista dell\'appuntamento, usata per rilevare conflitti di agenda',
-        'suffix' => 'min',
-    ],
-    'outcome' => [
-        'label' => 'Esito',
-        'placeholder' => 'Esito del sopralluogo',
-    ],
-    'reminder_sent_at' => [
-        'label' => 'Promemoria inviato',
     ],
     'filters' => [
         'status' => [
@@ -387,7 +403,8 @@ return [
             'urgent' => 'Urgente',
         ],
     ],
-    'label' => 'appointment',
+    'label' => 'Appuntamento',
+    'plural_label' => 'Appuntamenti',
     'reminder' => [
         'subject' => 'Promemoria appuntamento',
         'client_body' => 'Gentile :client, le ricordiamo il suo appuntamento previsto il :date.',

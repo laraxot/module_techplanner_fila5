@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 // https://maps.googleapis.com/maps/api/geocode/json?address=
-//https://maps.googleapis.com/maps/api/geocode/json?address=
+// https://maps.googleapis.com/maps/api/geocode/json?address=
 // https://maps.googleapis.com/maps/api/geocode/json?address=
 $default = [
     'url_location_api' => 'https://maps.googleapis.com/maps/api/geocode/json',

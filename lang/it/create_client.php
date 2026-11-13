@@ -5,58 +5,58 @@ declare(strict_types=1);
 return [
     'fields' => [
         'business_closed' => [
-            'label' => 'business_closed',
+            'label' => 'Attività cessata',
         ],
         'activity' => [
-            'label' => 'activity',
+            'label' => 'Attività',
         ],
         'company_name' => [
-            'label' => 'company_name',
+            'label' => 'Ragione sociale',
         ],
         'tax_code' => [
-            'label' => 'tax_code',
+            'label' => 'Codice fiscale azienda',
         ],
         'vat_number' => [
-            'label' => 'vat_number',
+            'label' => 'Partita IVA',
         ],
         'address' => [
-            'label' => 'address',
+            'label' => 'Indirizzo',
         ],
         'street_number' => [
-            'label' => 'street_number',
+            'label' => 'Numero civico',
         ],
         'city' => [
-            'label' => 'city',
+            'label' => 'Comune',
         ],
         'postal_code' => [
-            'label' => 'postal_code',
+            'label' => 'CAP',
         ],
         'province' => [
-            'label' => 'province',
+            'label' => 'Provincia',
         ],
         'country' => [
-            'label' => 'country',
+            'label' => 'Nazione',
         ],
         'phone' => [
-            'label' => 'phone',
+            'label' => 'Telefono',
         ],
         'mobile' => [
-            'label' => 'mobile',
+            'label' => 'Cellulare',
         ],
         'fax' => [
-            'label' => 'fax',
+            'label' => 'Fax',
         ],
         'email' => [
-            'label' => 'email',
+            'label' => 'E-mail',
         ],
         'competent_health_unit' => [
-            'label' => 'competent_health_unit',
+            'label' => 'ASL/ULSS competente',
         ],
         'company_office' => [
-            'label' => 'company_office',
+            'label' => 'Sede',
         ],
         'notes' => [
-            'label' => 'notes',
+            'label' => 'Note',
         ],
     ],
     'actions' => [

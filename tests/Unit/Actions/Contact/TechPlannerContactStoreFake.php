@@ -14,7 +14,7 @@ final class TechPlannerContactStoreFake extends StoreContactMessageAction
 
     public function execute(ContactMessageData $data, string $locale): ContactMessage
     {
-        ++$this->stored;
+        $this->stored++;
 
         return new ContactMessage(['name' => $data->name]);
     }

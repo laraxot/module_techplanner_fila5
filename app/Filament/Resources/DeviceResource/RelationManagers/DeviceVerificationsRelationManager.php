@@ -15,11 +15,34 @@ use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Component;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Model;
 use Modules\Xot\Filament\Resources\RelationManagers\XotBaseRelationManager;
+use Override;
 
 class DeviceVerificationsRelationManager extends XotBaseRelationManager
 {
     protected static string $relationship = 'verifications';
+
+    /**
+     * Titolo della scheda nella pagina del record: la stessa etichetta del menu, in italiano.
+     * Senza override Filament mostra il nome inglese della relazione (es. «Phone Calls»).
+     */
+    #[Override]
+    public static function getTitle(Model $ownerRecord, string $pageClass): string
+    {
+        $title = __('techplanner::device_verification.navigation.plural_label');
+
+        return is_string($title) ? $title : parent::getTitle($ownerRecord, $pageClass);
+    }
+
+    /** Nome del record nei titoli delle finestre («Salva Chiamata»), dal file lang. */
+    #[Override]
+    protected static function getModelLabel(): ?string
+    {
+        $label = __('techplanner::device_verification.label');
+
+        return is_string($label) ? $label : parent::getModelLabel();
+    }
 
     protected static ?string $recordTitleAttribute = 'verification_date';
 
@@ -30,10 +53,12 @@ class DeviceVerificationsRelationManager extends XotBaseRelationManager
     {
         return [
             DatePicker::make('verification_date')->required(),
-            DatePicker::make('next_verification_date')->required(),
-            TextInput::make('verification_type')->maxLength(100),
-            TextInput::make('result')->maxLength(100),
-            TextInput::make('exposure_parameters')->maxLength(100),
+            DatePicker::make('next_verification_date')
+                ->required()
+                ->afterOrEqual('verification_date'),
+            TextInput::make('verification_type')->required()->maxLength(255),
+            TextInput::make('result')->required()->maxLength(255),
+            TextInput::make('exposure_parameters')->maxLength(255),
             Textarea::make('notes')->maxLength(65535),
         ];
     }
@@ -47,6 +72,7 @@ class DeviceVerificationsRelationManager extends XotBaseRelationManager
                 TextColumn::make('verification_type')->searchable(),
                 TextColumn::make('result')->searchable(),
             ])
+            ->defaultSort('verification_date', 'desc')
             ->filters([
 
             ])

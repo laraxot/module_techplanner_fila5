@@ -4,8 +4,9 @@ declare(strict_types=1);
 
 return [
     'navigation' => [
-        'group' => 'techplanner',
-        'label' => 'Template email',
+        'group' => 'Impostazioni',
+        'label' => 'Modelli e-mail',
+        'plural_label' => 'Modelli e-mail',
         'icon' => 'techplanner-mail-template',
         'sort' => 80,
     ],
@@ -139,64 +140,69 @@ return [
             ],
         ],
         'logout' => [
-            'tooltip' => 'logout',
+            'tooltip' => '',
             'icon' => 'logout',
             'label' => 'logout',
         ],
         'profile' => [
-            'tooltip' => 'profile',
+            'tooltip' => '',
             'icon' => 'profile',
             'label' => 'profile',
         ],
         'reorderRecords' => [
-            'tooltip' => 'reorderRecords',
+            'tooltip' => '',
             'icon' => 'reorderRecords',
             'label' => 'reorderRecords',
         ],
         'cancel' => [
-            'tooltip' => 'cancel',
+            'tooltip' => '',
             'icon' => 'cancel',
             'label' => 'cancel',
         ],
         'openColumnManager' => [
-            'tooltip' => 'openColumnManager',
+            'tooltip' => '',
             'icon' => 'openColumnManager',
             'label' => 'openColumnManager',
         ],
         'applyTableColumnManager' => [
-            'tooltip' => 'applyTableColumnManager',
+            'tooltip' => '',
             'icon' => 'applyTableColumnManager',
             'label' => 'applyTableColumnManager',
         ],
         'save' => [
-            'tooltip' => 'save',
+            'tooltip' => '',
             'icon' => 'save',
             'label' => 'save',
         ],
         'activeLocale' => [
-            'tooltip' => 'activeLocale',
+            'tooltip' => '',
             'icon' => 'activeLocale',
             'label' => 'activeLocale',
         ],
         'resetFilters' => [
-            'tooltip' => 'resetFilters',
+            'tooltip' => '',
             'icon' => 'resetFilters',
             'label' => 'resetFilters',
         ],
         'applyFilters' => [
-            'tooltip' => 'applyFilters',
+            'tooltip' => '',
             'label' => 'applyFilters',
             'icon' => 'applyFilters',
         ],
         'openFilters' => [
             'label' => 'openFilters',
             'icon' => 'openFilters',
-            'tooltip' => 'openFilters',
+            'tooltip' => '',
         ],
         'resetColumnManager' => [
             'label' => 'resetColumnManager',
             'icon' => 'resetColumnManager',
-            'tooltip' => 'resetColumnManager',
+            'tooltip' => '',
+        ],
+        'createAnother' => [
+            'label' => 'createAnother',
+            'icon' => 'createAnother',
+            'tooltip' => '',
         ],
         'createAnother' => [
             'label' => 'createAnother',
@@ -219,5 +225,6 @@ return [
         'scoping' => 'Questo elenco mostra solo i template il cui slug inizia con "techplanner-".',
         'best_practices' => 'Mantieni i template riutilizzabili, utilizza placeholder chiari e documenta i parametri disponibili.',
     ],
-    'label' => 'mail template',
+    'label' => 'Modello e-mail',
+    'plural_label' => 'Modelli e-mail',
 ];

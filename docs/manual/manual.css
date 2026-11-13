@@ -1,0 +1,14 @@
+@page { size: A4; margin: 18mm 16mm 20mm; }
+body { font-family: "DejaVu Sans", Arial, sans-serif; font-size: 10.5pt; line-height: 1.5; color: #1f2328; }
+h1 { font-size: 24pt; color: #b91c1c; border-bottom: 3px solid #b91c1c; padding-bottom: 6px; margin-top: 0; }
+h2 { font-size: 16pt; color: #7f1d1d; margin-top: 28px; page-break-before: always; border-bottom: 1px solid #e5e7eb; padding-bottom: 4px; }
+h1 + p + p + h2, h1 ~ h2:first-of-type { page-break-before: auto; }
+h3 { font-size: 12.5pt; margin-top: 18px; page-break-after: avoid; }
+p, li { orphans: 3; widows: 3; }
+img { display: block; max-width: 100%; max-height: 150mm; margin: 10px auto 2px; border: 1px solid #d1d5db; border-radius: 4px; page-break-inside: avoid; }
+p:has(> img) { page-break-inside: avoid; page-break-after: avoid; margin: 0; }
+p > em:only-child { display: block; text-align: center; font-size: 9pt; color: #6b7280; margin-bottom: 12px; }
+table { border-collapse: collapse; width: 100%; margin: 10px 0; font-size: 9.5pt; page-break-inside: avoid; }
+th, td { border: 1px solid #d1d5db; padding: 5px 7px; text-align: left; vertical-align: top; }
+th { background: #fef2f2; }
+code { background: #f3f4f6; padding: 1px 4px; border-radius: 3px; font-size: 9pt; }

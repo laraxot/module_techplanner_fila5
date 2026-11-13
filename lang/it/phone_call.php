@@ -4,14 +4,13 @@ declare(strict_types=1);
 
 return [
     'navigation' => [
+        'group' => 'Lavoro quotidiano',
         'label' => 'Chiamate',
+        'plural_label' => 'Chiamate',
+        'icon' => 'techplanner-phone-call',
+        'sort' => 30,
         'name' => 'Chiamata',
         'plural' => 'Chiamate',
-        'group' => [
-            'name' => 'Admin',
-        ],
-        'sort' => 51,
-        'icon' => 'techplanner-phone-call',
     ],
     'enums' => [
         'inbound' => [
@@ -29,7 +28,7 @@ return [
         'create' => [
             'label' => 'Crea',
             'icon' => 'create',
-            'tooltip' => 'create',
+            'tooltip' => '',
         ],
         'import' => [
             'label' => 'Importa',
@@ -38,110 +37,120 @@ return [
             'label' => 'Importa Cliente',
         ],
         'cancel' => [
-            'tooltip' => 'cancel',
+            'tooltip' => '',
             'label' => 'cancel',
             'icon' => 'cancel',
         ],
         'reorderRecords' => [
-            'tooltip' => 'reorderRecords',
+            'tooltip' => '',
             'icon' => 'reorderRecords',
             'label' => 'reorderRecords',
-        ],
-        'openColumnManager' => [
-            'tooltip' => 'openColumnManager',
-            'icon' => 'openColumnManager',
-            'label' => 'openColumnManager',
-        ],
-        'edit' => [
-            'label' => 'edit',
-            'icon' => 'edit',
-            'tooltip' => 'edit',
-        ],
-        'detach' => [
-            'label' => 'detach',
-            'icon' => 'detach',
-            'tooltip' => 'detach',
-        ],
-        'delete' => [
-            'label' => 'delete',
-            'icon' => 'delete',
-            'tooltip' => 'delete',
-        ],
-        'attach' => [
-            'label' => 'attach',
-            'icon' => 'attach',
-            'tooltip' => 'attach',
-        ],
-        'applyFilters' => [
-            'label' => 'applyFilters',
-            'icon' => 'applyFilters',
-            'tooltip' => 'applyFilters',
-        ],
-        'openFilters' => [
-            'label' => 'openFilters',
-            'icon' => 'openFilters',
-            'tooltip' => 'openFilters',
-        ],
-        'resetFilters' => [
-            'label' => 'resetFilters',
-            'icon' => 'resetFilters',
-            'tooltip' => 'resetFilters',
-        ],
-        'applyTableColumnManager' => [
-            'label' => 'applyTableColumnManager',
-            'icon' => 'applyTableColumnManager',
-            'tooltip' => 'applyTableColumnManager',
-        ],
-        'submit' => [
-            'label' => 'submit',
-            'icon' => 'submit',
-            'tooltip' => 'submit',
         ],
         'createAnother' => [
             'label' => 'createAnother',
             'icon' => 'createAnother',
-            'tooltip' => 'createAnother',
-        ],
-        'resetColumnManager' => [
-            'label' => 'resetColumnManager',
-            'icon' => 'resetColumnManager',
-            'tooltip' => 'resetColumnManager',
+            'tooltip' => '',
         ],
         'profile' => [
             'label' => 'profile',
             'icon' => 'profile',
-            'tooltip' => 'profile',
+            'tooltip' => '',
         ],
         'logout' => [
             'label' => 'logout',
             'icon' => 'logout',
-            'tooltip' => 'logout',
+            'tooltip' => '',
+        ],
+        'edit' => [
+            'label' => 'edit',
+            'icon' => 'edit',
+            'tooltip' => '',
+        ],
+        'detach' => [
+            'label' => 'detach',
+            'icon' => 'detach',
+            'tooltip' => '',
+        ],
+        'delete' => [
+            'label' => 'delete',
+            'icon' => 'delete',
+            'tooltip' => '',
+        ],
+        'attach' => [
+            'label' => 'attach',
+            'icon' => 'attach',
+            'tooltip' => '',
+        ],
+        'applyFilters' => [
+            'label' => 'applyFilters',
+            'icon' => 'applyFilters',
+            'tooltip' => '',
+        ],
+        'resetFilters' => [
+            'label' => 'resetFilters',
+            'icon' => 'resetFilters',
+            'tooltip' => '',
+        ],
+        'openFilters' => [
+            'label' => 'openFilters',
+            'icon' => 'openFilters',
+            'tooltip' => '',
+        ],
+        'applyTableColumnManager' => [
+            'label' => 'applyTableColumnManager',
+            'icon' => 'applyTableColumnManager',
+            'tooltip' => '',
+        ],
+        'openColumnManager' => [
+            'label' => 'openColumnManager',
+            'icon' => 'openColumnManager',
+            'tooltip' => '',
+        ],
+        'resetColumnManager' => [
+            'label' => 'resetColumnManager',
+            'icon' => 'resetColumnManager',
+            'tooltip' => '',
+        ],
+        'submit' => [
+            'label' => 'submit',
+            'icon' => 'submit',
+            'tooltip' => '',
+        ],
+        'back' => [
+            'label' => 'back',
+            'icon' => 'back',
+            'tooltip' => '',
+        ],
+        'save' => [
+            'label' => 'save',
+            'icon' => 'save',
+            'tooltip' => '',
         ],
     ],
     'fields' => [
         'date' => [
             'label' => 'Data',
-            'placeholder' => 'date',
-            'helper_text' => 'date',
+            'placeholder' => '',
+            'helper_text' => '',
             'description' => 'date',
         ],
         'duration' => [
             'label' => 'Durata',
-            'placeholder' => 'duration',
-            'helper_text' => 'duration',
+            'placeholder' => '',
+            'helper_text' => '',
             'description' => 'duration',
         ],
         'notes' => [
             'label' => 'Note',
             'description' => 'notes',
-            'placeholder' => 'notes',
-            'helper_text' => 'notes',
+            'placeholder' => '',
+            'helper_text' => '',
         ],
         'call_type' => [
             'label' => 'Tipo Chiamata',
             'description' => 'call_type',
-            'helper_text' => 'call_type',
-            'placeholder' => 'call_type',
+            'helper_text' => '',
+            'placeholder' => '',
         ],
         'id' => [
             'label' => 'ID',
@@ -257,6 +266,12 @@ return [
         'layout' => [
             'label' => 'layout',
         ],
+        'value' => [
+            'label' => 'Valore',
+            'placeholder' => '',
+            'helper_text' => '',
+            'description' => '',
+        ],
     ],
     'import' => [
         'label' => 'Importa Dati',
@@ -303,5 +318,6 @@ return [
     'model' => [
         'label' => 'Chiamata',
     ],
-    'label' => 'phone call',
+    'label' => 'Chiamata',
+    'plural_label' => 'Chiamate',
 ];

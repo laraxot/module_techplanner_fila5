@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\TechPlanner\Actions;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Carbon;
 use Modules\TechPlanner\Enums\AppointmentStatusEnum;
 use Modules\TechPlanner\Models\Appointment;
@@ -44,7 +45,7 @@ class CheckAppointmentConflictAction
             ])
             ->when(
                 $excludeAppointmentId !== null,
-                static fn ($query) => $query->whereKeyNot($excludeAppointmentId),
+                static fn (Builder $query): Builder => $query->whereKeyNot($excludeAppointmentId),
             )
             ->where('date', '<', $end)
             ->orderBy('date')

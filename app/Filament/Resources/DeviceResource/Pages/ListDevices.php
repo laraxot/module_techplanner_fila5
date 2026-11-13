@@ -21,7 +21,8 @@ class ListDevices extends XotBaseListRecords
         /** @var array<string, Action> $actions */
         $actions = [
             ...parent::getHeaderActions(),
-            ImportAction::make('importDevice')->importer(DeviceImporter::class),
+            ImportAction::make('importDevice')->importer(DeviceImporter::class)
+                ->pluralModelLabel(__('techplanner::device.plural_label')),
         ];
 
         return $actions;

@@ -26,14 +26,18 @@ return [
                 ],
             ],
         ],
+<<<<<<< .merge_file_Xi2ID7
         'Informazioni Aggiuntive' => [
             'heading' => 'Informazioni Aggiuntive',
             'label' => 'Informazioni Aggiuntive',
         ],
+=======
+>>>>>>> .merge_file_oIWKqK
         'Informazioni Azienda' => [
             'label' => 'Informazioni Azienda',
             'heading' => 'Informazioni Azienda',
         ],
+<<<<<<< .merge_file_Xi2ID7
         'Indirizzo' => [
             'label' => 'Indirizzo',
             'heading' => 'Indirizzo',
@@ -41,10 +45,28 @@ return [
         'Contatti' => [
             'label' => 'Contatti',
             'heading' => 'Contatti',
+=======
+        'Informazioni Contatto' => [
+            'label' => 'Informazioni Contatto',
+            'heading' => 'Informazioni Contatto',
+        ],
+        'Informazioni Aggiuntive' => [
+            'label' => 'Informazioni Aggiuntive',
+            'heading' => 'Informazioni Aggiuntive',
+        ],
+        'Indirizzo' => [
+            'label' => 'Indirizzo',
+            'heading' => '',
+        ],
+        'Contatti' => [
+            'label' => 'Contatti',
+            'heading' => '',
+>>>>>>> .merge_file_oIWKqK
         ],
     ],
     'fields' => [
         'company_name' => [
+<<<<<<< .merge_file_Xi2ID7
             'label' => 'company_name',
         ],
         'activity' => [
@@ -106,6 +128,69 @@ return [
         ],
         'whatsapp' => [
             'label' => 'whatsapp',
+=======
+            'label' => 'Ragione sociale',
+        ],
+        'activity' => [
+            'label' => 'Attività',
+        ],
+        'business_closed' => [
+            'label' => 'Cessato',
+        ],
+        'tax_code' => [
+            'label' => 'Codice fiscale',
+        ],
+        'vat_number' => [
+            'label' => 'Partita IVA',
+        ],
+        'fiscal_code' => [
+            'label' => 'Codice fiscale (persona)',
+        ],
+        'address' => [
+            'label' => 'Via',
+        ],
+        'street_number' => [
+            'label' => 'Numero civico',
+        ],
+        'city' => [
+            'label' => 'Comune',
+        ],
+        'postal_code' => [
+            'label' => 'CAP',
+        ],
+        'province' => [
+            'label' => 'Provincia',
+        ],
+        'country' => [
+            'label' => 'Nazione',
+        ],
+        'phone' => [
+            'label' => 'Telefono',
+        ],
+        'mobile' => [
+            'label' => 'Cellulare',
+        ],
+        'fax' => [
+            'label' => 'Fax',
+        ],
+        'email' => [
+            'label' => 'E-mail',
+        ],
+        'competent_health_unit' => [
+            'label' => 'ASL/ULSS competente',
+        ],
+        'company_office' => [
+            'label' => 'Sede',
+        ],
+        'notes' => [
+            'label' => 'Note',
+        ],
+        'pec' => [
+            'label' => 'PEC',
+        ],
+        'whatsapp' => [
+            'label' => 'WhatsApp',
+>>>>>>> .merge_file_oIWKqK
         ],
     ],
 ];

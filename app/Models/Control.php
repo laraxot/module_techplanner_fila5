@@ -26,11 +26,10 @@ class Control extends BaseModel
     /** @var string */
     protected $table = 'controls';
 
-    /** @var string */
-    protected $childColumn = 'control_type';
+    protected string $childColumn = 'control_type';
 
     /** @var array<string, class-string<Control>> */
-    protected $childTypes = [
+    protected array $childTypes = [
         ControlTypeEnum::RX->value => RxControl::class,
         ControlTypeEnum::INTRAORAL->value => IntraoralControl::class,
         ControlTypeEnum::HEALTH_AUTHORIZATION->value => HealthAuthorizationControl::class,

@@ -12,9 +12,9 @@ use Filament\Tables\Filters\Filter;
 use Filament\Tables\Filters\SelectFilter;
 use Illuminate\Database\Eloquent\Builder;
 use Modules\TechPlanner\Enums\ControlTypeEnum;
-use Modules\Xot\Filament\Resources\Tables\XotBaseResourceTable;
+use Modules\TechPlanner\Filament\Resources\Tables\TechPlannerBaseTable;
 
-class ControlsTable extends XotBaseResourceTable
+class ControlsTable extends TechPlannerBaseTable
 {
     /**
      * @return array<int|string, Column>
@@ -33,9 +33,9 @@ class ControlsTable extends XotBaseResourceTable
                 ->color(fn (ControlTypeEnum|string|null $state): string => $state instanceof ControlTypeEnum ? $state->getColor() : 'gray')
                 ->icon(fn (ControlTypeEnum|string|null $state): ?string => $state instanceof ControlTypeEnum ? $state->getIcon() : null)
                 ->sortable(),
-            'device.name' => TextColumn::make('device.name')->label('Device')->placeholder('—')->toggleable(),
-            'control_date' => TextColumn::make('control_date')->date()->sortable(),
-            'next_control_date' => TextColumn::make('next_control_date')->date()->sortable(),
+            'device.name' => TextColumn::make('device.name')->placeholder('—')->toggleable(),
+            'control_date' => TextColumn::make('control_date')->date('d/m/Y')->sortable(),
+            'next_control_date' => TextColumn::make('next_control_date')->date('d/m/Y')->sortable(),
             'status' => TextColumn::make('status')->badge()->toggleable(),
             'result' => TextColumn::make('result')->toggleable(isToggledHiddenByDefault: true),
         ];
@@ -47,13 +47,13 @@ class ControlsTable extends XotBaseResourceTable
     public function getTableFilters(): array
     {
         return [
-            SelectFilter::make('control_type')
+            'control_type' => SelectFilter::make('control_type')
                 ->options(ControlTypeEnum::class),
-            SelectFilter::make('client_id')
+            'client_id' => SelectFilter::make('client_id')
                 ->relationship('client', 'company_name')
                 ->searchable()
                 ->preload(),
-            Filter::make('schedule_status')
+            'schedule_status' => Filter::make('schedule_status')
                 ->label(__('techplanner::control.filters.schedule_status.label'))
                 ->schema([
                     Select::make('value')
@@ -79,6 +79,7 @@ class ControlsTable extends XotBaseResourceTable
                         default => $query,
                     };
                 }),
+            ...parent::getTableFilters(),
         ];
     }
 }

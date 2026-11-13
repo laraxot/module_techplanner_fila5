@@ -5,7 +5,6 @@ declare(strict_types=1);
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\ViewErrorBag;
 use Illuminate\Testing\TestResponse;
-use PHPUnit\Framework\Assert;
 use Modules\TechPlanner\Actions\Contact\PurgeExpiredContactMessagesAction;
 use Modules\TechPlanner\Actions\Contact\StoreContactMessageAction;
 use Modules\TechPlanner\Actions\Contact\UpdateContactMessageStatusAction;
@@ -13,6 +12,8 @@ use Modules\TechPlanner\Enums\ContactMessageStatusEnum;
 use Modules\TechPlanner\Models\ContactMessage;
 use Modules\TechPlanner\Tests\TestCase;
 use Modules\TechPlanner\Tests\Unit\Actions\Contact\TechPlannerContactStoreFake;
+use PHPUnit\Framework\Assert;
+use Symfony\Component\HttpFoundation\Response;
 
 uses(TestCase::class);
 
@@ -36,8 +37,8 @@ function validContactPayload(): array
 }
 
 /**
- * @param array<string, mixed> $payload
- * @return TestResponse<\Symfony\Component\HttpFoundation\Response>
+ * @param  array<string, mixed>  $payload
+ * @return TestResponse<Response>
  */
 function postContactForm(TestCase $test, array $payload): TestResponse
 {
@@ -51,7 +52,7 @@ beforeEach(function (): void {
     $store = new TechPlannerContactStoreFake();
     app()->instance(TechPlannerContactStoreFake::class, $store);
     app()->instance(StoreContactMessageAction::class, $store);
-    app()->instance(UpdateContactMessageStatusAction::class, new class extends UpdateContactMessageStatusAction
+    app()->instance(UpdateContactMessageStatusAction::class, new class() extends UpdateContactMessageStatusAction
     {
         public function execute(ContactMessage $message, ContactMessageStatusEnum $status): void {}
     });

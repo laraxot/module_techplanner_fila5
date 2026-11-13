@@ -7,20 +7,20 @@ return [
         'geocodeCoordinates' => [
             'label' => 'geocodeCoordinates',
             'icon' => 'geocodeCoordinates',
-            'tooltip' => 'geocodeCoordinates',
+            'tooltip' => '',
         ],
     ],
     'fields' => [
         'latitude' => [
-            'label' => 'latitude',
-            'placeholder' => 'latitude',
-            'helper_text' => 'latitude',
+            'label' => 'Latitudine',
+            'placeholder' => '',
+            'helper_text' => '',
             'description' => 'latitude',
         ],
         'longitude' => [
-            'label' => 'longitude',
-            'placeholder' => 'longitude',
-            'helper_text' => 'longitude',
+            'label' => 'Longitudine',
+            'placeholder' => '',
+            'helper_text' => '',
             'description' => 'longitude',
         ],
     ],

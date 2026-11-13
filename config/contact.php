@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+use Illuminate\Support\Env;
 
 /*
  * Form di contatto del sito (blocco `contact-form` del tema). Letto da `config('techplanner.contact.*')`.
@@ -12,8 +13,8 @@ declare(strict_types=1);
  */
 return [
     // Casella che riceve i messaggi. Variabile: TECHPLANNER_CONTACT_RECIPIENT.
-    'recipient' => Illuminate\Support\Env::get('TECHPLANNER_CONTACT_RECIPIENT'),
+    'recipient' => Env::get('TECHPLANNER_CONTACT_RECIPIENT'),
 
     // DA CONFERMARE (titolare): giorni di conservazione dei messaggi archiviati. Variabile: TECHPLANNER_CONTACT_RETENTION_DAYS.
-    'retention_days' => Illuminate\Support\Env::get('TECHPLANNER_CONTACT_RETENTION_DAYS'),
+    'retention_days' => Env::get('TECHPLANNER_CONTACT_RETENTION_DAYS'),
 ];

@@ -10,8 +10,12 @@ use Filament\Support\Contracts\HasColor;
 use Filament\Support\Contracts\HasIcon;
 use Filament\Support\Contracts\HasLabel;
 use Illuminate\Database\Schema\Blueprint;
+use Modules\TechPlanner\Rules\ItalianFiscalCodeRule;
+use Modules\TechPlanner\Rules\ItalianVatNumberRule;
 use Modules\Xot\Database\Migrations\XotBaseMigration;
 use Modules\Xot\Filament\Traits\TransTrait;
+
+use function Safe\preg_replace;
 
 /**
  * Enum per i campi aziendali del dominio TechPlanner.
@@ -97,6 +101,19 @@ enum CompanyItemEnum: string implements HasColor, HasIcon, HasLabel
                     $input->required();
                 } else {
                     $input->nullable();
+                }
+
+                // FUN-05: P.IVA e codici fiscali controllati con la cifra di controllo, salvati in maiuscolo senza spazi.
+                $rule = match ($item) {
+                    self::VAT_NUMBER => new ItalianVatNumberRule(),
+                    self::TAX_CODE, self::FISCAL_CODE => new ItalianFiscalCodeRule(),
+                    default => null,
+                };
+                if ($rule !== null) {
+                    $input->rule($rule)
+                        ->dehydrateStateUsing(static fn (?string $state): ?string => $state === null
+                            ? null
+                            : strtoupper((string) preg_replace('/\s+/', '', $state)));
                 }
 
                 $result[$fieldName] = $input;

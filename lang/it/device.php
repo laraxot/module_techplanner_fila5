@@ -4,8 +4,9 @@ declare(strict_types=1);
 
 return [
     'navigation' => [
-        'group' => 'techplanner',
-        'label' => 'Dispositivi',
+        'group' => 'Lavoro quotidiano',
+        'label' => 'Apparecchi',
+        'plural_label' => 'Apparecchi',
         'icon' => 'techplanner-device',
         'sort' => 20,
     ],
@@ -81,6 +82,12 @@ return [
         'toggleColumns' => [
             'label' => 'toggleColumns',
         ],
+        'value' => [
+            'label' => 'Valore',
+            'placeholder' => '',
+            'helper_text' => '',
+            'description' => 'value',
+        ],
     ],
     'sections' => [
         'base_info' => [
@@ -100,92 +107,102 @@ return [
         'create' => [
             'label' => 'Nuovo Dispositivo',
             'icon' => 'create',
-            'tooltip' => 'create',
+            'tooltip' => '',
         ],
         'edit' => [
             'label' => 'Modifica Dispositivo',
             'icon' => 'edit',
-            'tooltip' => 'edit',
+            'tooltip' => '',
         ],
         'delete' => [
             'label' => 'Elimina Dispositivo',
             'icon' => 'delete',
-            'tooltip' => 'delete',
+            'tooltip' => '',
         ],
         'downloadExample' => [
             'label' => 'downloadExample',
             'icon' => 'downloadExample',
-            'tooltip' => 'downloadExample',
+            'tooltip' => '',
         ],
         'reorderRecords' => [
-            'tooltip' => 'reorderRecords',
+            'tooltip' => '',
             'icon' => 'reorderRecords',
             'label' => 'reorderRecords',
         ],
         'cancel' => [
-            'tooltip' => 'cancel',
+            'tooltip' => '',
             'label' => 'cancel',
             'icon' => 'cancel',
-        ],
-        'importDevice' => [
-            'label' => 'importDevice',
-            'icon' => 'importDevice',
-            'tooltip' => 'importDevice',
-        ],
-        'view' => [
-            'label' => 'view',
-            'icon' => 'view',
-            'tooltip' => 'view',
-        ],
-        'layout' => [
-            'label' => 'layout',
-            'icon' => 'layout',
-            'tooltip' => 'layout',
-        ],
-        'applyFilters' => [
-            'label' => 'applyFilters',
-            'icon' => 'applyFilters',
-            'tooltip' => 'applyFilters',
-        ],
-        'openFilters' => [
-            'label' => 'openFilters',
-            'icon' => 'openFilters',
-            'tooltip' => 'openFilters',
-        ],
-        'resetFilters' => [
-            'label' => 'resetFilters',
-            'icon' => 'resetFilters',
-            'tooltip' => 'resetFilters',
-        ],
-        'applyTableColumnManager' => [
-            'label' => 'applyTableColumnManager',
-            'icon' => 'applyTableColumnManager',
-            'tooltip' => 'applyTableColumnManager',
-        ],
-        'openColumnManager' => [
-            'label' => 'openColumnManager',
-            'icon' => 'openColumnManager',
-            'tooltip' => 'openColumnManager',
         ],
         'profile' => [
             'label' => 'profile',
             'icon' => 'profile',
-            'tooltip' => 'profile',
+            'tooltip' => '',
         ],
         'logout' => [
             'label' => 'logout',
             'icon' => 'logout',
-            'tooltip' => 'logout',
+            'tooltip' => '',
+        ],
+        'importDevice' => [
+            'label' => 'Importa apparecchi',
+            'icon' => 'importDevice',
+            'tooltip' => '',
+        ],
+        'applyFilters' => [
+            'label' => 'applyFilters',
+            'icon' => 'applyFilters',
+            'tooltip' => '',
+        ],
+        'resetFilters' => [
+            'label' => 'resetFilters',
+            'icon' => 'resetFilters',
+            'tooltip' => '',
+        ],
+        'openFilters' => [
+            'label' => 'openFilters',
+            'icon' => 'openFilters',
+            'tooltip' => '',
+        ],
+        'applyTableColumnManager' => [
+            'label' => 'applyTableColumnManager',
+            'icon' => 'applyTableColumnManager',
+            'tooltip' => '',
+        ],
+        'openColumnManager' => [
+            'label' => 'openColumnManager',
+            'icon' => 'openColumnManager',
+            'tooltip' => '',
         ],
         'resetColumnManager' => [
             'label' => 'resetColumnManager',
             'icon' => 'resetColumnManager',
-            'tooltip' => 'resetColumnManager',
+            'tooltip' => '',
         ],
         'createAnother' => [
             'label' => 'createAnother',
             'icon' => 'createAnother',
-            'tooltip' => 'createAnother',
+            'tooltip' => '',
+        ],
+        'removeAllFilters' => [
+            'label' => 'removeAllFilters',
+            'icon' => 'removeAllFilters',
+            'tooltip' => '',
+        ],
+        'view' => [
+            'label' => 'view',
+            'icon' => 'view',
+            'tooltip' => '',
+        ],
+        'save' => [
+            'label' => 'save',
+            'icon' => 'save',
+            'tooltip' => '',
+        ],
+        'layout' => [
+            'label' => 'layout',
+            'icon' => 'layout',
+            'tooltip' => '',
         ],
     ],
     'messages' => [
@@ -197,5 +214,6 @@ return [
         'label' => 'Dispositivo',
         'plural' => 'Dispositivi',
     ],
-    'label' => 'device',
+    'label' => 'Apparecchio',
+    'plural_label' => 'Apparecchi',
 ];

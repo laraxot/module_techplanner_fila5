@@ -6,10 +6,10 @@ namespace Modules\TechPlanner\Filament\Resources\LegalOfficeResource\Tables;
 
 use Filament\Tables\Columns\Column;
 use Filament\Tables\Columns\TextColumn;
+use Modules\TechPlanner\Filament\Resources\Tables\TechPlannerBaseTable;
 use Modules\UI\Filament\Tables\Columns\IDColumn;
-use Modules\Xot\Filament\Resources\Tables\XotBaseResourceTable;
 
-class LegalOfficesTable extends XotBaseResourceTable
+class LegalOfficesTable extends TechPlannerBaseTable
 {
     /**
      * @return array<int|string, Column>

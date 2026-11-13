@@ -5,46 +5,62 @@ declare(strict_types=1);
 return [
     'fields' => [
         'name' => [
-            'label' => 'name',
+            'label' => 'Nome',
         ],
         'email' => [
-            'label' => 'email',
+            'label' => 'E-mail',
         ],
         'phone' => [
-            'label' => 'phone',
+            'label' => 'Telefono',
         ],
         'fiscal_code' => [
-            'label' => 'fiscal_code',
+            'label' => 'Codice fiscale',
         ],
         'created_at' => [
-            'label' => 'created_at',
+            'label' => 'Creato il',
+        ],
+        'updated_at' => [
+            'label' => 'Modificato il',
+        ],
+        'trashed' => [
+            'label' => 'Record eliminati',
         ],
     ],
     'actions' => [
         'create' => [
             'label' => 'create',
             'icon' => 'create',
-            'tooltip' => 'create',
+            'tooltip' => '',
         ],
         'layout' => [
             'label' => 'layout',
             'icon' => 'layout',
-            'tooltip' => 'layout',
+            'tooltip' => '',
         ],
         'view' => [
             'label' => 'view',
             'icon' => 'view',
-            'tooltip' => 'view',
+            'tooltip' => '',
         ],
         'edit' => [
             'label' => 'edit',
             'icon' => 'edit',
-            'tooltip' => 'edit',
+            'tooltip' => '',
         ],
         'delete' => [
             'label' => 'delete',
             'icon' => 'delete',
-            'tooltip' => 'delete',
+            'tooltip' => '',
+        ],
+        'restore' => [
+            'label' => 'restore',
+            'icon' => 'restore',
+            'tooltip' => '',
+        ],
+        'forceDelete' => [
+            'label' => 'forceDelete',
+            'icon' => 'forceDelete',
+            'tooltip' => '',
         ],
     ],
 ];

@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use Illuminate\Mail\Transport\ArrayTransport;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use Mockery\MockInterface;
@@ -15,6 +16,7 @@ use Modules\TechPlanner\Enums\ContactOutcomeEnum;
 use Modules\TechPlanner\Models\ContactMessage;
 use Modules\TechPlanner\Tests\TestCase;
 use Symfony\Component\Mailer\SentMessage;
+use Symfony\Component\Mime\Email;
 
 uses(TestCase::class);
 
@@ -56,7 +58,7 @@ function bindContactFakes(bool $storeFails, bool $sendFails, array &$statuses): 
     });
 
     if ($sendFails) {
-        app()->instance(SendContactMessageAction::class, new class extends SendContactMessageAction
+        app()->instance(SendContactMessageAction::class, new class() extends SendContactMessageAction
         {
             public function execute(ContactMessageData $data, string $recipient, string $pageLocale): void
             {
@@ -72,13 +74,13 @@ function contactMessageData(): ContactMessageData
 }
 
 /**
- * @return list<Symfony\Component\Mailer\SentMessage>
+ * @return list<SentMessage>
  */
 function contactMailsSent(): array
 {
     $transport = Mail::mailer('array')->getSymfonyTransport();
 
-    if (! $transport instanceof Illuminate\Mail\Transport\ArrayTransport) {
+    if (! $transport instanceof ArrayTransport) {
         return [];
     }
 
@@ -176,8 +178,8 @@ it('sends a plain text mail with a fixed subject and the sender as reply-to', fu
     expect($sent)->toHaveCount(1);
 
     $email = $sent[0]->getOriginalMessage();
-    expect($email)->toBeInstanceOf(Symfony\Component\Mime\Email::class);
-    assert($email instanceof Symfony\Component\Mime\Email);
+    expect($email)->toBeInstanceOf(Email::class);
+    assert($email instanceof Email);
     expect($email->getTo()[0]->getAddress())->toBe('destinatario@example.test')
         ->and($email->getReplyTo()[0]->getAddress())->toBe('mario@example.test')
         ->and($email->getSubject())->toBe('Nuovo messaggio dal modulo di contatto del sito')

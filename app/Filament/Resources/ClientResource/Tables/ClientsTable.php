@@ -6,6 +6,8 @@ namespace Modules\TechPlanner\Filament\Resources\ClientResource\Tables;
 
 use Filament\Actions\Action;
 use Filament\Actions\ActionGroup;
+use Filament\Actions\BulkAction;
+use Filament\Actions\BulkActionGroup;
 use Filament\Notifications\Notification;
 use Filament\Tables\Columns\Column;
 use Filament\Tables\Columns\TextColumn;
@@ -23,14 +25,17 @@ use Modules\Geo\Filament\Tables\Columns\AddressColumn;
 use Modules\Notify\Filament\Actions\SendRecordsNotificationBulkAction;
 use Modules\Notify\Filament\Tables\Columns\ContactColumn;
 use Modules\TechPlanner\Enums\ControlTypeEnum;
+<<<<<<< .merge_file_oFF70P
 use Modules\TechPlanner\Filament\Resources\ClientResource\Pages\ListClients;
+=======
+use Modules\TechPlanner\Filament\Resources\Tables\TechPlannerBaseTable;
+>>>>>>> .merge_file_5TamUt
 use Modules\TechPlanner\Models\Client;
 use Modules\TechPlanner\Models\Control;
 use Modules\Xot\Actions\Cast\SafeStringCastAction;
-use Modules\Xot\Filament\Resources\Tables\XotBaseResourceTable;
 use Modules\Xot\Filament\Tables\Actions\XotBaseBulkAction;
 
-class ClientsTable extends XotBaseResourceTable
+class ClientsTable extends TechPlannerBaseTable
 {
     /**
      * @return array<string, Column>
@@ -39,11 +44,10 @@ class ClientsTable extends XotBaseResourceTable
     {
         return [
             'distance' => TextColumn::make('distance')
-                ->label('km')
                 ->width('5rem')
                 ->extraAttributes(['class' => 'whitespace-nowrap'])
                 ->formatStateUsing(static function (string|int|float|null $state): string {
-                    return is_numeric($state) ? number_format((float) $state, 2).' km' : '—';
+                    return is_numeric($state) ? number_format((float) $state, 2, ',', '.').' km' : '—';
                 }),
             'last_rx_control_date' => TextColumn::make('last_rx_control_date')
                 ->label(__('techplanner::client.fields.last_rx_control_date.label'))
@@ -143,21 +147,22 @@ class ClientsTable extends XotBaseResourceTable
 
         /** @var array<string, string> $activities */
         return [
-            TernaryFilter::make('business_closed')->default(false),
-            SelectFilter::make('activity')->multiple()->preload()->options($activities),
-            TernaryFilter::make('has_controls')
+            'business_closed' => TernaryFilter::make('business_closed')->default(false),
+            'activity' => SelectFilter::make('activity')->multiple()->preload()->options($activities),
+            'has_controls' => TernaryFilter::make('has_controls')
                 ->label(__('techplanner::client.filters.has_controls.label'))
                 ->queries(
                     true: fn (Builder $query) => $query->whereHas('controls'),
                     false: fn (Builder $query) => $query->whereDoesntHave('controls'),
                     blank: fn (Builder $query) => $query,
                 ),
-            Filter::make('controls_expiring')
+            'controls_expiring' => Filter::make('controls_expiring')
                 ->label(__('techplanner::client.filters.controls_expiring.label'))
                 ->query(fn (Builder $query) => $query->whereHas(
                     'controls',
                     static fn (Builder $controls) => $controls->whereDate('next_control_date', '<=', now()->addDays(30)),
                 )),
+<<<<<<< .merge_file_oFF70P
             SelectFilter::make('last_appointment_type')
                 ->label(__('techplanner::client.filters.last_appointment_type.label'))
                 ->options(static fn (): array => collect(ControlTypeEnum::cases())
@@ -181,6 +186,9 @@ class ClientsTable extends XotBaseResourceTable
                         ->whereHas('controls', static fn (Builder $controls): Builder => $controls->where('control_type', $value)));
                 }),
             SelectFilter::make('never_controlled_type')
+=======
+            'never_controlled_type' => SelectFilter::make('never_controlled_type')
+>>>>>>> .merge_file_5TamUt
                 ->label(__('techplanner::client.filters.never_controlled_type.label'))
                 ->options(static fn (): array => collect(ControlTypeEnum::cases())
                     ->mapWithKeys(static fn (ControlTypeEnum $type): array => [$type->value => $type->getLabel()])
@@ -188,7 +196,7 @@ class ClientsTable extends XotBaseResourceTable
                 ->query(static fn (Builder $query, array $data): Builder => ($data['value'] ?? null) === null
                     ? $query
                     : $query->whereDoesntHave('controls', static fn (Builder $controls) => $controls->where('control_type', $data['value']))),
-            TernaryFilter::make('has_rx_control')
+            'has_rx_control' => TernaryFilter::make('has_rx_control')
                 ->label(__('techplanner::client.filters.has_rx_control.label'))
                 ->queries(
                     true: static fn (Builder $query): Builder => $query->whereHas('controls', static fn (Builder $controls): Builder => $controls
@@ -197,7 +205,7 @@ class ClientsTable extends XotBaseResourceTable
                         ->whereIn('control_type', [ControlTypeEnum::RX->value, ControlTypeEnum::INTRAORAL->value])),
                     blank: static fn (Builder $query): Builder => $query,
                 ),
-            TernaryFilter::make('has_electromedical_control')
+            'has_electromedical_control' => TernaryFilter::make('has_electromedical_control')
                 ->label(__('techplanner::client.filters.has_electromedical_control.label'))
                 ->queries(
                     true: static fn (Builder $query): Builder => $query->whereHas('controls', static fn (Builder $controls): Builder => $controls
@@ -206,7 +214,7 @@ class ClientsTable extends XotBaseResourceTable
                         ->where('control_type', ControlTypeEnum::ELECTROMEDICAL->value)),
                     blank: static fn (Builder $query): Builder => $query,
                 ),
-            TernaryFilter::make('has_health_authorization')
+            'has_health_authorization' => TernaryFilter::make('has_health_authorization')
                 ->label(__('techplanner::client.filters.has_health_authorization.label'))
                 ->queries(
                     true: static fn (Builder $query): Builder => $query->whereHas('controls', static fn (Builder $controls): Builder => $controls
@@ -215,6 +223,7 @@ class ClientsTable extends XotBaseResourceTable
                         ->where('control_type', ControlTypeEnum::HEALTH_AUTHORIZATION->value)),
                     blank: static fn (Builder $query): Builder => $query,
                 ),
+            ...parent::getTableFilters(),
         ];
     }
 
@@ -225,8 +234,9 @@ class ClientsTable extends XotBaseResourceTable
     {
         return [
             ...parent::getTableActions(),
-            Action::make('sortByDistance')
+            'sortByDistance' => Action::make('sortByDistance')
                 ->icon('heroicon-o-map')
+                ->hidden(static fn (Client $record): bool => $record->trashed())
                 ->iconButton()
                 ->label(__('techplanner::client_map_widget.set_origin_tooltip'))
                 ->tooltip(__('techplanner::client_map_widget.set_origin_tooltip'))
@@ -266,11 +276,12 @@ class ClientsTable extends XotBaseResourceTable
     }
 
     /**
-     * @return array<int|string, XotBaseBulkAction>
+     * @return array<int|string, XotBaseBulkAction|BulkAction|BulkActionGroup>
      */
     public function getTableBulkActions(): array
     {
         return [
+            ...parent::getTableBulkActions(),
             'updateCoordinates' => UpdateCoordinatesBulkAction::make('updateCoordinates'),
             'sendRecordsNotification' => SendRecordsNotificationBulkAction::make('sendRecordsNotification'),
         ];

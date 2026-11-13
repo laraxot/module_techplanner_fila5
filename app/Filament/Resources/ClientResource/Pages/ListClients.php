@@ -101,7 +101,8 @@ class ListClients extends XotBaseListRecords
         /** @var array<string, Action> $actions */
         $actions = [
             ...parent::getHeaderActions(),
-            ImportAction::make('importClient')->importer(ClientImporter::class),
+            ImportAction::make('importClient')->importer(ClientImporter::class)
+                ->pluralModelLabel(__('techplanner::client.plural_label')),
             Action::make('populateCoordinates')
                 ->icon('heroicon-o-globe-alt')
                 ->label(__('techplanner::client.actions.populateCoordinates.label'))

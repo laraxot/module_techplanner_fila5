@@ -4,10 +4,11 @@ declare(strict_types=1);
 
 return [
     'navigation' => [
-        'label' => 'Studio Legale',
-        'group' => 'TechPlanner',
+        'group' => 'Referenti dei clienti',
+        'label' => 'Sedi legali',
+        'plural_label' => 'Sedi legali',
         'icon' => 'heroicon-o-building-office',
-        'sort' => 9,
+        'sort' => 70,
     ],
     'resource' => [
         'label' => 'Studio Legale',
@@ -43,62 +44,82 @@ return [
             'tooltip' => 'Visualizza studio legale',
         ],
         'reorderRecords' => [
-            'tooltip' => 'reorderRecords',
+            'tooltip' => '',
             'label' => 'reorderRecords',
             'icon' => 'reorderRecords',
         ],
         'detach' => [
-            'tooltip' => 'detach',
+            'tooltip' => '',
+        ],
+        'attach' => [
+            'label' => 'attach',
+            'icon' => 'attach',
+            'tooltip' => '',
         ],
         'applyFilters' => [
             'label' => 'applyFilters',
             'icon' => 'applyFilters',
-            'tooltip' => 'applyFilters',
+            'tooltip' => '',
         ],
         'resetFilters' => [
             'label' => 'resetFilters',
             'icon' => 'resetFilters',
-            'tooltip' => 'resetFilters',
+            'tooltip' => '',
         ],
         'openFilters' => [
             'label' => 'openFilters',
             'icon' => 'openFilters',
-            'tooltip' => 'openFilters',
+            'tooltip' => '',
         ],
         'applyTableColumnManager' => [
             'label' => 'applyTableColumnManager',
             'icon' => 'applyTableColumnManager',
-            'tooltip' => 'applyTableColumnManager',
+            'tooltip' => '',
         ],
         'openColumnManager' => [
             'label' => 'openColumnManager',
             'icon' => 'openColumnManager',
-            'tooltip' => 'openColumnManager',
+            'tooltip' => '',
         ],
         'resetColumnManager' => [
             'label' => 'resetColumnManager',
             'icon' => 'resetColumnManager',
-            'tooltip' => 'resetColumnManager',
+            'tooltip' => '',
         ],
-        'profile' => [
-            'label' => 'profile',
-            'icon' => 'profile',
-            'tooltip' => 'profile',
-        ],
-        'logout' => [
-            'label' => 'logout',
-            'icon' => 'logout',
-            'tooltip' => 'logout',
+        'submit' => [
+            'label' => 'submit',
+            'icon' => 'submit',
+            'tooltip' => '',
         ],
         'createAnother' => [
             'label' => 'createAnother',
             'icon' => 'createAnother',
-            'tooltip' => 'createAnother',
+            'tooltip' => '',
         ],
         'cancel' => [
             'label' => 'cancel',
             'icon' => 'cancel',
-            'tooltip' => 'cancel',
+            'tooltip' => '',
+        ],
+        'profile' => [
+            'label' => 'profile',
+            'icon' => 'profile',
+            'tooltip' => '',
+        ],
+        'logout' => [
+            'label' => 'logout',
+            'icon' => 'logout',
+            'tooltip' => '',
+        ],
+        'back' => [
+            'label' => 'back',
+            'icon' => 'back',
+            'tooltip' => '',
+        ],
+        'save' => [
+            'label' => 'save',
+            'icon' => 'save',
+            'tooltip' => '',
         ],
     ],
     'fields' => [
@@ -141,6 +162,12 @@ return [
             'label' => 'Attivo',
             'help' => 'Se lo studio legale è attivo',
         ],
+        'value' => [
+            'label' => 'Valore',
+            'placeholder' => '',
+            'helper_text' => '',
+            'description' => '',
+        ],
     ],
     'filters' => [
         'is_active' => [
@@ -162,5 +189,6 @@ return [
         'not_found' => 'Studio legale non trovato',
         'validation_error' => 'Errore di validazione nei dati inseriti',
     ],
-    'label' => 'legal office',
+    'label' => 'Sede legale',
+    'plural_label' => 'Sedi legali',
 ];

@@ -17,21 +17,21 @@ class DeviceInfolist extends XotBaseResourceInfolist
     public function getInfolistSchema(): array
     {
         return [
-            'device_information' => Section::make('Device Information')->schema([
-                TextEntry::make('client.company_name')->label('Client'),
-                TextEntry::make('type')->label('Type'),
-                TextEntry::make('brand')->label('Brand'),
-                TextEntry::make('model')->label('Model'),
-                TextEntry::make('headset_serial')->label('Headset Serial'),
-                TextEntry::make('tube_serial')->label('Tube Serial'),
-                TextEntry::make('kv')->label('kV'),
-                TextEntry::make('ma')->label('mA'),
+            'device_information' => Section::make('device_information')->schema([
+                TextEntry::make('client.company_name'),
+                TextEntry::make('type'),
+                TextEntry::make('brand'),
+                TextEntry::make('model'),
+                TextEntry::make('headset_serial'),
+                TextEntry::make('tube_serial'),
+                TextEntry::make('kv'),
+                TextEntry::make('ma'),
             ]),
-            'dates' => Section::make('Dates')->schema([
-                TextEntry::make('first_verification_date')->label('First Verification Date')->date(),
+            'dates' => Section::make('dates')->schema([
+                TextEntry::make('first_verification_date')->date(),
             ]),
-            'additional_information' => Section::make('Additional Information')->schema([
-                TextEntry::make('notes')->label('Notes')->markdown(),
+            'additional_information' => Section::make('additional_information')->schema([
+                TextEntry::make('notes')->markdown(),
             ]),
         ];
     }

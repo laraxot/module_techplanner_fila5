@@ -67,14 +67,14 @@ test('la cookie policy nomina ogni cookie dell inventario con la sua durata', fu
                 continue;
             }
             $amount = (int) $found[1];
-            $isDays = 'giorn' === $found[2];
-            if (! $isDays && 0 === $amount % 60) {
+            $isDays = $found[2] === 'giorn';
+            if (! $isDays && $amount % 60 === 0) {
                 $amount = intdiv($amount, 60);
-                $unit = 'it' === $locale ? 'ore' : 'hours';
+                $unit = $locale === 'it' ? 'ore' : 'hours';
             } else {
-                $unit = $isDays ? ('it' === $locale ? 'giorni' : 'days') : ('it' === $locale ? 'minuti' : 'minutes');
+                $unit = $isDays ? ($locale === 'it' ? 'giorni' : 'days') : ($locale === 'it' ? 'minuti' : 'minutes');
             }
-            if (1 !== preg_match('/\b'.$amount.'\s+'.$unit.'\b/u', $text)) {
+            if (preg_match('/\b'.$amount.'\s+'.$unit.'\b/u', $text) !== 1) {
                 $missing[] = $locale.': durata '.$amount.' '.$unit.' ('.$cookie->name.')';
             }
         }

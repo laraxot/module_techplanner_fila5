@@ -4,10 +4,11 @@ declare(strict_types=1);
 
 return [
     'navigation' => [
-        'group' => 'techplanner',
-        'label' => 'Direttori Sanitari',
+        'group' => 'Referenti dei clienti',
+        'label' => 'Direttori sanitari',
+        'plural_label' => 'Direttori sanitari',
         'icon' => 'techplanner-medical-director',
-        'sort' => 40,
+        'sort' => 50,
     ],
     'fields' => [
         'name' => [
@@ -38,7 +39,13 @@ return [
             'label' => 'toggleColumns',
         ],
         'created_at' => [
-            'label' => 'created_at',
+            'label' => 'Creato il',
+        ],
+        'value' => [
+            'label' => 'Valore',
+            'placeholder' => '',
+            'helper_text' => '',
+            'description' => '',
         ],
     ],
     'model' => [
@@ -49,78 +56,104 @@ return [
         'downloadExample' => [
             'label' => 'downloadExample',
             'icon' => 'downloadExample',
-            'tooltip' => 'downloadExample',
+            'tooltip' => '',
         ],
         'importMedicalDirector' => [
             'label' => 'importMedicalDirector',
             'icon' => 'importMedicalDirector',
-            'tooltip' => 'importMedicalDirector',
+            'tooltip' => '',
         ],
         'reorderRecords' => [
-            'tooltip' => 'reorderRecords',
+            'tooltip' => '',
             'label' => 'reorderRecords',
             'icon' => 'reorderRecords',
         ],
         'create' => [
             'label' => 'create',
             'icon' => 'create',
-            'tooltip' => 'create',
-        ],
-        'applyFilters' => [
-            'label' => 'applyFilters',
-            'icon' => 'applyFilters',
-            'tooltip' => 'applyFilters',
-        ],
-        'resetFilters' => [
-            'label' => 'resetFilters',
-            'icon' => 'resetFilters',
-            'tooltip' => 'resetFilters',
-        ],
-        'openFilters' => [
-            'label' => 'openFilters',
-            'icon' => 'openFilters',
-            'tooltip' => 'openFilters',
-        ],
-        'applyTableColumnManager' => [
-            'label' => 'applyTableColumnManager',
-            'icon' => 'applyTableColumnManager',
-            'tooltip' => 'applyTableColumnManager',
-        ],
-        'openColumnManager' => [
-            'label' => 'openColumnManager',
-            'icon' => 'openColumnManager',
-            'tooltip' => 'openColumnManager',
-        ],
-        'resetColumnManager' => [
-            'label' => 'resetColumnManager',
-            'icon' => 'resetColumnManager',
-            'tooltip' => 'resetColumnManager',
-        ],
-        'profile' => [
-            'label' => 'profile',
-            'icon' => 'profile',
-            'tooltip' => 'profile',
-        ],
-        'logout' => [
-            'label' => 'logout',
-            'icon' => 'logout',
-            'tooltip' => 'logout',
-        ],
-        'removeAllFilters' => [
-            'label' => 'removeAllFilters',
-            'icon' => 'removeAllFilters',
-            'tooltip' => 'removeAllFilters',
+            'tooltip' => '',
         ],
         'createAnother' => [
             'label' => 'createAnother',
             'icon' => 'createAnother',
-            'tooltip' => 'createAnother',
+            'tooltip' => '',
         ],
         'cancel' => [
             'label' => 'cancel',
             'icon' => 'cancel',
-            'tooltip' => 'cancel',
+            'tooltip' => '',
+        ],
+        'profile' => [
+            'label' => 'profile',
+            'icon' => 'profile',
+            'tooltip' => '',
+        ],
+        'logout' => [
+            'label' => 'logout',
+            'icon' => 'logout',
+            'tooltip' => '',
+        ],
+        'applyFilters' => [
+            'label' => 'applyFilters',
+            'icon' => 'applyFilters',
+            'tooltip' => '',
+        ],
+        'resetFilters' => [
+            'label' => 'resetFilters',
+            'icon' => 'resetFilters',
+            'tooltip' => '',
+        ],
+        'openFilters' => [
+            'label' => 'openFilters',
+            'icon' => 'openFilters',
+            'tooltip' => '',
+        ],
+        'applyTableColumnManager' => [
+            'label' => 'applyTableColumnManager',
+            'icon' => 'applyTableColumnManager',
+            'tooltip' => '',
+        ],
+        'openColumnManager' => [
+            'label' => 'openColumnManager',
+            'icon' => 'openColumnManager',
+            'tooltip' => '',
+        ],
+        'resetColumnManager' => [
+            'label' => 'resetColumnManager',
+            'icon' => 'resetColumnManager',
+            'tooltip' => '',
+        ],
+        'edit' => [
+            'label' => 'edit',
+            'icon' => 'edit',
+            'tooltip' => '',
+        ],
+        'delete' => [
+            'label' => 'delete',
+            'icon' => 'delete',
+            'tooltip' => '',
+        ],
+        'submit' => [
+            'label' => 'submit',
+            'icon' => 'submit',
+            'tooltip' => '',
+        ],
+        'back' => [
+            'label' => 'back',
+            'icon' => 'back',
+            'tooltip' => '',
+        ],
+        'save' => [
+            'label' => 'save',
+            'icon' => 'save',
+            'tooltip' => '',
+        ],
+        'removeAllFilters' => [
+            'label' => 'removeAllFilters',
+            'icon' => 'removeAllFilters',
+            'tooltip' => '',
         ],
     ],
-    'label' => 'medical director',
+    'label' => 'Direttore sanitario',
+    'plural_label' => 'Direttori sanitari',
 ];

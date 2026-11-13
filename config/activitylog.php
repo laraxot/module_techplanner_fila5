@@ -1,11 +1,14 @@
 <?php
 
+use Illuminate\Support\Env;
+use Modules\Activity\Models\Activity;
+
 return [
 
     /*
      * If set to false, no activities will be saved to the database.
      */
-    'enabled' => Illuminate\Support\Env::get('ACTIVITY_LOGGER_ENABLED', true),
+    'enabled' => Env::get('ACTIVITY_LOGGER_ENABLED', true),
 
     /*
      * When the clean-command is executed, all recording activities older than
@@ -35,7 +38,7 @@ return [
      * It should implement the Spatie\Activitylog\Contracts\Activity interface
      * and extend Illuminate\Database\Eloquent\Model.
      */
-    'activity_model' => Modules\Activity\Models\Activity::class,
+    'activity_model' => Activity::class,
 
     /*
      * This is the name of the table that will be created by the migration and
@@ -48,5 +51,5 @@ return [
      * the Activity model shipped with this package. In case it's not set
      * Laravel's database.default will be used instead.
      */
-    'database_connection' => Illuminate\Support\Env::get('ACTIVITY_LOGGER_DB_CONNECTION'),
+    'database_connection' => Env::get('ACTIVITY_LOGGER_DB_CONNECTION'),
 ];
